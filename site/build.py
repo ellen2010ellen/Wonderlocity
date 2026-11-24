@@ -1212,9 +1212,9 @@ REAL_IMAGES.update({
     "fam-vb-fish": "https://images.unsplash.com/photo-1636045466232-539c7bd7817e?fm=jpg&q=80&fit=crop",
     "fam-vb-trail": "https://images.unsplash.com/photo-1539920951450-2b2d59cff66d?fm=jpg&q=80&fit=crop",
     "fam-vb-water": "https://images.unsplash.com/photo-1739295194212-0602c4d1e797?fm=jpg&q=80&fit=crop",
-    "fam-norfolk-hero": "https://images.unsplash.com/photo-1638287527782-56569934c034?fm=jpg&q=80&fit=crop",
-    "fam-nf-pier": "https://images.unsplash.com/photo-1721122964936-b0ab03e6dbbd?fm=jpg&q=80&fit=crop",
-    "fam-nf-slide": "https://images.unsplash.com/photo-1770330514127-f23131508ebb?fm=jpg&q=80&fit=crop",
+    "fam-norfolk-hero": "https://images.pexels.com/photos/32207991/pexels-photo-32207991.jpeg?auto=compress&cs=tinysrgb&fit=crop",
+    "fam-nf-pier": "https://images.pexels.com/photos/11820070/pexels-photo-11820070.jpeg?auto=compress&cs=tinysrgb&fit=crop",
+    "fam-nf-slide": "https://images.unsplash.com/photo-1584200186925-87fa8f93be9b?fm=jpg&q=80&fit=crop",
     "fam-nf-beach": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?fm=jpg&q=80&fit=crop",
     "fam-pack-hero": "https://images.unsplash.com/photo-1555446099-555959e43ecf?fm=jpg&q=80&fit=crop",
     "fam-pack-flat": "https://images.unsplash.com/photo-1541341584401-605c9cf3537e?fm=jpg&q=80&fit=crop",
@@ -1269,14 +1269,14 @@ rich_page("cruises/carnival-from-norfolk-with-kids/index.html","https://wonderlo
  "Carnival sails year-round from Norfolk, Virginia, so a Virginia Beach family can drive to the ship, skip the airfares, and park for $15 a day, with Carnival Sunshine through mid-May 2027 and Carnival Freedom after that.",
  """{{FACTS|Ship now=Carnival Sunshine until mid-May 2027;Ship after=Carnival Freedom from May 15, 2027;Parking=$15 per day, free shuttle;Kids club=Camp Ocean, ages 2 to 11}}<p>The best part of cruising from Norfolk is what you leave out: no flights, no checked-bag fees, no rental car at the other end. You pack the car, drive to the ship, and walk on. For a family of four, that can change which cruise is the better deal, and it makes a short Bahamas or Eastern Caribbean sailing much easier to try.</p>
 <h2>Which ship you will sail on</h2><p>Carnival Sunshine has been Norfolk's ship and stays through mid-May 2027, finishing 21 cruises before it moves on. It entered service in 1996 as Carnival Destiny and was rebuilt and renamed in 2013. Carnival Freedom arrives on May 15, 2027 and runs 33 cruises from Norfolk for the rest of that year. It carries about 3,000 guests and entered service in 2006. For 2027, Carnival lists Bahamas, Bermuda, Eastern Caribbean, and Canada sailings from Norfolk, so check which itinerary and length fits your school break.</p>
-{{FIG|fam-nf-pier|Ships dock at the Half Moone Cruise Terminal in downtown Norfolk, a short drive from Virginia Beach.}}
+{{FIG|fam-nf-pier|Sailing at sunset is a highlight for many families.}}
 <h2>Parking, step by step</h2><p>The Half Moone Cruise Terminal is at 1 Waterside Drive in downtown Norfolk. The City of Norfolk lists Cedar Grove parking at 1000 Monticello Avenue, about 1.5 miles away, at $15 per day, and you can pre-pay or pay on entry by cash or card. A free shuttle takes you to the terminal, and you can check your luggage at the lot so it goes straight to the ship. On cruise days the lot opens at 9:30 a.m., shuttles start around 9:45 a.m., and the last shuttle runs at 2:30 p.m. If you would rather skip parking, drop-off is on Waterside Drive.</p>
 <table class='costtable'><tr><td>Parking, 7-night cruise</td><td>about $105 to $120</td></tr>
 <tr><td>Gratuities</td><td>about $119 per person for a week</td></tr>
 <tr><td>Flights for the family</td><td>$0, you drive</td></tr></table>
 {{TIP|Do the real math|Parking runs $15 a day, so a week costs about $105 to $120. Compare that with four airfares plus bags to a Florida port. Add gratuities to any fare you compare.}}
 <h2>What kids do on board</h2><p>Carnival's kids program, Camp Ocean, is included in the cruise fare and starts at age 2. It splits kids into Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11). A late-evening option called Night Owls has a fee. Our <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> explains how older and newer ships differ, which matters when you choose between Sunshine and Freedom.</p>
-{{FIG|fam-nf-slide|Pool and slide time is the main event for most kids at sea.}}
+{{FIG|fam-nf-slide|Beach days on Bahamas and Caribbean itineraries are what kids remember.}}
 <h2>Before you go</h2><p>Every traveler, kids included, needs proper travel documents at embarkation, and guests without them cannot board, so confirm Carnival's current rules for your group. Carnival also prohibits all speakers, including Bluetooth, and holds them until the cruise ends, so leave the kids' speakers at home. Our <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a> has a printable checklist.</p>
 <h2>Make a day of Norfolk</h2><p>Nauticus, the maritime museum on the terminal campus beside the USS Wisconsin, offers cruise passengers buy-one-get-one-free admission. It is a good use of an early arrival or a post-cruise afternoon.</p>
 {{FIG|fam-nf-beach|Bahamas and Eastern Caribbean itineraries bring beach days within a short sail from the Mid-Atlantic.}}"""+_UPD+"""""",
@@ -1380,6 +1380,7 @@ _FLIM = {
 "fl-bch-hero":"1658157799932-eef5dee4118c","fl-bch-guard":"1512936702668-1ab037aced2a","fl-bch-light":"1708009241983-8ea0dc90c5d9","fl-bch-walk":"1654206700775-1c6257fb12e9",
 "fl-dis-hero":"1570613141985-aefb384a573b","fl-dis-ship":"1707342616937-c30b896b7c27","fl-dis-deck":"1775145408468-ec55b208f645"}
 REAL_IMAGES.update({k:"https://images.unsplash.com/photo-"+v+"?fm=jpg&q=80&fit=crop" for k,v in _FLIM.items()})
+REAL_IMAGES.update({'fl-pc-hero': 'https://images.pexels.com/photos/7978537/pexels-photo-7978537.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-pc-ship': 'https://images.pexels.com/photos/31817621/pexels-photo-31817621.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-pc-beach': 'https://images.unsplash.com/photo-1772305436753-e308844ecda2?fm=jpg&q=80&fit=crop', 'fl-mia-hero': 'https://images.pexels.com/photos/15322441/pexels-photo-15322441.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-mia-ship': 'https://images.pexels.com/photos/813036/pexels-photo-813036.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-cmp-hero': 'https://images.pexels.com/photos/12427203/pexels-photo-12427203.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-cmp-a': 'https://images.unsplash.com/photo-1506125840744-167167210587?fm=jpg&q=80&fit=crop', 'fl-cmp-b': 'https://images.pexels.com/photos/5769605/pexels-photo-5769605.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-fam-hero': 'https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?fm=jpg&q=80&fit=crop', 'fl-fam-pool': 'https://images.unsplash.com/photo-1731985998417-ccedbca3dae2?fm=jpg&q=80&fit=crop', 'fl-fam-deck': 'https://images.unsplash.com/photo-1749809919553-14e50a9a5fab?fm=jpg&q=80&fit=crop', 'fl-fam-sunset': 'https://images.unsplash.com/photo-1779315186459-ef5cbeea99b6?fm=jpg&q=80&fit=crop', 'fl-dis-hero': 'https://images.pexels.com/photos/18728909/pexels-photo-18728909.jpeg?auto=compress&cs=tinysrgb&fit=crop', 'fl-dis-ship': 'https://images.unsplash.com/photo-1657923768391-1cebeaa252c5?fm=jpg&q=80&fit=crop', 'fl-dis-deck': 'https://images.unsplash.com/photo-1760532889978-0c168d2a4bbc?fm=jpg&q=80&fit=crop'})
 _CRCR = [("Home","/"),("Cruises","/cruises/")]
 _RELX = [("Free planning chat","/contact/")]
 
@@ -1391,7 +1392,7 @@ rich_page("cruises/cruises-from-orlando-port-canaveral/index.html","https://wond
  "Orlando does not have its own cruise port: ships leave from Port Canaveral, about 45 minutes east of Orlando International Airport, with Royal Caribbean, Norwegian, MSC, Carnival, Celebrity and Disney all sailing from there.",
  """{{FACTS|Port=Port Canaveral on the Space Coast;From Orlando airport=About 45 minutes;Parking=From $20 per day plus tax;Trips=3 to 14 nights}}<p>Port Canaveral is the easy way to combine a theme park trip with a cruise. You fly into Orlando, spend a few days at the parks, then ride east to the ship. Here is how it works and what to plan before you book.</p>
 <h2>Which lines sail from Port Canaveral</h2><p>Cruise Critic lists Royal Caribbean (including Utopia of the Seas and Star of the Seas), Norwegian, MSC, Carnival, Celebrity and Disney, and Cunard also appears in the lineup. Disney has its own dedicated terminal, which makes the port a favorite for families. Ships and terminals change by season, so confirm yours with your travel advisor or the cruise line.</p>
-{{FIG|fl-pc-ship|Several lines share the port, and each ship is assigned a terminal for its sailing day.}}
+{{FIG|fl-pc-ship|Pool decks are the heart of most big ships.}}
 <h2>Where you can go</h2><table class='costtable'><tr><td>3 to 4 nights</td><td>Bahamas, with stops like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay</td></tr>
 <tr><td>7 nights</td><td>Eastern or Western Caribbean, such as St. Thomas, St. Maarten, Cozumel, Grand Cayman, and Ocho Rios</td></tr>
 <tr><td>9 nights</td><td>Southern Caribbean, such as Antigua, Barbados, and St. Lucia</td></tr></table>
@@ -1401,7 +1402,7 @@ rich_page("cruises/cruises-from-orlando-port-canaveral/index.html","https://wond
 {{TIP|Arrive the day before|Flying in the morning of your cruise leaves no room for delays. A hotel night near the port or in Cocoa Beach is cheap insurance, and many hotels there offer shuttles.}}
 <h2>Fun things before or after the ship</h2><p>Kennedy Space Center is about 20 minutes from the port. It has a Rocket Garden of full-size rockets, the Atlantis orbiter, and more than 60 interactive simulators. Cocoa Beach is about 15 minutes south, which makes it an easy beach day.</p>
 {{FIG|fl-pc-launch|The Space Coast is rocket country, so a launch day can be part of your trip.}}
-{{FIG|fl-pc-beach|Cocoa Beach is a short drive from the terminals.}}
+{{FIG|fl-pc-beach|A beach day is a short drive from the terminals.}}
 <h2>Combining parks and a cruise</h2><p>A common plan is four or five days at the parks, a night near the coast, then a short Bahamas cruise. Read our <a href='/guides/disney-vs-universal-kids-6-12/'>Disney vs Universal guide</a> to choose the parks, and our <a href='/cruises/disney-cruise-from-port-canaveral/'>Disney cruise guide</a> if you want a Disney land and sea trip.</p>"""+_UPD,
  [("Can you cruise from Orlando?","Not directly. Ships sail from Port Canaveral, about 45 minutes east of Orlando International Airport."),
   ("How much is parking at Port Canaveral?","$20 per day plus tax, paid on arrival by card. The port does not take reservations or cash."),
@@ -1418,7 +1419,7 @@ rich_page("cruises/cruises-from-miami/index.html","https://wonderlocity.com/crui
  "PortMiami has ten passenger terminals and serves lines from Carnival, Royal Caribbean, Norwegian and MSC to Virgin Voyages and luxury brands, with Bahamas and Caribbean sailings of every length.",
  """{{FACTS|Port=PortMiami, 10 terminals;Lines=14 listed by Miami tourism;Typical trips=Bahamas and Caribbean;Good for=First cruises and big ships}}<p>Miami has the widest choice of any Florida port. You can pick a giant family ship, a short Bahamas getaway, or a long luxury sailing, and flights into Miami are easy from most of the country.</p>
 <h2>Who sails from Miami</h2><p>The Greater Miami tourism site lists Azamara, Carnival, Celebrity, Cunard, Holland America, MSC, Norwegian, Oceania, Princess, Regent Seven Seas, Royal Caribbean, Seabourn, Silversea and Virgin Voyages. That is a lot of range, from mass-market to ultra-luxury.</p>
-{{FIG|fl-mia-ship|Large ships and many lines share the port, so compare carefully before you choose.}}
+{{FIG|fl-mia-ship|Many Miami itineraries end with a beach day on a tropical island.}}
 <h2>Big ships and families</h2><table class='costtable'><tr><td>Royal Caribbean</td><td>Icon of the Seas (1,198 ft), Utopia, Wonder, Allure, Oasis</td></tr>
 <tr><td>Carnival</td><td>Carnival Celebration, Horizon, Sunrise, Imagination</td></tr>
 <tr><td>MSC</td><td>MSC World America, Seaside, Seashore, Meraviglia</td></tr>
@@ -1447,11 +1448,11 @@ rich_page("cruises/port-canaveral-vs-miami/index.html","https://wonderlocity.com
 <tr><td>Cruise lines</td><td>Canaveral: six main lines plus Cunard. Miami: 14 lines listed</td></tr>
 <tr><td>From the airport</td><td>Canaveral: about 45 minutes from Orlando airport. Miami: check your transfer time</td></tr>
 <tr><td>Before or after</td><td>Canaveral: Kennedy Space Center, Cocoa Beach. Miami: Miami Beach</td></tr></table>
-{{FIG|fl-cmp-a|Many ships look alike from the dock, so compare itineraries and what is on board.}}
+{{FIG|fl-cmp-a|Bahamas days are about easy water fun.}}
 <h2>Choose Port Canaveral if</h2><p>You are adding a short cruise to a Disney or Universal week, you like a smaller port with terminals close to parking, or you want a Disney cruise, since Disney has a dedicated terminal there. Kennedy Space Center is about 20 minutes away, and Cocoa Beach is about 15 minutes south.</p>
 <h2>Choose Miami if</h2><p>You want the largest choice of lines, you are chasing a specific big ship, or you want a city stay as part of the trip. Miami also has lines that do not sail from Canaveral, including Holland America, Princess and Virgin Voyages.</p>
 <h2>Can you do both?</h2><p>Miami is a little over three hours south of Port Canaveral by car, so some travelers fly into one and out of the other, or drive between them. A one-way cruise can end at a different port, so ask your advisor.</p>
-{{FIG|fl-cmp-b|Check your ship, your terminal, and your embarkation day before you book flights.}}
+{{FIG|fl-cmp-b|Check your ship, terminal, and embarkation day before you book flights.}}
 <h2>Our rule of thumb</h2><p>Orlando parks first, Canaveral. Maximum choice, Miami. Read both guides: <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral</a> and <a href='/cruises/cruises-from-miami/'>Miami</a>.</p>"""+_UPD,
  [("Is Port Canaveral or Miami better for a cruise?","Port Canaveral is better for pairing a cruise with Orlando's parks, and Miami is better for the widest choice of ships and a city stay."),
   ("How far is Port Canaveral from Miami?","A little over three hours by car, per Norwegian's guide."),
@@ -1468,17 +1469,17 @@ rich_page("cruises/best-cruises-from-florida-for-families/index.html","https://w
  "For a family cruise from Florida, start with short Bahamas sailings of three to four nights from Port Canaveral or Miami, then choose the line whose kids program and ship fit your children's ages.",
  """{{FACTS|Start with=3 to 4 nights;Ports=Port Canaveral or Miami;Kids club (Carnival)=Camp Ocean, ages 2 to 11;Check=Kids program ages}}<p>Florida is the easiest place in the country to start cruising with kids. Short sailings leave all week, ships are big, and you can pick a port that fits your flights.</p>
 <h2>Start short</h2><p>A 3 or 4 night Bahamas cruise is a good test. You see how your kids handle the ship and the pool without committing to a week. From Port Canaveral those sailings stop at places like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay.</p>
-{{FIG|fl-fam-pool|Pool time is the main event for most kids on any ship.}}
+{{FIG|fl-fam-pool|Pool time is the main event for most kids.}}
 <h2>Lines to compare</h2><table class='costtable'><tr><td>Disney Cruise Line</td><td>Port Canaveral, 3 to 7 nights, dedicated terminal</td></tr>
 <tr><td>Royal Caribbean</td><td>Port Canaveral and Miami, big ships including Icon of the Seas</td></tr>
 <tr><td>Carnival</td><td>Both ports, Camp Ocean included in the fare, ages 2 to 11</td></tr>
 <tr><td>MSC and Norwegian</td><td>Both ports, large ships with many pools</td></tr></table>
 <p>Kids programs, age groups, and any extra fees differ by line, so check each one's current rules for your children's ages. Avoid Virgin Voyages, which is adults only.</p>
 <h2>What to check</h2><ul><li>The kids club age groups and hours</li><li>Whether your children need a minimum age for particular activities</li><li>Gratuities, which add to the fare</li><li>Where the ship docks and how you will get there</li></ul>
-{{FIG|fl-fam-deck|Shaded deck space helps when the kids need a break from the sun.}}
+{{FIG|fl-fam-deck|Plan quiet time in the shade when the kids need a break from the sun.}}
 {{TIP|Book the room, not just the fare|Families often need a bigger cabin or connecting rooms. Ask your advisor to price a few cabin types side by side.}}
 <h2>Plan the parts around the ship</h2><p>Pair the cruise with the parks using our <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral guide</a>, or compare ports in <a href='/cruises/port-canaveral-vs-miami/'>Port Canaveral or Miami</a>. For packing, see the <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a>.</p>
-{{FIG|fl-fam-sunset|An evening on deck is often the calmest part of the day.}}"""+_UPD,
+{{FIG|fl-fam-sunset|Evenings on board are full of music and dancing.}}"""+_UPD,
  [("What is the best cruise from Florida for families?","It depends on your kids' ages, but a 3 or 4 night Bahamas sailing from Port Canaveral or Miami is a good first choice."),
   ("What age is the Carnival kids club?","Camp Ocean starts at age 2 and covers 2 to 11, included in the fare."),
   ("Is Virgin Voyages good for kids?","No. It is adults only.")],
@@ -1494,7 +1495,7 @@ rich_page("cruises/disney-cruise-from-port-canaveral/index.html","https://wonder
  "Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, about 45 to 60 minutes from Walt Disney World, so one trip can include both the parks and a Bahamas or Caribbean cruise.",
  """{{FACTS|Ships based=Fantasy, Wish, Treasure;Lengths=3 to 7 nights;From Disney World=About 45 to 60 minutes;Parking=About $20 per day}}<p>For many families, a Disney trip ends with a cruise. Port Canaveral makes that practical, since Disney has a terminal built just for its ships.</p>
 <h2>The ships</h2><p>Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, and Disney Dream and Disney Magic sail from the port on some dates. Fantasy runs 4 and 5 night Bahamas and Western Caribbean cruises. Wish runs 3 and 4 night Bahamas cruises year-round, and Treasure runs 7 night Eastern and Western Caribbean sailings. Check the current schedule, because it changes by year.</p>
-{{FIG|fl-dis-ship|Short sailings are a gentle way to add the sea to a park trip.}}
+{{FIG|fl-dis-ship|Kids who love water will like a short sailing.}}
 <h2>Getting there from Disney World</h2><p>Port Canaveral is about 45 miles east of Orlando. It is roughly a 45-minute to one-hour drive from Disney World. Options include a rental car, a shuttle, a rideshare, and Disney Cruise Line ground transfers. If you drive, parking by the terminal is about $20 per day, paid on arrival.</p>
 <h2>How to plan the days</h2><table class='costtable'><tr><td>Park days</td><td>Four to five days at the parks first</td></tr>
 <tr><td>Transition</td><td>One easy night or a morning drive to the port</td></tr>
