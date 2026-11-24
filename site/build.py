@@ -62,7 +62,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500}
 header.site{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{font-family:Fraunces,serif;font-size:25px;color:var(--green-dark)}.brand b{font-weight:500}
+.brand{font-family:Fraunces,serif;font-size:30px;color:var(--green-dark)}.brand b{font-weight:500}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
 .nav ul a:hover{color:var(--gold)}
 .nav .cta{display:flex;align-items:center;gap:14px}
@@ -119,7 +119,16 @@ footer h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff
 footer ul{list-style:none;padding:0;margin:0;font-size:14px;display:grid;gap:9px}footer ul a:hover{color:#fff}
 .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#8b948c}
 @media(max-width:860px){.nav ul,.lang{display:none}.burger{display:block}.nav ul.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--bg);padding:18px 24px;border-bottom:1px solid var(--line);gap:16px}.row2{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}.ctaband{padding:26px}}
+.hlink{font-size:15px;color:var(--ink)}.hlink:hover{color:var(--gold)}.m-only{display:none}
+@media(max-width:860px){.hlink{display:none}.nav ul.open .m-only{display:list-item}.brand{font-size:24px}.nav .cta{gap:10px}.nav .cta .btn{white-space:nowrap;padding:10px 16px;font-size:14px}}
 """
+
+# Paste the real Pinterest page URL here once the account exists (example: https://www.pinterest.com/yourname/).
+# While empty, the Pinterest links stay hidden instead of pointing nowhere.
+PINTEREST_URL = ""
+_PIN_HDR = ('<a class="hlink" href="'+PINTEREST_URL+'" target="_blank" rel="noopener">Pinterest</a>' if PINTEREST_URL else "")
+_PIN_LI = ('<li class="m-only"><a href="'+PINTEREST_URL+'" target="_blank" rel="noopener">Pinterest</a></li>' if PINTEREST_URL else "")
+_FOLLOW = ('<div><h4>Follow</h4><ul><li><a href="'+PINTEREST_URL+'" target="_blank" rel="noopener">Pinterest</a></li></ul></div>' if PINTEREST_URL else "")
 
 HEADER = """<header class="site"><div class="wrap nav">
 <a class="brand" href="/"><b>Wonderlocity</b></a>
@@ -128,13 +137,8 @@ HEADER = """<header class="site"><div class="wrap nav">
 <li><a href="/cruises/">Cruises</a></li>
 <li><a href="/guides/">Travel Guides</a></li>
 <li><a href="/essentials/">Travel Essentials</a></li>
-<li><a href="/deals/">Deals</a></li>
-<li><a href="/plan/">Plan with me</a></li>
-<li><a href="/about/">About</a></li>
-<li><a href="/contact/">Contact</a></li>
-</ul></nav>
-<div class="cta"><span class="lang" title="Russian version coming later">EN</span>
-<a class="btn btn-green" href="/contact/">Free planning chat</a>
+""" + _PIN_LI + """</ul></nav>
+<div class="cta">""" + _PIN_HDR + """<a class="btn btn-green" href="/contact/">Contact me</a>
 <button class="burger" aria-label="Open menu" id="burger">&#9776;</button></div>
 </div></header>"""
 
@@ -142,8 +146,8 @@ FOOTER = """<footer class="site"><div class="wrap">
 <div class="fcols">
 <div><a class="brand" href="/">Wonderlocity</a><p>An independent travel advisory and resource based in Virginia Beach, Virginia, affiliated with the WorldVia Travel Network.</p></div>
 <div><h4>Explore</h4><ul><li><a href="/destinations/">Destinations</a></li><li><a href="/cruises/">Cruises</a></li><li><a href="/guides/">Travel Guides</a></li><li><a href="/essentials/">Travel Essentials</a></li><li><a href="/deals/">Deals</a></li><li><a href="/trip-types/all-inclusive/">All-inclusive</a></li></ul></div>
-<div><h4>Work with me</h4><ul><li><a href="/plan/">Planning services</a></li><li><a href="/contact/">Free planning chat</a></li><li><a href="/about/">About Wonderlocity</a></li><li><a href="/resources/">Free resources</a></li></ul></div>
-<div><h4>Follow</h4><ul><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li></ul></div>
+<div><h4>Work with me</h4><ul><li><a href="/plan/">Planning services</a></li><li><a href="/contact/">Contact me</a></li><li><a href="/about/">About Wonderlocity</a></li><li><a href="/resources/">Free resources</a></li></ul></div>
+""" + _FOLLOW + """
 </div>
 <div class="legal"><span>&copy; 2026 Wonderlocity. All rights reserved.</span><span><a href="/disclosure/">Affiliate disclosure</a> &nbsp; <a href="/privacy/">Privacy</a> &nbsp; <a href="/terms/">Terms</a></span></div>
 </div></footer>

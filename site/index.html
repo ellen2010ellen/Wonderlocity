@@ -36,7 +36,7 @@ img{max-width:100%;display:block}
 .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500}
 header.site{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{font-family:Fraunces,serif;font-size:25px;letter-spacing:.01em;color:var(--green-dark)}
+.brand{font-family:Fraunces,serif;font-size:30px;letter-spacing:.01em;color:var(--green-dark)}
 .brand b{font-weight:500}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
 .nav ul a:hover{color:var(--gold)}
@@ -106,6 +106,8 @@ footer ul a:hover{color:#fff}
 .fcols{grid-template-columns:1fr 1fr}
 .band{padding:30px}
 }
+.hlink{font-size:15px;color:var(--ink)}.hlink:hover{color:var(--gold)}.m-only{display:none}
+@media(max-width:860px){.hlink{display:none}.nav ul.open .m-only{display:list-item}.brand{font-size:24px}.nav .cta{gap:10px}.nav .cta .btn{white-space:nowrap;padding:10px 16px;font-size:14px}}
 </style>
 </head>
 <body>
@@ -118,15 +120,10 @@ footer ul a:hover{color:#fff}
         <li><a href="/cruises/">Cruises</a></li>
         <li><a href="/guides/">Travel Guides</a></li>
         <li><a href="/essentials/">Travel Essentials</a></li>
-        <li><a href="/deals/">Deals</a></li>
-        <li><a href="/plan/">Plan with me</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
     <div class="cta">
-      <span class="lang" title="Russian version coming later">EN</span>
-      <a class="btn btn-green" href="/contact/">Free planning chat</a>
+      <a class="btn btn-green" href="/contact/">Contact me</a>
       <button class="burger" aria-label="Open menu" id="burger">&#9776;</button>
     </div>
   </div>
@@ -302,17 +299,9 @@ footer ul a:hover{color:#fff}
         <h4>Work with me</h4>
         <ul>
           <li><a href="/plan/">Planning services</a></li>
-          <li><a href="/contact/">Free planning chat</a></li>
+          <li><a href="/contact/">Contact me</a></li>
           <li><a href="/about/">About Wonderlocity</a></li>
           <li><a href="/resources/">Free resources</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="#">Pinterest</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
         </ul>
       </div>
     </div>
