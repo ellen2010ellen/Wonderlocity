@@ -1370,10 +1370,208 @@ rich_page("guides/disney-vs-universal-kids-6-12/index.html","https://wonderlocit
  "Orlando")
 
 
+# ===== Florida and cruise articles, batch 2 (added Nov 2026) =====
+_FLIM = {
+"fl-pc-hero":"1719423324139-04edfa77ea0d","fl-pc-ship":"1717465760671-c47cb5f8b56f","fl-pc-launch":"1457364887197-9150188c107b","fl-pc-beach":"1745261394475-1ec45d960f7b",
+"fl-mia-hero":"1535498730771-e735b998cd64","fl-mia-beach":"1589083130544-0d6a2926e519","fl-mia-ship":"1764609287343-7cb772b75c55","fl-mia-sea":"1724597402406-f2904a5bee40",
+"fl-cmp-hero":"1707342617132-582a6bda20ff","fl-cmp-a":"1628503172677-7177af7aea9e","fl-cmp-b":"1596618452407-4a44d426717c",
+"fl-fam-hero":"1685101260406-5c7ad28ca00b","fl-fam-pool":"1768270181731-b4234ef5c673","fl-fam-deck":"1667604963377-93dda0e11b1b","fl-fam-sunset":"1676407118683-f0060c12b94f",
+"fl-orl-hero":"1758464642801-14bd789db153","fl-orl-gator":"1523917631658-047ed87b47fa","fl-orl-space":"1551871812-10ecc21ffa2f","fl-orl-green":"1609184889514-656548112551",
+"fl-bch-hero":"1658157799932-eef5dee4118c","fl-bch-guard":"1512936702668-1ab037aced2a","fl-bch-light":"1708009241983-8ea0dc90c5d9","fl-bch-walk":"1654206700775-1c6257fb12e9",
+"fl-dis-hero":"1570613141985-aefb384a573b","fl-dis-ship":"1707342616937-c30b896b7c27","fl-dis-deck":"1775145408468-ec55b208f645"}
+REAL_IMAGES.update({k:"https://images.unsplash.com/photo-"+v+"?fm=jpg&q=80&fit=crop" for k,v in _FLIM.items()})
+_CRCR = [("Home","/"),("Cruises","/cruises/")]
+_RELX = [("Free planning chat","/contact/")]
+
+# ---- Cruises from Orlando (Port Canaveral) ----
+rich_page("cruises/cruises-from-orlando-port-canaveral/index.html","https://wonderlocity.com/cruises/cruises-from-orlando-port-canaveral/",
+ _CRCR+[("Cruises from Orlando",None)],"Cruises from Orlando: the Port Canaveral guide","fl-pc-hero",
+ "Cruises From Orlando (Port Canaveral): Lines, Parking, Transfers | Wonderlocity",
+ "Orlando cruises sail from Port Canaveral, about 45 minutes away. Which lines go, Bahamas and Caribbean options, parking from $20 a day, and how to pair it with a park trip.",
+ "Orlando does not have its own cruise port: ships leave from Port Canaveral, about 45 minutes east of Orlando International Airport, with Royal Caribbean, Norwegian, MSC, Carnival, Celebrity and Disney all sailing from there.",
+ """{{FACTS|Port=Port Canaveral on the Space Coast;From Orlando airport=About 45 minutes;Parking=From $20 per day plus tax;Trips=3 to 14 nights}}<p>Port Canaveral is the easy way to combine a theme park trip with a cruise. You fly into Orlando, spend a few days at the parks, then ride east to the ship. Here is how it works and what to plan before you book.</p>
+<h2>Which lines sail from Port Canaveral</h2><p>Cruise Critic lists Royal Caribbean (including Utopia of the Seas and Star of the Seas), Norwegian, MSC, Carnival, Celebrity and Disney, and Cunard also appears in the lineup. Disney has its own dedicated terminal, which makes the port a favorite for families. Ships and terminals change by season, so confirm yours with your travel advisor or the cruise line.</p>
+{{FIG|fl-pc-ship|Several lines share the port, and each ship is assigned a terminal for its sailing day.}}
+<h2>Where you can go</h2><table class='costtable'><tr><td>3 to 4 nights</td><td>Bahamas, with stops like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay</td></tr>
+<tr><td>7 nights</td><td>Eastern or Western Caribbean, such as St. Thomas, St. Maarten, Cozumel, Grand Cayman, and Ocho Rios</td></tr>
+<tr><td>9 nights</td><td>Southern Caribbean, such as Antigua, Barbados, and St. Lucia</td></tr></table>
+<p>Most sailings are seven nights. A short Bahamas cruise is the gentlest first try if you are adding it onto a Florida vacation.</p>
+<h2>Getting to the port from Orlando</h2><p>The port says Orlando International Airport is about 45 minutes west of it, via the S.R. 528 toll road. Orlando Melbourne International is about 40 minutes south, and Orlando Sanford is about an hour northwest. Options for the ride include a rental car, a shuttle, a rideshare, a private car, and ground transfers some lines sell. Norwegian, for example, offers airport transfers on select sailings that must be booked at least four days ahead.</p>
+<h2>Parking, if you drive</h2><p>The port charges $20 per day plus tax, covering the day you arrive and the day you leave. It does not take parking reservations, you pay on arrival, and cash is not accepted. Garages and lots sit next to the terminals, and parking opens at 10 a.m. on embarkation day. Rates can change, so check the port's page before you go.</p>
+{{TIP|Arrive the day before|Flying in the morning of your cruise leaves no room for delays. A hotel night near the port or in Cocoa Beach is cheap insurance, and many hotels there offer shuttles.}}
+<h2>Fun things before or after the ship</h2><p>Kennedy Space Center is about 20 minutes from the port. It has a Rocket Garden of full-size rockets, the Atlantis orbiter, and more than 60 interactive simulators. Cocoa Beach is about 15 minutes south, which makes it an easy beach day.</p>
+{{FIG|fl-pc-launch|The Space Coast is rocket country, so a launch day can be part of your trip.}}
+{{FIG|fl-pc-beach|Cocoa Beach is a short drive from the terminals.}}
+<h2>Combining parks and a cruise</h2><p>A common plan is four or five days at the parks, a night near the coast, then a short Bahamas cruise. Read our <a href='/guides/disney-vs-universal-kids-6-12/'>Disney vs Universal guide</a> to choose the parks, and our <a href='/cruises/disney-cruise-from-port-canaveral/'>Disney cruise guide</a> if you want a Disney land and sea trip.</p>"""+_UPD,
+ [("Can you cruise from Orlando?","Not directly. Ships sail from Port Canaveral, about 45 minutes east of Orlando International Airport."),
+  ("How much is parking at Port Canaveral?","$20 per day plus tax, paid on arrival by card. The port does not take reservations or cash."),
+  ("Which cruise lines sail from Port Canaveral?","Royal Caribbean, Norwegian, MSC, Carnival, Celebrity and Disney all sail from the port, and Cunard also appears in the lineup.")],
+ [article_node("Cruises from Orlando: the Port Canaveral guide","Lines, itineraries, parking, and transfers for cruising from Port Canaveral near Orlando.","https://wonderlocity.com/cruises/cruises-from-orlando-port-canaveral/")],
+ [("All cruise guides","/cruises/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Port Canaveral or Miami","/cruises/port-canaveral-vs-miami/"),("Disney cruise from Port Canaveral","/cruises/disney-cruise-from-port-canaveral/"),("Orlando on a budget","/guides/orlando-on-a-budget/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Cruises from Miami ----
+rich_page("cruises/cruises-from-miami/index.html","https://wonderlocity.com/cruises/cruises-from-miami/",
+ _CRCR+[("Cruises from Miami",None)],"Cruises from Miami: lines, ships, and where they go","fl-mia-hero",
+ "Cruises From Miami: Cruise Lines, Ships, Caribbean and Bahamas | Wonderlocity",
+ "Miami is one of the biggest cruise ports in the world. Which lines sail from PortMiami, what the ships are like, and who each one suits.",
+ "PortMiami has ten passenger terminals and serves lines from Carnival, Royal Caribbean, Norwegian and MSC to Virgin Voyages and luxury brands, with Bahamas and Caribbean sailings of every length.",
+ """{{FACTS|Port=PortMiami, 10 terminals;Lines=14 listed by Miami tourism;Typical trips=Bahamas and Caribbean;Good for=First cruises and big ships}}<p>Miami has the widest choice of any Florida port. You can pick a giant family ship, a short Bahamas getaway, or a long luxury sailing, and flights into Miami are easy from most of the country.</p>
+<h2>Who sails from Miami</h2><p>The Greater Miami tourism site lists Azamara, Carnival, Celebrity, Cunard, Holland America, MSC, Norwegian, Oceania, Princess, Regent Seven Seas, Royal Caribbean, Seabourn, Silversea and Virgin Voyages. That is a lot of range, from mass-market to ultra-luxury.</p>
+{{FIG|fl-mia-ship|Large ships and many lines share the port, so compare carefully before you choose.}}
+<h2>Big ships and families</h2><table class='costtable'><tr><td>Royal Caribbean</td><td>Icon of the Seas (1,198 ft), Utopia, Wonder, Allure, Oasis</td></tr>
+<tr><td>Carnival</td><td>Carnival Celebration, Horizon, Sunrise, Imagination</td></tr>
+<tr><td>MSC</td><td>MSC World America, Seaside, Seashore, Meraviglia</td></tr>
+<tr><td>Norwegian</td><td>Norwegian Luna, Viva, Prima, Encore, Breakaway</td></tr></table>
+<p>These are the ships most families look at first. They have the most pools, slides, and clubs for kids, so compare the kids programs and age groups on each line's site before you book.</p>
+<h2>Adults only and quieter options</h2><p>Virgin Voyages ships sail from Miami, often with a stop at its Beach Club at Bimini, but Virgin sails for adults only, so it is not an option for a family trip. Luxury brands such as Oceania, Seabourn, Silversea and Regent suit couples and travelers who want smaller ships.</p>
+<h2>Where the ships go</h2><p>Miami sailings include Bahamas trips year-round, Caribbean cruises of seven nights and longer, some one-way voyages to Europe, and longer luxury itineraries. Cunard sails roundtrip Caribbean cruises of 9 to 21 nights.</p>
+{{FIG|fl-mia-beach|Add a beach day on Miami Beach before or after your cruise.}}
+{{TIP|Plan a night in Miami|Arrive the day before, and use the evening for a beach walk. It is easier than racing to the terminal after a morning flight.}}
+<h2>Before you book</h2><p>Look at the embarkation day and terminal, and ask how far your hotel is from the port. Compare total cost with gratuities and drinks, not only the fare, and read our <a href='/cruises/carnival-cruise-line-review/'>Carnival review</a> for a plain look at what a week really costs.</p>"""+_UPD,
+ [("What cruise lines sail from Miami?","Miami tourism lists 14, including Carnival, Royal Caribbean, Norwegian, MSC, Celebrity, Princess, Holland America and Virgin Voyages."),
+  ("Is Miami good for a family cruise?","Yes, because it has many large family ships from Royal Caribbean, Carnival, MSC and Norwegian. Check each line's kids program before you book."),
+  ("Can kids go on Virgin Voyages?","No. Virgin Voyages is adults only, so families should choose another line.")],
+ [article_node("Cruises from Miami","Cruise lines, ships and itineraries sailing from PortMiami.","https://wonderlocity.com/cruises/cruises-from-miami/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Port Canaveral or Miami","/cruises/port-canaveral-vs-miami/"),("Best Florida cruises for families","/cruises/best-cruises-from-florida-for-families/"),("Royal Caribbean vs Carnival","/guides/royal-caribbean-vs-carnival/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Port Canaveral vs Miami ----
+rich_page("cruises/port-canaveral-vs-miami/index.html","https://wonderlocity.com/cruises/port-canaveral-vs-miami/",
+ _CRCR+[("Port Canaveral or Miami",None)],"Port Canaveral or Miami: which port should you pick?","fl-cmp-hero",
+ "Port Canaveral vs Miami Cruise Port: Which Is Better? | Wonderlocity",
+ "Port Canaveral or Miami for your cruise? A plain comparison of location, cruise lines, parking, and what to do before sailing.",
+ "Pick Port Canaveral if you are pairing a cruise with Orlando's theme parks, and pick Miami if you want the biggest choice of lines and ships and a city to explore.",
+ """{{FACTS|Orlando parks=Port Canaveral;Most choice=Miami;Distance between=A little over 3 hours;Parking at Canaveral=$20 per day plus tax}}<p>Both ports are good, and which one wins depends on the rest of your trip. Start with where you are flying and what you want to do before or after the ship.</p>
+<h2>Side by side</h2><table class='costtable'><tr><td>Best for</td><td>Canaveral: parks and the Space Coast. Miami: city and beach days</td></tr>
+<tr><td>Cruise lines</td><td>Canaveral: six main lines plus Cunard. Miami: 14 lines listed</td></tr>
+<tr><td>From the airport</td><td>Canaveral: about 45 minutes from Orlando airport. Miami: check your transfer time</td></tr>
+<tr><td>Before or after</td><td>Canaveral: Kennedy Space Center, Cocoa Beach. Miami: Miami Beach</td></tr></table>
+{{FIG|fl-cmp-a|Many ships look alike from the dock, so compare itineraries and what is on board.}}
+<h2>Choose Port Canaveral if</h2><p>You are adding a short cruise to a Disney or Universal week, you like a smaller port with terminals close to parking, or you want a Disney cruise, since Disney has a dedicated terminal there. Kennedy Space Center is about 20 minutes away, and Cocoa Beach is about 15 minutes south.</p>
+<h2>Choose Miami if</h2><p>You want the largest choice of lines, you are chasing a specific big ship, or you want a city stay as part of the trip. Miami also has lines that do not sail from Canaveral, including Holland America, Princess and Virgin Voyages.</p>
+<h2>Can you do both?</h2><p>Miami is a little over three hours south of Port Canaveral by car, so some travelers fly into one and out of the other, or drive between them. A one-way cruise can end at a different port, so ask your advisor.</p>
+{{FIG|fl-cmp-b|Check your ship, your terminal, and your embarkation day before you book flights.}}
+<h2>Our rule of thumb</h2><p>Orlando parks first, Canaveral. Maximum choice, Miami. Read both guides: <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral</a> and <a href='/cruises/cruises-from-miami/'>Miami</a>.</p>"""+_UPD,
+ [("Is Port Canaveral or Miami better for a cruise?","Port Canaveral is better for pairing a cruise with Orlando's parks, and Miami is better for the widest choice of ships and a city stay."),
+  ("How far is Port Canaveral from Miami?","A little over three hours by car, per Norwegian's guide."),
+  ("Which port is cheaper for parking?","Port Canaveral charges $20 per day plus tax. Check Miami's current rates on the port's own page.")],
+ [article_node("Port Canaveral or Miami","A comparison of Port Canaveral and Miami as cruise ports.","https://wonderlocity.com/cruises/port-canaveral-vs-miami/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Carnival from Norfolk","/cruises/carnival-from-norfolk-with-kids/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Best Florida cruises for families ----
+rich_page("cruises/best-cruises-from-florida-for-families/index.html","https://wonderlocity.com/cruises/best-cruises-from-florida-for-families/",
+ _CRCR+[("Florida cruises for families",None)],"Best cruises from Florida for families","fl-fam-hero",
+ "Best Cruises From Florida for Families: Orlando and Miami | Wonderlocity",
+ "Family cruises from Port Canaveral and Miami: which lines and ships suit kids, how long to sail, and what to check before you book.",
+ "For a family cruise from Florida, start with short Bahamas sailings of three to four nights from Port Canaveral or Miami, then choose the line whose kids program and ship fit your children's ages.",
+ """{{FACTS|Start with=3 to 4 nights;Ports=Port Canaveral or Miami;Kids club (Carnival)=Camp Ocean, ages 2 to 11;Check=Kids program ages}}<p>Florida is the easiest place in the country to start cruising with kids. Short sailings leave all week, ships are big, and you can pick a port that fits your flights.</p>
+<h2>Start short</h2><p>A 3 or 4 night Bahamas cruise is a good test. You see how your kids handle the ship and the pool without committing to a week. From Port Canaveral those sailings stop at places like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay.</p>
+{{FIG|fl-fam-pool|Pool time is the main event for most kids on any ship.}}
+<h2>Lines to compare</h2><table class='costtable'><tr><td>Disney Cruise Line</td><td>Port Canaveral, 3 to 7 nights, dedicated terminal</td></tr>
+<tr><td>Royal Caribbean</td><td>Port Canaveral and Miami, big ships including Icon of the Seas</td></tr>
+<tr><td>Carnival</td><td>Both ports, Camp Ocean included in the fare, ages 2 to 11</td></tr>
+<tr><td>MSC and Norwegian</td><td>Both ports, large ships with many pools</td></tr></table>
+<p>Kids programs, age groups, and any extra fees differ by line, so check each one's current rules for your children's ages. Avoid Virgin Voyages, which is adults only.</p>
+<h2>What to check</h2><ul><li>The kids club age groups and hours</li><li>Whether your children need a minimum age for particular activities</li><li>Gratuities, which add to the fare</li><li>Where the ship docks and how you will get there</li></ul>
+{{FIG|fl-fam-deck|Shaded deck space helps when the kids need a break from the sun.}}
+{{TIP|Book the room, not just the fare|Families often need a bigger cabin or connecting rooms. Ask your advisor to price a few cabin types side by side.}}
+<h2>Plan the parts around the ship</h2><p>Pair the cruise with the parks using our <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral guide</a>, or compare ports in <a href='/cruises/port-canaveral-vs-miami/'>Port Canaveral or Miami</a>. For packing, see the <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a>.</p>
+{{FIG|fl-fam-sunset|An evening on deck is often the calmest part of the day.}}"""+_UPD,
+ [("What is the best cruise from Florida for families?","It depends on your kids' ages, but a 3 or 4 night Bahamas sailing from Port Canaveral or Miami is a good first choice."),
+  ("What age is the Carnival kids club?","Camp Ocean starts at age 2 and covers 2 to 11, included in the fare."),
+  ("Is Virgin Voyages good for kids?","No. It is adults only.")],
+ [article_node("Best cruises from Florida for families","How to pick a family cruise from Port Canaveral or Miami.","https://wonderlocity.com/cruises/best-cruises-from-florida-for-families/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Disney cruise from Port Canaveral","/cruises/disney-cruise-from-port-canaveral/"),("Family cruise packing list","/essentials/family-cruise-packing-list/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Disney cruise from Port Canaveral ----
+rich_page("cruises/disney-cruise-from-port-canaveral/index.html","https://wonderlocity.com/cruises/disney-cruise-from-port-canaveral/",
+ _CRCR+[("Disney cruise from Port Canaveral",None)],"Disney cruise from Port Canaveral: a land and sea trip","fl-dis-hero",
+ "Disney Cruise From Port Canaveral: Ships, Lengths, Getting There | Wonderlocity",
+ "Disney Cruise Line sails from Port Canaveral near Orlando. Which ships, how long, and how to combine it with a Disney World week.",
+ "Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, about 45 to 60 minutes from Walt Disney World, so one trip can include both the parks and a Bahamas or Caribbean cruise.",
+ """{{FACTS|Ships based=Fantasy, Wish, Treasure;Lengths=3 to 7 nights;From Disney World=About 45 to 60 minutes;Parking=About $20 per day}}<p>For many families, a Disney trip ends with a cruise. Port Canaveral makes that practical, since Disney has a terminal built just for its ships.</p>
+<h2>The ships</h2><p>Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, and Disney Dream and Disney Magic sail from the port on some dates. Fantasy runs 4 and 5 night Bahamas and Western Caribbean cruises. Wish runs 3 and 4 night Bahamas cruises year-round, and Treasure runs 7 night Eastern and Western Caribbean sailings. Check the current schedule, because it changes by year.</p>
+{{FIG|fl-dis-ship|Short sailings are a gentle way to add the sea to a park trip.}}
+<h2>Getting there from Disney World</h2><p>Port Canaveral is about 45 miles east of Orlando. It is roughly a 45-minute to one-hour drive from Disney World. Options include a rental car, a shuttle, a rideshare, and Disney Cruise Line ground transfers. If you drive, parking by the terminal is about $20 per day, paid on arrival.</p>
+<h2>How to plan the days</h2><table class='costtable'><tr><td>Park days</td><td>Four to five days at the parks first</td></tr>
+<tr><td>Transition</td><td>One easy night or a morning drive to the port</td></tr>
+<tr><td>Cruise</td><td>3 to 4 nights is easiest for a first try</td></tr></table>
+{{FIG|fl-dis-deck|A few nights at sea is a calm contrast to busy park days.}}
+{{TIP|Book the cruise early|Disney sailings sell out for school breaks. Hold your dates early, and ask what fits your family's budget.}}
+<h2>Is it worth it?</h2><p>A Disney cruise costs more than most mainstream lines. If your kids love Disney, a short sailing can feel like another park day with a beach stop. If budget matters most, compare it with a Carnival or Royal Caribbean cruise from the same port using <a href='/cruises/best-cruises-from-florida-for-families/'>our family cruise guide</a>.</p>"""+_UPD,
+ [("Does Disney Cruise Line sail from Port Canaveral?","Yes. Disney Fantasy, Disney Wish and Disney Treasure are based there."),
+  ("How far is Port Canaveral from Disney World?","About 45 to 60 minutes by car."),
+  ("How long are Disney cruises from Port Canaveral?","From 3 nights on Disney Wish up to 7 nights on Disney Treasure.")],
+ [article_node("Disney cruise from Port Canaveral","Ships, itineraries and logistics for a Disney cruise from Port Canaveral.","https://wonderlocity.com/cruises/disney-cruise-from-port-canaveral/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Best Florida cruises for families","/cruises/best-cruises-from-florida-for-families/"),("Disney or Universal for 6 to 12","/guides/disney-vs-universal-kids-6-12/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Orlando with kids without theme parks ----
+rich_page("guides/orlando-with-kids-without-theme-parks/index.html","https://wonderlocity.com/guides/orlando-with-kids-without-theme-parks/",
+ _FAMCR+[("Orlando without theme parks",None)],"Orlando with kids: what to do besides theme parks","fl-orl-hero",
+ "Orlando With Kids Without Theme Parks: Gators, Space, Science | Wonderlocity",
+ "Rest days in Orlando: Gatorland, an aquarium, a science museum, Kennedy Space Center, and gardens that kids actually enjoy.",
+ "Orlando has plenty for kids beyond the parks, including a 110-acre gator park, a four-floor science center, an aquarium with 250 species, and Kennedy Space Center about an hour away.",
+ """{{FACTS|Best for=Rest days between parks;Day trip=Kennedy Space Center, about 1 hour;Animals=Gatorland and SEA LIFE;Indoor=Science Center and aquarium}}<p>A week of theme parks wears kids out, and it wears out budgets too. These are the places families use for the in-between days.</p>
+{{FIG|fl-orl-hero|A lake and a walk are a good reset after a big park day.}}
+<h2>Animals and wildlife</h2><p>Gatorland is a 110-acre wildlife preserve with a zipline over the alligator breeding marsh. SEA LIFE Orlando Aquarium has 250 species across nine exhibits. Giraffe Ranch runs a guided safari that ends with a chance to feed a giraffe.</p>
+{{FIG|fl-orl-gator|Alligators are a Florida must-see for most kids.}}
+<h2>Science and space</h2><p>The Orlando Science Center has four floors of interactive exhibits, along with live fish and alligators. Kennedy Space Center is about an hour from Orlando, and its bus tour drives past the launch pad and shows a real rocket.</p>
+{{FIG|fl-orl-space|Space Coast days are good for kids who love rockets.}}
+<h2>Gardens and quiet time</h2><p>Leu Gardens offers kid-friendly scavenger hunts, plus holiday light displays and rotating exhibits through the year. It is a calm choice for a break day.</p>
+{{FIG|fl-orl-green|A garden walk gives everyone a rest.}}
+{{TIP|Mix it up|Plan one non-park day for every two park days. Kids stay happier, and you spend less on tickets.}}
+<h2>A sample rest day</h2><table class='costtable'><tr><td>Morning</td><td>Orlando Science Center or SEA LIFE</td></tr>
+<tr><td>Afternoon</td><td>Pool time at the hotel</td></tr>
+<tr><td>Evening</td><td>Gardens or an easy dinner</td></tr></table>
+<p>For the parks, see <a href='/guides/disney-vs-universal-kids-6-12/'>Disney vs Universal for ages 6 to 12</a> and <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a>.</p>"""+_UPD,
+ [("What can kids do in Orlando besides theme parks?","Try Gatorland, SEA LIFE Orlando Aquarium, the Orlando Science Center, Leu Gardens, or a day at Kennedy Space Center."),
+  ("How far is Kennedy Space Center from Orlando?","About an hour by car."),
+  ("Is the Orlando Science Center good for kids?","Yes. It has four floors of hands-on exhibits and live fish and alligators.")],
+ [article_node("Orlando with kids: what to do besides theme parks","Rest-day ideas for families in Orlando.","https://wonderlocity.com/guides/orlando-with-kids-without-theme-parks/")],
+ [("All family trips","/family/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Best beaches near Orlando","/guides/best-beaches-near-orlando-for-families/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/")]+_RELX,
+ "Orlando")
+
+# ---- Best beaches near Orlando ----
+rich_page("guides/best-beaches-near-orlando-for-families/index.html","https://wonderlocity.com/guides/best-beaches-near-orlando-for-families/",
+ _FAMCR+[("Beaches near Orlando",None)],"Best beaches near Orlando for families","fl-bch-hero",
+ "Best Beaches Near Orlando for Families: Cocoa Beach and More | Wonderlocity",
+ "Beach day from Orlando: Cocoa Beach, New Smyrna, Daytona, Canaveral National Seashore, and how long each drive takes.",
+ "The closest family beaches to Orlando are about an hour away: Daytona Beach, New Smyrna Beach and Cocoa Beach, with Canaveral National Seashore for quiet sand.",
+ """{{FACTS|Closest=Daytona, New Smyrna, Cocoa;Drive=About 1 hour to 1 hour 15;Calm water=New Smyrna Beach;Quiet sand=Canaveral National Seashore}}<p>Orlando is inland, but the Atlantic coast is only about an hour away. A beach day fits easily between park days.</p>
+<h2>Beaches and drive times</h2><table class='costtable'><tr><td>Daytona Beach</td><td>About 58 minutes, boardwalk and family entertainment</td></tr>
+<tr><td>New Smyrna Beach</td><td>About 1 hour 3 minutes, gentle waves</td></tr>
+<tr><td>Cocoa Beach</td><td>About 1 hour 9 minutes, pier with restaurants and free live music</td></tr>
+<tr><td>Canaveral National Seashore</td><td>About 1 hour 15 minutes, wide quiet sands</td></tr></table>
+{{FIG|fl-bch-guard|Cocoa Beach has a pier, shops, and a relaxed family feel.}}
+<h2>Best pick by kids</h2><p>New Smyrna Beach has gentle waves that suit young kids. Cocoa Beach works for a mix of ages thanks to the pier and live music. Daytona Beach is the choice if you want a boardwalk and entertainment.</p>
+{{FIG|fl-bch-light|Ponce Inlet is home to Florida's tallest lighthouse, which visitors can climb.}}
+<h2>Go quiet</h2><p>Canaveral National Seashore has wide quiet sands for swimming and hiking, but the park does not sell snacks, water, sunscreen or bug spray, so bring your own. Satellite Beach has a sea turtle walk with the Sea Turtle Preservation Society.</p>
+{{FIG|fl-bch-walk|Pack a cooler and let the kids set the pace.}}
+{{TIP|Leave early|Leaving by 8 or 9 a.m. gives you a long beach day and an easier drive home before evening traffic.}}
+<p>Combine a beach day with a cruise from <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral</a>, or add rest days from our <a href='/guides/orlando-with-kids-without-theme-parks/'>Orlando without theme parks</a> guide.</p>"""+_UPD,
+ [("What is the closest beach to Orlando?","Daytona Beach is about 58 minutes away, followed by New Smyrna Beach at about an hour."),
+  ("Which beach near Orlando is best for young kids?","New Smyrna Beach has gentle waves that suit kids, and Cocoa Beach has a pier with live music."),
+  ("Can you bring food to Canaveral National Seashore?","You need to. The park does not sell snacks, water, sunscreen or bug spray.")],
+ [article_node("Best beaches near Orlando for families","Family beaches within about an hour and a quarter of Orlando.","https://wonderlocity.com/guides/best-beaches-near-orlando-for-families/")],
+ [("All family trips","/family/"),("Orlando without theme parks","/guides/orlando-with-kids-without-theme-parks/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Orlando guide","/destinations/orlando/")]+_RELX,
+ "Orlando")
+
+
 # ===== Family hub + homepage story feed (added Nov 2026) =====
 import glob as _g2, re as _r2, html as _h2
 
 FEED_META = {
+ "cruises/cruises-from-orlando-port-canaveral":("Cruises","cruises family"),
+ "cruises/cruises-from-miami":("Cruises","cruises family"),
+ "cruises/port-canaveral-vs-miami":("Cruises","cruises"),
+ "cruises/best-cruises-from-florida-for-families":("Cruises","cruises family"),
+ "cruises/disney-cruise-from-port-canaveral":("Cruises","cruises family"),
+ "guides/orlando-with-kids-without-theme-parks":("Family","family"),
+ "guides/best-beaches-near-orlando-for-families":("Family","family beach"),
  "guides/things-to-do-with-kids-virginia-beach":("Family","family weekend"),
  "cruises/carnival-from-norfolk-with-kids":("Cruises","cruises family"),
  "essentials/family-cruise-packing-list":("Packing list","cruises family"),
@@ -1402,7 +1600,8 @@ FEED_META = {
  "destinations/punta-cana":("Destination","beach family"),
  "destinations/orlando":("Destination","family"),
 }
-FEED_ORDER = ["guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
+FEED_ORDER = ["cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
+ "guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
  "cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
  "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
  "cruises/carnival-ships-guide","guides/outer-banks-weekend","guides/punta-cana-best-resorts","guides/santorini-honeymoon-cost",
@@ -1499,11 +1698,11 @@ open(_hp,"w",encoding="utf-8").write(_hh)
 # ---- Family hub ----
 _FAM = [
  ("theme-parks","Theme parks and Orlando","Disney, Universal, and how to do Orlando without the sticker shock.",
-   ["guides/disney-vs-universal-kids-6-12","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
+   ["guides/orlando-with-kids-without-theme-parks","guides/disney-vs-universal-kids-6-12","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
  ("beach","Beach and all-inclusive resorts","Resorts where the kids are busy and the bill is clear before you book.",
-   ["guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
+   ["guides/best-beaches-near-orlando-for-families","guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
  ("cruises","Cruises with kids","One price, one unpack, and a different island most days.",
-   ["cruises/carnival-from-norfolk-with-kids","guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
+   ["cruises/best-cruises-from-florida-for-families","cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/disney-cruise-from-port-canaveral","cruises/port-canaveral-vs-miami","cruises/carnival-from-norfolk-with-kids","guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
  ("weekends","Weekend trips from Virginia Beach","Short drives, no flights, and easy to fit around school and work.",
    ["guides/things-to-do-with-kids-virginia-beach","guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
  ("plan","Plan and pack","Packing lists and planning help so nothing gets forgotten.",
