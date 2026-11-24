@@ -40,6 +40,26 @@ REAL_IMAGES.update({
     "cr-beach": "https://images.unsplash.com/photo-1618270707842-748e8faafa3c?fm=jpg&q=80&fit=crop",
     "cr-lagoon": "https://images.unsplash.com/photo-1690682085866-535cb67a4c7d?fm=jpg&q=80&fit=crop",
 })
+REAL_IMAGES.update({
+    "wl-ai-hero": "https://images.unsplash.com/photo-1623718649591-311775a30c43?fm=jpg&q=80&fit=crop",
+    "wl-g1-hero": "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?fm=jpg&q=80&fit=crop",
+    "wl-g16-hero": "https://images.unsplash.com/photo-1597524678053-5e6fef52d8a3?fm=jpg&q=80&fit=crop",
+    "wl-fm-hero": "https://images.unsplash.com/photo-1695425812104-8a9963d58887?fm=jpg&q=80&fit=crop",
+    "wl-g5-hero": "https://images.unsplash.com/photo-1757924382007-7b3228526d09?fm=jpg&q=80&fit=crop",
+    "wl-g4-hero": "https://images.unsplash.com/photo-1582719508461-905c673771fd?fm=jpg&q=80&fit=crop",
+    "wl-g17-hero": "https://images.unsplash.com/photo-1584132869994-873f9363a562?fm=jpg&q=80&fit=crop",
+    "wl-hm-hero": "https://images.unsplash.com/photo-1774859524660-d26a3742d04b?fm=jpg&q=80&fit=crop",
+    "wl-g6-hero": "https://images.unsplash.com/photo-1758717152007-6a2eb7299409?fm=jpg&q=80&fit=crop",
+    "wl-g7-hero": "https://images.unsplash.com/photo-1580502304784-8985b7eb7260?fm=jpg&q=80&fit=crop",
+    "wl-g12-hero": "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?fm=jpg&q=80&fit=crop",
+    "wl-g2-hero": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?fm=jpg&q=80&fit=crop",
+    "wl-g13-hero": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?fm=jpg&q=80&fit=crop",
+    "wl-g3-hero": "https://images.unsplash.com/photo-1766848377814-a89c782e1d6c?fm=jpg&q=80&fit=crop",
+    "wl-g14-hero": "https://images.unsplash.com/photo-1604523350501-4665548f9a3c?fm=jpg&q=80&fit=crop",
+    "wl-g15-hero": "https://images.unsplash.com/photo-1645319639077-0834f959fafc?fm=jpg&q=80&fit=crop",
+    "wl-g10-hero": "https://images.unsplash.com/photo-1617409123168-8fb039dd3b39?fm=jpg&q=80&fit=crop",
+    "wl-g11-hero": "https://images.unsplash.com/photo-1605723517503-3cadb5818a0c?fm=jpg&q=80&fit=crop",
+})
 def img_url(seed, w, h):
     base = REAL_IMAGES.get(seed)
     if base:
@@ -135,8 +155,8 @@ HEADER = """<header class="site"><div class="wrap nav">
 <nav><ul id="menu">
 <li><a href="/destinations/">Destinations</a></li>
 <li><a href="/cruises/">Cruises</a></li>
+<li><a href="/family/">Family Trips</a></li>
 <li><a href="/guides/">Travel Guides</a></li>
-<li><a href="/essentials/">Travel Essentials</a></li>
 """ + _PIN_LI + """</ul></nav>
 <div class="cta">""" + _PIN_HDR + """<a class="btn btn-green" href="/contact/">Contact me</a>
 <button class="burger" aria-label="Open menu" id="burger">&#9776;</button></div>
@@ -145,7 +165,7 @@ HEADER = """<header class="site"><div class="wrap nav">
 FOOTER = """<footer class="site"><div class="wrap">
 <div class="fcols">
 <div><a class="brand" href="/">Wonderlocity</a><p>An independent travel advisory and resource based in Virginia Beach, Virginia, affiliated with the WorldVia Travel Network.</p></div>
-<div><h4>Explore</h4><ul><li><a href="/destinations/">Destinations</a></li><li><a href="/cruises/">Cruises</a></li><li><a href="/guides/">Travel Guides</a></li><li><a href="/essentials/">Travel Essentials</a></li><li><a href="/deals/">Deals</a></li><li><a href="/trip-types/all-inclusive/">All-inclusive</a></li></ul></div>
+<div><h4>Explore</h4><ul><li><a href="/destinations/">Destinations</a></li><li><a href="/cruises/">Cruises</a></li><li><a href="/family/">Family Trips</a></li><li><a href="/guides/">Travel Guides</a></li><li><a href="/essentials/">Travel Essentials</a></li><li><a href="/deals/">Deals</a></li><li><a href="/trip-types/all-inclusive/">All-inclusive</a></li></ul></div>
 <div><h4>Work with me</h4><ul><li><a href="/plan/">Planning services</a></li><li><a href="/contact/">Contact me</a></li><li><a href="/about/">About Wonderlocity</a></li><li><a href="/resources/">Free resources</a></li></ul></div>
 """ + _FOLLOW + """
 </div>
@@ -1184,6 +1204,160 @@ page("cruises/index.html","Cruises: Costs, Lines, Ships, and Itineraries | Wonde
  "Honest cruise cost guides for Caribbean and Bahamas sailings, with Carnival ship, itinerary, and price breakdowns and tips for first-timers.",
  "https://wonderlocity.com/cruises/", _cr_body,
  {"@context":"https://schema.org","@graph":[breadcrumb_schema(_cr_crumbs)]})
+
+
+# ===== Family hub + homepage story feed (added Nov 2026) =====
+import glob as _g2, re as _r2, html as _h2
+
+FEED_META = {
+ "guides/disney-or-universal-toddlers":("Family","family"),
+ "guides/orlando-on-a-budget":("Family","family"),
+ "guides/caribbean-family-resorts":("Family","family beach"),
+ "guides/williamsburg-weekend":("Weekend trip","family weekend"),
+ "guides/outer-banks-weekend":("Weekend trip","family weekend"),
+ "guides/weekend-getaways-from-virginia-beach":("Weekend trip","family weekend"),
+ "guides/caribbean-cruise-first-timer":("Cruises","cruises"),
+ "guides/royal-caribbean-vs-carnival":("Cruises","cruises family"),
+ "essentials/cruise-packing-list":("Packing list","cruises family"),
+ "essentials/caribbean-packing-list":("Packing list","beach family"),
+ "guides/all-inclusive-caribbean-cost":("Beach and resorts","beach"),
+ "guides/cancun-travel-cost":("Beach and resorts","beach"),
+ "guides/punta-cana-best-resorts":("Beach and resorts","beach"),
+ "guides/cancun-vs-punta-cana-vs-nassau":("Beach and resorts","beach"),
+ "guides/maldives-vs-bora-bora":("Honeymoon","beach"),
+ "guides/santorini-honeymoon-cost":("Europe","europe"),
+ "guides/best-time-to-visit-italy":("Europe","europe"),
+ "guides/italy-10-day-itinerary":("Europe","europe"),
+ "guides/best-time-to-visit-greece":("Europe","europe"),
+ "destinations/maldives":("Destination","beach"),
+ "destinations/punta-cana":("Destination","beach family"),
+ "destinations/orlando":("Destination","family"),
+}
+FEED_ORDER = ["cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
+ "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
+ "cruises/carnival-ships-guide","guides/outer-banks-weekend","guides/punta-cana-best-resorts","guides/santorini-honeymoon-cost",
+ "guides/caribbean-cruise-first-timer","guides/weekend-getaways-from-virginia-beach","guides/royal-caribbean-vs-carnival",
+ "guides/all-inclusive-caribbean-cost","essentials/cruise-packing-list"]
+
+def _scan_articles():
+    out = {}
+    pats = ["guides/*/index.html","cruises/*/index.html","essentials/*/index.html","destinations/*/index.html"]
+    for pat in pats:
+        for f in sorted(_g2.glob(os.path.join(ROOT,pat))):
+            key = os.path.relpath(os.path.dirname(f),ROOT).replace(os.sep,"/")
+            h = open(f,encoding="utf-8").read()
+            m1 = _r2.search(r"<h1>(.*?)</h1>",h,_r2.S); m2 = _r2.search(r'<meta name="description" content="([^"]*)"',h)
+            m3 = _r2.search(r"phero\" style=\"background-image:url\('([^']+)'\)",h)
+            if not (m1 and m3): continue
+            img = m3.group(1).replace("w=1920&h=900","w=900&h=600").replace("/1920/900","/900/600")
+            label,cats = FEED_META.get(key,("Cruises","cruises") if key.startswith("cruises/") else ("Guide",""))
+            out[key] = {"url":"/"+key+"/","title":m1.group(1).strip(),"desc":(m2.group(1) if m2 else ""),"img":img,"label":label,"cats":cats}
+    return out
+
+def _story_card(a, cls="sc"):
+    return ('<article class="'+cls+'" data-cat="'+a["cats"]+'"><a class="sc-img" href="'+a["url"]+'"><img src="'+a["img"]+'" alt="" loading="lazy" width="900" height="600" onerror="this.style.display=\'none\'"></a>'
+        '<div class="sc-b"><p class="sc-k">'+a["label"]+'</p><h3><a href="'+a["url"]+'">'+a["title"]+'</a></h3><p class="sc-d">'+a["desc"]+'</p>'
+        '<a class="sc-r" href="'+a["url"]+'">Read the story</a></div></article>')
+
+STORY_CSS = """<style>
+#stories{scroll-margin-top:90px}
+.fchips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.fchips button{font:inherit;font-size:14.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 16px;border-radius:30px;cursor:pointer;transition:.2s}
+.fchips button:hover{border-color:var(--green)}.fchips button.on{background:var(--green);border-color:var(--green);color:#fff}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 24px;margin-top:26px}
+.sc{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.sc.in{opacity:1;transform:none}
+.sc[hidden]{display:none}
+.sc-img{display:block;aspect-ratio:3/2;overflow:hidden;border-radius:var(--radius);background:var(--sand)}
+.sc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.sc:hover .sc-img img{transform:scale(1.04)}
+.sc-b{padding-top:14px}
+.sc-k{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0 0 6px}
+.sc h3{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:23px;line-height:1.22;margin:0 0 8px}
+.sc h3 a:hover{color:var(--green-dark)}
+.sc-d{font-size:15px;color:var(--muted);margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sc-r{font-size:14px;color:var(--gold);font-weight:500}
+.fmore{text-align:center;margin-top:38px}
+@media(max-width:900px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.fgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.sc{opacity:1;transform:none;transition:none}}
+</style><noscript><style>.sc{opacity:1!important;transform:none!important}</style></noscript>"""
+
+STORY_JS = """<script>
+(function(){
+var grid=document.getElementById('fgrid');if(!grid)return;
+var cards=[].slice.call(grid.children),btn=document.getElementById('fmore'),chips=[].slice.call(document.querySelectorAll('.fchips button'));
+var filter='all',limit=9,STEP=9;
+var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'}):null;
+function match(c){return filter==='all'||(' '+c.getAttribute('data-cat')+' ').indexOf(' '+filter+' ')>-1;}
+function render(){var shown=0,total=0,delay=0;
+cards.forEach(function(c){if(match(c)){total++;if(shown<limit){c.hidden=false;shown++;
+if(io&&!c.classList.contains('in')){c.style.transitionDelay=(delay%3)*90+'ms';delay++;io.observe(c);}else{c.classList.add('in');}}else{c.hidden=true;}}else{c.hidden=true;}});
+btn.style.display=(shown<total)?'':'none';}
+chips.forEach(function(b){b.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('on');});b.classList.add('on');filter=b.getAttribute('data-f');limit=9;render();});});
+btn.addEventListener('click',function(){limit+=STEP;render();});
+render();
+})();
+</script>"""
+
+def _build_feed_html(arts):
+    keys = [k for k in FEED_ORDER if k in arts]
+    new = sorted(k for k in arts if k not in FEED_ORDER and k not in FEED_META and not k.startswith("destinations/"))
+    rest = sorted(k for k in arts if k not in keys and k not in new)
+    ordered = new + keys + rest
+    cards = "".join(_story_card(arts[k]) for k in ordered)
+    chips = ('<button class="on" data-f="all">All stories</button><button data-f="family">Family trips</button>'
+             '<button data-f="cruises">Cruises</button><button data-f="beach">Beach and resorts</button>'
+             '<button data-f="europe">Europe</button><button data-f="weekend">Weekend trips</button>')
+    return ('<!--FEED--><section class="section tight" id="stories"><div class="wrap">'+STORY_CSS+
+        '<p class="eyebrow">Latest stories</p><h2 style="font-size:34px;margin-bottom:0">Real costs, honest picks, and trips worth taking</h2>'
+        '<div class="fchips">'+chips+'</div><div class="fgrid" id="fgrid">'+cards+'</div>'
+        '<div class="fmore"><button class="btn btn-green" id="fmore" type="button">Show more stories</button></div></div>'+STORY_JS+'</section><!--/FEED-->')
+
+_ARTS = _scan_articles()
+
+# ---- inject feed into the homepage (between markers; first run inserts after the hero) ----
+_hp = os.path.join(ROOT,"index.html"); _hh = open(_hp,encoding="utf-8").read()
+_feed = _build_feed_html(_ARTS)
+if "<!--FEED-->" in _hh:
+    _hh = _r2.sub(r"<!--FEED-->.*?<!--/FEED-->",lambda m:_feed,_hh,flags=_r2.S)
+else:
+    _i = _hh.index("</section>",_hh.index('class="hero"'))+len("</section>")
+    _hh = _hh[:_i]+"\n\n"+_feed+_hh[_i:]
+open(_hp,"w",encoding="utf-8").write(_hh)
+
+# ---- Family hub ----
+_FAM = [
+ ("theme-parks","Theme parks and Orlando","Disney, Universal, and how to do Orlando without the sticker shock.",
+   ["guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
+ ("beach","Beach and all-inclusive resorts","Resorts where the kids are busy and the bill is clear before you book.",
+   ["guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
+ ("cruises","Cruises with kids","One price, one unpack, and a different island most days.",
+   ["guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
+ ("weekends","Weekend trips from Virginia Beach","Short drives, no flights, and easy to fit around school and work.",
+   ["guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
+ ("plan","Plan and pack","Packing lists and planning help so nothing gets forgotten.",
+   ["essentials/cruise-packing-list","essentials/caribbean-packing-list"]),
+]
+_fam_crumbs = [("Home","/"),("Family trips",None)]
+_fb = phero("wl-fm-hero",_fam_crumbs,"Family trips")
+_fb += '<section class="section"><div class="wrap">' + CARD_CSS
+_fb += ('<div class="narrow" style="padding:0"><p class="answer">Family trips go well when the plan fits the kids, and the budget is clear before you book.</p>'
+        '<p>Pick a direction below. Each guide starts with what the trip really costs, then covers what to do, where to stay, and what to skip with children along.</p></div>')
+_fb += '<div class="fchips" style="margin:22px 0 4px">' + "".join('<a class="btn" style="border:1px solid var(--line);background:var(--surface);padding:8px 16px;font-size:14.5px" href="#'+i+'">'+t+'</a>' for i,t,d,k in _FAM) + '</div>'
+for _id,_t,_d,_keys in _FAM:
+    _items = [_ARTS[k] for k in _keys if k in _ARTS]
+    if not _items: continue
+    _fb += '<h2 id="'+_id+'" style="font-size:30px;margin:54px 0 4px">'+_t+'</h2><p style="color:var(--muted);margin:0 0 6px">'+_d+'</p><div class="grid3" style="margin-top:20px">'
+    for a in _items:
+        _fb += ('<article class="lcard"><a href="'+a["url"]+'"><div class="ph" style="background-image:url(\''+a["img"]+'\')"></div></a>'
+                '<div class="b"><h3>'+a["title"]+'</h3><p>'+a["desc"]+'</p><a class="r" href="'+a["url"]+'">Read more</a></div></article>')
+    _fb += '</div>'
+_fb += '<div class="narrow" style="padding:0;margin-top:56px">' + advisory + '</div></div></section>'
+page("family/index.html","Family Trips: Theme Parks, Beaches, Cruises and Weekends | Wonderlocity",
+ "Family trip guides with real costs: Orlando with kids, beach resorts, cruises, and weekend trips from Virginia Beach.",
+ "https://wonderlocity.com/family/", _fb,
+ {"@context":"https://schema.org","@graph":[breadcrumb_schema(_fam_crumbs)]})
 
 
 # ---- rebuild full sitemap ----
