@@ -1,0 +1,17 @@
+{
+  "_comment": "Nightly engine pulls the first item not in published.json, Claude writes it, build publishes it.",
+  "queue": [
+    {"slug":"cancun-travel-cost","cluster":"all-inclusive","title":"Cancun vs Riviera Maya: which is better value in 2026","target":"cancun vs riviera maya"},
+    {"slug":"punta-cana-best-resorts","cluster":"all-inclusive","title":"Best adults-only all-inclusive resorts in Punta Cana 2026","target":"punta cana adults only resorts"},
+    {"slug":"maldives-vs-bora-bora","cluster":"honeymoon","title":"Maldives vs Bora Bora for a honeymoon: cost and feel","target":"maldives vs bora bora"},
+    {"slug":"santorini-honeymoon-cost","cluster":"honeymoon","title":"What a Santorini honeymoon costs in 2026","target":"santorini honeymoon cost"},
+    {"slug":"caribbean-cruise-first-timer","cluster":"cruise","title":"First Caribbean cruise: a complete 2026 cost and tips guide","target":"first caribbean cruise tips"},
+    {"slug":"royal-caribbean-vs-carnival","cluster":"cruise","title":"Royal Caribbean vs Carnival vs Norwegian: which to pick","target":"royal caribbean vs carnival"},
+    {"slug":"disney-or-universal-toddlers","cluster":"family","title":"Disney or Universal for toddlers: which is better in 2026","target":"disney or universal toddlers"},
+    {"slug":"orlando-on-a-budget","cluster":"family","title":"How to do Orlando on a budget in 2026","target":"orlando on a budget"},
+    {"slug":"best-time-to-visit-greece","cluster":"europe","title":"The best time to visit Greece by island and budget","target":"best time to visit greece"},
+    {"slug":"italy-10-day-itinerary","cluster":"europe","title":"A 10-day Italy itinerary for first-timers, with costs","target":"10 day italy itinerary"},
+    {"slug":"outer-banks-weekend","cluster":"virginia","title":"An Outer Banks weekend from Virginia Beach: costs and plan","target":"outer banks weekend"},
+    {"slug":"williamsburg-weekend","cluster":"virginia","title":"A Williamsburg weekend from Virginia Beach: what to do","target":"williamsburg weekend trip"}
+  ]
+}

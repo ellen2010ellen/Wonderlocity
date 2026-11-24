@@ -1,0 +1,11 @@
+# Preflight integrity check. Exits non-zero on any failure.
+$ErrorActionPreference = "Stop"
+$fail = 0
+$files = Get-ChildItem -Path $PSScriptRoot -Recurse -Filter index.html
+foreach ($f in $files) {
+  $raw = Get-Content -Raw -LiteralPath $f.FullName
+  if ($raw -match [char]0x2014) { Write-Host "EM-DASH found in $($f.FullName)" -ForegroundColor Red; $fail = 1 }
+  if ($raw -notmatch "</html>") { Write-Host "Unclosed file: $($f.FullName)" -ForegroundColor Red; $fail = 1 }
+}
+if ($fail -eq 0) { Write-Host "Preflight OK: $($files.Count) pages, no em-dashes, all closed." -ForegroundColor Green }
+exit $fail

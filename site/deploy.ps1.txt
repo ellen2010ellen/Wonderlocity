@@ -1,0 +1,12 @@
+# Wonderlocity deploy script. Run from the site folder.
+# Usage: powershell -ExecutionPolicy Bypass -File deploy.ps1
+Write-Host "Running preflight..." -ForegroundColor Cyan
+& "$PSScriptRoot\preflight.ps1"
+if ($LASTEXITCODE -ne 0) { Write-Host "Preflight failed. Deploy aborted." -ForegroundColor Red; exit 1 }
+Write-Host "Deploying to Cloudflare Pages..." -ForegroundColor Cyan
+npx -y wrangler pages deploy . --project-name=wonderlocity --branch=main
+if ($LASTEXITCODE -eq 0) {
+  $flag = Join-Path $PSScriptRoot "DEPLOY-PENDING.flag"
+  if (Test-Path $flag) { Remove-Item $flag }
+  Write-Host "Deploy complete." -ForegroundColor Green
+}
