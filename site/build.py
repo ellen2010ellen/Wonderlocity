@@ -1,4 +1,4 @@
-import os, json
+import os, json, re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Real photo overrides. Key = seed name used across the site, value = real hotlinked
@@ -21,6 +21,25 @@ REAL_IMAGES = {
     "orlandofl": "https://images.unsplash.com/photo-1609184889233-eff6dd93def4?fm=jpg&q=80&fit=crop",
     "wl-or-hero": "https://images.unsplash.com/photo-1609184889233-eff6dd93def4?fm=jpg&q=80&fit=crop",
 }
+REAL_IMAGES.update({
+    "cr-hub": "https://images.unsplash.com/photo-1548574505-5e239809ee19?fm=jpg&q=80&fit=crop",
+    "cr-review": "https://images.unsplash.com/photo-1768270181731-b4234ef5c673?fm=jpg&q=80&fit=crop",
+    "cr-ships": "https://images.unsplash.com/photo-1761349319492-16ac128d7e13?fm=jpg&q=80&fit=crop",
+    "cr-itin": "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?fm=jpg&q=80&fit=crop",
+    "wl-cr-hero": "https://images.unsplash.com/photo-1511316695145-4992006ffddb?fm=jpg&q=80&fit=crop",
+    "wl-g8-hero": "https://images.unsplash.com/photo-1580541631950-7282082b53ce?fm=jpg&q=80&fit=crop",
+    "wlguide8": "https://images.unsplash.com/photo-1580541631950-7282082b53ce?fm=jpg&q=80&fit=crop",
+    "wl-g9-hero": "https://images.unsplash.com/photo-1583157048761-ac1dba033233?fm=jpg&q=80&fit=crop",
+    "wlguide9": "https://images.unsplash.com/photo-1583157048761-ac1dba033233?fm=jpg&q=80&fit=crop",
+    "wl-ess2-hero": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?fm=jpg&q=80&fit=crop",
+    "wlessguide2": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?fm=jpg&q=80&fit=crop",
+    "cr-beachship": "https://images.unsplash.com/photo-1645731285912-b64e36194ce5?fm=jpg&q=80&fit=crop",
+    "cr-bigship": "https://images.unsplash.com/photo-1693584173813-eba96191d8cf?fm=jpg&q=80&fit=crop",
+    "cr-day": "https://images.unsplash.com/photo-1558923240-2672e219374b?fm=jpg&q=80&fit=crop",
+    "cr-port": "https://images.unsplash.com/photo-1589786161184-6d43d20526e2?fm=jpg&q=80&fit=crop",
+    "cr-beach": "https://images.unsplash.com/photo-1618270707842-748e8faafa3c?fm=jpg&q=80&fit=crop",
+    "cr-lagoon": "https://images.unsplash.com/photo-1690682085866-535cb67a4c7d?fm=jpg&q=80&fit=crop",
+})
 def img_url(seed, w, h):
     base = REAL_IMAGES.get(seed)
     if base:
@@ -65,6 +84,17 @@ header.site{position:sticky;top:0;z-index:50;background:rgba(250,248,243,.92);ba
 .panel{background:var(--sand);border-radius:var(--radius);padding:22px 24px;margin:26px 0}
 .panel h3{margin-top:0;font-size:20px}
 .panel .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.fig{margin:28px 0;border-radius:var(--radius);overflow:hidden;background:var(--sand)}
+.fig img{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
+.fig figcaption{font-size:13.5px;color:var(--muted);padding:10px 14px}
+.prose .facts{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;margin:0 0 28px}
+.prose .facts h3{font-family:Inter,system-ui,sans-serif;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.prose .facts ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.prose .facts li{margin:0;font-size:16px;line-height:1.4}
+.prose .facts li span{display:block;font-size:12.5px;color:var(--muted)}
+.prose .tip{border-left:3px solid var(--green);background:#eef3f0;padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;margin:24px 0}
+.prose .tip b{display:block;color:var(--green-dark);margin-bottom:3px}.prose .tip p{margin:0}
+@media(max-width:600px){.prose .facts ul{grid-template-columns:1fr}.costtable td:last-child{white-space:normal}}
 .disc{font-size:12.5px;color:var(--muted);margin-top:10px}
 .faq{border-top:1px solid var(--line);margin-top:8px}
 .faq details{border-bottom:1px solid var(--line);padding:14px 0}
@@ -398,10 +428,28 @@ def phero(seed, crumb_items, h1):
     return ('<section class="phero" style="background-image:url(\''+img_url(seed,1920,900)+'\')">'
         '<div class="wrap inner"><div class="crumb">'+crumbs(crumb_items)+'</div><h1>'+h1+'</h1></div></section>')
 
+def render_tokens(h):
+    def fig(m):
+        seed,cap=m.group(1),m.group(2)
+        return ('<figure class="fig"><img src="'+img_url(seed,1200,600)+'" alt="'+cap+'" loading="lazy" width="1200" height="600">'
+                '<figcaption>'+cap+'</figcaption></figure>')
+    def tip(m):
+        return '<div class="tip"><b>'+m.group(1)+'</b><p>'+m.group(2)+'</p></div>'
+    def facts(m):
+        items=""
+        for part in m.group(1).split(";"):
+            k,v=part.split("=",1)
+            items+="<li><span>"+k.strip()+"</span>"+v.strip()+"</li>"
+        return '<div class="facts"><h3>Quick take</h3><ul>'+items+'</ul></div>'
+    h=re.sub(r"\{\{FIG\|([^|}]+)\|([^}]+)\}\}",fig,h)
+    h=re.sub(r"\{\{TIP\|([^|}]+)\|([^}]+)\}\}",tip,h)
+    h=re.sub(r"\{\{FACTS\|([^}]+)\}\}",facts,h)
+    return h
+
 def rich_page(path, canonical, crumb_items, h1, seed, title, desc, answer, prose_html, faqs, extra_nodes, related, affiliate_dest):
     body = phero(seed, crumb_items, h1) + '<section class="section"><div class="narrow">'
     body += '<p class="answer">'+answer+'</p>'
-    body += '<div class="prose">'+prose_html+'</div>'
+    body += '<div class="prose">'+render_tokens(prose_html)+'</div>'
     if affiliate_dest:
         body += cruise_panel() if 'cruise' in affiliate_dest.lower() else affiliate_panel(affiliate_dest)
     graph = [breadcrumb_schema(crumb_items)]
@@ -475,12 +523,12 @@ rich_page("trip-types/cruise/index.html","https://wonderlocity.com/trip-types/cr
  [("Home","/"),("Trip types","/trip-types/"),("Cruises",None)],"Cruises","wl-cr-hero",
  "Caribbean Cruise Cost 2026: What a Week Really Costs | Wonderlocity",
  "What a 7-night Caribbean cruise costs in 2026, plus the extras first-timers miss. Free planning help in 24 hours.",
- "A 7-night Caribbean cruise in 2026 costs $700 - $2,500 per person, covering the cabin, meals, and entertainment, before flights, excursions, gratuities, and drinks.",
+ "A 7-night Caribbean cruise in 2026 starts from about $700 per person, covering the cabin, meals, and entertainment, before flights, excursions, gratuities, and drinks.",
  "<p>A cruise is the most all-in-one trip there is, but the sticker price is only part of the story. The cabin fare is the start, and the extras decide what you really spend.</p>"
  "<h2>What is included</h2><p>Your cabin, main dining, most entertainment, and getting between ports. That alone is strong value, especially for first-timers and multi-generation groups.</p>"
- "<h2>What is extra</h2><p>Flights to the port, shore excursions, gratuities, drink packages, specialty dining, and wifi. These can add 30 to 60 percent on top of the fare, so we budget them up front.</p>"
+ "{{TIP|About &ldquo;from&rdquo; prices|Cruise fares change by the day. A &ldquo;from&rdquo; price is a starting point for an inside cabin, and your real fare depends on the ship, the week you sail, and how early you book.}}<h2>What is extra</h2><p>Flights to the port, shore excursions, gratuities, drink packages, specialty dining, and wifi. These can add 30 to 60 percent on top of the fare, so we budget them up front.</p>"
  "<h2>Picking the right line</h2><p>Mass-market lines suit families and value seekers, premium lines suit couples who want calmer ships, and the cabin type matters more than most people expect.</p>",
- [("How much does a Caribbean cruise cost?","The cabin fare runs $700 to $2,500 per person for a week in 2026. Add flights, excursions, gratuities, and drinks, which can lift the total by 30 to 60 percent."),
+ [("How much does a Caribbean cruise cost?","The cabin fare starts from about $700 per person for a week in 2026 and climbs with cabin, ship, and dates. Add flights, excursions, gratuities, and drinks, which can lift the total by 30 to 60 percent."),
   ("Are drinks and tips included on a cruise?","Usually not. Gratuities and drink packages are typically extra, though some fares bundle them. We confirm what is included before you book."),
   ("Is a cruise good for first-time travelers?","Yes. One price covers your room, meals, and entertainment, and you unpack once while visiting several places.")],
  [service_node("Cruise planning")],
@@ -661,22 +709,22 @@ rich_page("guides/santorini-honeymoon-cost/index.html","https://wonderlocity.com
 rich_page("guides/caribbean-cruise-first-timer/index.html","https://wonderlocity.com/guides/caribbean-cruise-first-timer/",
  [("Home","/"),("Travel guides","/guides/"),("First Caribbean cruise",None)],"First Caribbean cruise: a complete 2026 cost and tips guide","wl-g8-hero",
  "First Caribbean Cruise 2026: Costs, Tips, and What to Know | Wonderlocity",
- "A first Caribbean cruise costs $700 to $2,500 per person for a 7-night sailing in 2026. See what is included, what costs extra, which line to pick, and the tips first-timers wish they knew.",
- "A first Caribbean cruise costs $700 - $2,500 per person for a 7-night sailing in 2026, covering your cabin, meals, and entertainment, before you add flights to the port, shore excursions, gratuities, and drinks that typically lift the total by 30 to 60 percent.",
+ "A first Caribbean cruise starts from about $700 per person for a 7-night sailing in 2026. See what is included, what costs extra, which line to pick, and the tips first-timers wish they knew.",
+ "A first Caribbean cruise starts from about $700 per person for a 7-night sailing in 2026, covering your cabin, meals, and entertainment, before you add flights to the port, shore excursions, gratuities, and drinks that typically lift the total by 30 to 60 percent.",
  "<p>A cruise is the easiest big trip to take for the first time, since one price covers your room, your meals, and most of the entertainment, and you unpack once while the ship carries you between islands. The catch is that the fare you see advertised is only the starting point, and the extras decide what you actually spend. Here is the honest breakdown, with the numbers up front, so you board knowing what a week really costs.</p>"
  "<h2>What a first Caribbean cruise costs</h2><p>The fare depends most on your cabin type, the line, and the week you sail. An inside cabin on a mass-market ship is the value entry point, while a balcony costs more but transforms the trip with your own view and fresh air. For a 7-night Caribbean sailing in 2026, here is the range, along with the two extras almost every first-timer forgets to budget.</p><table class='costtable'>"
- "<tr><td>Inside cabin, 7-night sailing</td><td>$700 - $1,300 per person</td></tr>"
- "<tr><td>Balcony cabin, 7-night sailing</td><td>$1,100 - $2,500 per person</td></tr>"
+ "<tr><td>Inside cabin, 7-night sailing</td><td>from $700 per person</td></tr>"
+ "<tr><td>Balcony cabin, 7-night sailing</td><td>from $1,100 per person</td></tr>"
  "<tr><td>Gratuities for the week</td><td>$120 - $170 per person</td></tr>"
  "<tr><td>Drink package</td><td>add $65 - $95 per person per day</td></tr></table>"
  "<h2>What is included in the fare</h2><p>Your cabin, all your main dining room and buffet meals, most daytime activities, the pools, the evening shows, and the transport between ports are built into the price. That is why a cruise feels like such strong value, especially for first-timers and families, since you can eat well and stay entertained without opening your wallet once you are aboard. Room service is often included or carries a small fee, and the kids clubs on the big family lines are free.</p>"
- "<h2>What costs extra</h2><p>The line makes its money on the add-ons, so plan for them. Flights to the departure port, shore excursions at each island, daily gratuities, drink packages, specialty restaurants, wifi, spa treatments, and the casino all sit on top of the fare. Together they commonly add 30 to 60 percent to the base price, which is how a $900 fare becomes a $1,400 trip. The three that matter most are gratuities, which are close to mandatory, excursions, which you can often book independently for less, and drinks, where a package only pays off if you drink several a day.</p>"
+ "{{TIP|About &ldquo;from&rdquo; prices|Cruise fares change by the day. A &ldquo;from&rdquo; price is a starting point for an inside cabin, and your real fare depends on the ship, the line, the week you sail, and how early you book.}}<h2>What costs extra</h2><p>The line makes its money on the add-ons, so plan for them. Flights to the departure port, shore excursions at each island, daily gratuities, drink packages, specialty restaurants, wifi, spa treatments, and the casino all sit on top of the fare. Together they commonly add 30 to 60 percent to the base price, which is how a $900 fare becomes a $1,400 trip. The three that matter most are gratuities, which are close to mandatory, excursions, which you can often book independently for less, and drinks, where a package only pays off if you drink several a day.</p>"
  "<h2>Which cruise line to pick for your first time</h2><p>Match the line to your group, not the brochure. Royal Caribbean and Norwegian suit first-timers who want big, activity-packed ships with plenty for all ages, Carnival leans fun, casual, and budget-friendly, and Princess or Celebrity feel calmer and a touch more refined for couples. The ship matters as much as the line, since a newer, larger vessel carries more dining, pools, and entertainment. For a first cruise, a well-reviewed big ship on a major line is the safest way to find out if cruising is for you.</p>"
  "<h2>Eastern, Western, or Southern Caribbean</h2><p>Most first-timers sail one of three routes. The Eastern Caribbean visits beach-and-shopping ports like St Thomas and St Maarten plus the cruise line's private island, and it is the classic easy first cruise. The Western Caribbean leans toward Cozumel, Grand Cayman, and Jamaica, with more snorkeling, ruins, and adventure excursions. The Southern Caribbean, often out of San Juan, reaches further-flung islands like Aruba and Barbados with warmer, drier weather, though it usually means flying to the port. For a first sailing, an Eastern or Western route from Florida keeps flights short and the pace relaxed.</p>"
  "<h2>When to go and hurricane season</h2><p>The cheapest fares fall in the shoulder weeks of late April to early June and September to early December, outside school holidays and the winter peak. The Atlantic hurricane season runs June through November, with the highest risk from August to October. A cruise is actually a reasonable way to travel then, since ships can and do reroute around storms, and fares and crowds drop. The trade-off is a small chance of a changed itinerary, so travel insurance is worth the modest cost in those months. For the calmest seas and best weather, the December to April window is ideal, and also the priciest.</p>"
  "<h2>What first-timers wish they knew</h2><p>A few habits make the first cruise smoother. Pack a carry-on with swimwear and any medicine, since your checked bags may not reach the cabin until dinnertime. Book popular excursions and specialty dinners before you sail, because the best ones fill up. Download the ship's app to see the daily schedule, and bring a lanyard for your key card. Budget cash for port taxis and tips. Do the drink-package math, since it only saves money at four or more drinks a day. And if you are flying, arrive in the port city the night before, so a delayed flight never costs you the ship.</p>"
  "<h2>The verdict</h2><p>A Caribbean cruise is one of the best-value first big trips you can take, and the way to enjoy it is to budget the extras up front rather than be surprised by them. Pick a big, well-reviewed ship on a major line, choose an Eastern or Western route from Florida to keep flights short, sail in shoulder season if you can, and add insurance if you go during hurricane months. Do that and the week delivers several islands, all your meals, and nightly entertainment for a price that is hard to beat any other way.</p>",
- [("How much does a first Caribbean cruise cost?","About $700 to $2,500 per person for a 7-night sailing in 2026, depending on cabin and line. Add flights, gratuities, excursions, and drinks, which typically lift the total by 30 to 60 percent."),
+ [("How much does a first Caribbean cruise cost?","From about $700 per person for a 7-night sailing in 2026, and more for balconies, newer ships, and holiday weeks. Add flights, gratuities, excursions, and drinks, which typically lift the total by 30 to 60 percent."),
   ("What is the best cruise line for first-timers?","Royal Caribbean and Norwegian for big, activity-packed ships, Carnival for a fun budget-friendly trip, and Princess or Celebrity for a calmer, more refined feel. A newer, larger ship on a major line is the safest first choice."),
   ("Is it safe to cruise the Caribbean during hurricane season?","Generally yes. Ships reroute around storms, and fares and crowds are lower from June to November. The main risk is a changed itinerary, so travel insurance is worth it in those months.")],
  [article_node("First Caribbean cruise: a complete 2026 cost and tips guide","Real 2026 costs, what is included, which line to pick, and first-timer tips for a Caribbean cruise.","https://wonderlocity.com/guides/caribbean-cruise-first-timer/")],
@@ -686,13 +734,13 @@ rich_page("guides/caribbean-cruise-first-timer/index.html","https://wonderlocity
 rich_page("guides/royal-caribbean-vs-carnival/index.html","https://wonderlocity.com/guides/royal-caribbean-vs-carnival/",
  [("Home","/"),("Travel guides","/guides/"),("Royal Caribbean vs Carnival vs Norwegian",None)],"Royal Caribbean vs Carnival vs Norwegian: which to pick","wl-g9-hero",
  "Royal Caribbean vs Carnival vs Norwegian 2026: Which to Pick | Wonderlocity",
- "Royal Caribbean, Carnival, and Norwegian all run 7-night Caribbean cruises for $700 to $2,500 per person in 2026. See which line fits your group, budget, and style.",
- "For a 7-night Caribbean sailing in 2026 all three lines cost roughly $700 - $2,500 per person, so the right pick comes down to style, with Carnival cheapest and most casual, Royal Caribbean the biggest ships and best kids programs, and Norwegian the most flexible dining and adult-friendly freestyle feel.",
+ "Royal Caribbean, Carnival, and Norwegian all run 7-night Caribbean cruises from about $700 per person in 2026. See which line fits your group, budget, and style.",
+ "For a 7-night Caribbean sailing in 2026 all three lines start from roughly $700 per person, so the right pick comes down to style, with Carnival cheapest and most casual, Royal Caribbean the biggest ships and best kids programs, and Norwegian the most flexible dining and adult-friendly freestyle feel.",
  "<p>Royal Caribbean, Carnival, and Norwegian are the three lines almost every first-time and family cruiser ends up comparing, and on price they overlap far more than their reputations suggest. The same week, the same route, and the same cabin category usually land within a few hundred dollars of each other. What actually differs is the onboard experience, so the smart way to choose is by trip style, not by fare alone. Here is how the three compare, with the numbers up front.</p>"
  "<h2>How the three compare on price</h2><p>For a 7-night Caribbean sailing in 2026, Carnival is usually the cheapest entry point, Royal Caribbean sits in the middle but climbs fast on its newest ships, and Norwegian prices close to Royal Caribbean once you add its dining and drink bundles. Sale weeks shuffle the order constantly, which is why we price all three for your dates before booking.</p><table class='costtable'>"
- "<tr><td>Carnival, inside to balcony</td><td>$700 - $1,900 per person</td></tr>"
- "<tr><td>Royal Caribbean, inside to balcony</td><td>$800 - $2,500 per person</td></tr>"
- "<tr><td>Norwegian, inside to balcony</td><td>$800 - $2,400 per person</td></tr>"
+ "<tr><td>Carnival, inside to balcony</td><td>from $700 per person</td></tr>"
+ "<tr><td>Royal Caribbean, inside to balcony</td><td>from $800 per person</td></tr>"
+ "<tr><td>Norwegian, inside to balcony</td><td>from $800 per person</td></tr>"
  "<tr><td>Drink package, any line</td><td>add $65 - $110 per person per day</td></tr></table>"
  "<h2>Royal Caribbean: the biggest ships and best for kids</h2><p>Royal Caribbean's calling card is scale. Its Oasis and Icon class ships are floating resorts with water parks, ice rinks, surf simulators, and whole neighborhoods to explore, and the Adventure Ocean kids program is the strongest of the three. Families with children who want to be busy from breakfast to bedtime get the most here. The trade-off is that the newest ships command the highest fares of the three lines, and the biggest ships can feel crowded at peak times.</p>"
  "<h2>Carnival: the budget-friendly fun ship</h2><p>Carnival leans casual, social, and affordable. The atmosphere is lively, the comedy clubs and deck parties are the identity, and food highlights like Guy's Burger Joint are free. Fares run lowest of the three, drink packages are cheapest, and short 3 to 5 night sailings from many US ports make it the easiest low-cost trial run. It suits budget-minded groups, younger crowds, and anyone who wants fun over polish. If you prefer a quieter, more refined ship, this is not the pick.</p>"
@@ -977,7 +1025,7 @@ listing_page("trip-types/index.html","https://wonderlocity.com/trip-types/",
  "Not sure where, but you know the kind of trip? Start here. Each guide gives a real 2026 cost range and how to get the most for it.",
  [("All-inclusive","/trip-types/all-inclusive/","wl-ai-hero","$1,200 - $3,500 per person, week","One price, zero decisions, easy beach weeks."),
   ("Honeymoon","/trip-types/honeymoon/","wl-hm-hero","$3,000 - $12,000 per couple","Where to splurge and where to save."),
-  ("Cruises","/trip-types/cruise/","wl-cr-hero","$700 - $2,500 per person, week","All-in-one, plus the extras to budget for."),
+  ("Cruises","/trip-types/cruise/","wl-cr-hero","From about $700 per person, week","All-in-one, plus the extras to budget for."),
   ("Family","/trip-types/family/","wl-fm-hero","$3,500 - $8,000 for four","Beaches and Disney, and where families save.")])
 
 listing_page("guides/index.html","https://wonderlocity.com/guides/",
@@ -1016,20 +1064,20 @@ CRUISE_SEED = "wl-caribbean"
 
 # ---- Article 1: Carnival review and costs ----
 rich_page("cruises/carnival-cruise-line-review/index.html","https://wonderlocity.com/cruises/carnival-cruise-line-review/",
- [("Home","/"),("Cruises","/cruises/"),("Carnival Cruise Line",None)],"Carnival Cruise Line: is it right for you?",CRUISE_SEED,
+ [("Home","/"),("Cruises","/cruises/"),("Carnival Cruise Line",None)],"Carnival Cruise Line: is it right for you?","cr-review",
  "Carnival Cruise Review 2027: Costs, Cabins, Who It Fits | Wonderlocity",
- "A Carnival cruise costs about $105 to $165 per person per night in late 2026. See what the fare includes, what costs extra, and who it fits.",
- "A Carnival cruise costs about $105 per person per night for an inside cabin and $165 for a balcony in late 2026, so a week runs roughly $735 to $1,155 each before gratuities, drinks, and excursions. It is the best-value big-ship line for families, groups, and first-timers who want plenty to do and do not need a quiet, formal ship.",
- """<p>Carnival is the line most Americans picture when they think of a cruise: big, lively ships, a casual dress code, a water slide on deck, and a price that undercuts most of the competition. It is also the line people are most likely to be surprised by on the bill, because the low fare leaves out several things that most guests end up buying. Here is what you actually get, what it really costs, and who should book it.</p>
-<h2>What a Carnival cruise is like</h2><p>Carnival calls its ships Fun Ships, and the name is honest. Expect a busy pool deck, music, trivia, comedy, and a nightly theater show, with a crowd that skews toward families, friend groups, and multi-generation trips. The mood is relaxed and the dress is shorts and flip-flops by day, with an optional dressier night or two. Food leans casual and generous, with a main dining room, a buffet, and free counters like Guy's Burger Joint, BlueIguana Cantina, and a pizzeria. If you picture a quiet, polished, adults-only sailing, this is not it. If you picture a good-value week where everyone in your group finds something to do, it is.</p>
-<h2>What a Carnival cruise costs</h2><p>Cabin type drives the price more than anything else. These are late-2026 averages per person, drawn from a price tracker that follows Carnival sailings, and they are a guide rather than a quote, since a school-holiday week or a brand-new ship can cost well above them.</p>
-<table class='costtable'><tr><td>Inside cabin</td><td>$105 a night, about $735 a week</td></tr>
-<tr><td>Ocean view cabin</td><td>$130 a night, about $910 a week</td></tr>
-<tr><td>Balcony cabin</td><td>$165 a night, about $1,155 a week</td></tr>
-<tr><td>Suite</td><td>$265 a night, about $1,860 a week</td></tr></table>
+ "A Carnival cruise starts from about $105 per person per night in late 2026. See what the fare includes, what costs extra, and who it fits.",
+ "A Carnival cruise starts from about $105 per person per night for an inside cabin and from about $165 for a balcony in late 2026, so a week starts from roughly $735 for an inside cabin and $1,155 for a balcony, per person, before gratuities, drinks, and excursions. It is the best-value big-ship line for families, groups, and first-timers who want plenty to do and do not need a quiet, formal ship.",
+ """{{FACTS|Starts from=about $105 per person, per night;Best for=Families, groups, first-timers;Watch the extras=Gratuities, drinks, wifi;Easiest first sail=4 to 5 nights}}<p>Carnival is the line most Americans picture when they think of a cruise: big, lively ships, a casual dress code, a water slide on deck, and a price that undercuts most of the competition. It is also the line people are most likely to be surprised by on the bill, because the low fare leaves out several things that most guests end up buying. Here is what you actually get, what it really costs, and who should book it.</p>
+<h2>What a week on Carnival actually feels like</h2><p>Carnival calls its ships Fun Ships, and the name is honest. Expect a busy pool deck, music, trivia, comedy, and a nightly theater show, with a crowd that skews toward families, friend groups, and multi-generation trips. The mood is relaxed and the dress is shorts and flip-flops by day, with an optional dressier night or two. Food leans casual and generous, with a main dining room, a buffet, and free counters like Guy's Burger Joint, BlueIguana Cantina, and a pizzeria. If you picture a quiet, polished, adults-only sailing, this is not it. If you picture a good-value week where everyone in your group finds something to do, it is.</p>
+{{FIG|cr-beachship|A beach stop is part of many Caribbean and Bahamas sailings.}}<h2>What it costs: starting prices</h2><p>Cabin type drives the price more than anything else. These are late-2026 averages per person, drawn from a price tracker that follows Carnival sailings, and they are a guide rather than a quote, since a school-holiday week or a brand-new ship can cost well above them.</p>
+<table class='costtable'><tr><td>Inside cabin</td><td>from $105 a night, about $735 a week</td></tr>
+<tr><td>Ocean view cabin</td><td>from $130 a night, about $910 a week</td></tr>
+<tr><td>Balcony cabin</td><td>from $165 a night, about $1,155 a week</td></tr>
+<tr><td>Suite</td><td>from $265 a night, about $1,860 a week</td></tr></table>
 <p>Shorter sailings are where Carnival is cheapest to try. In sample fares priced in 2025 and 2026, a 4-night Baja cruise from Long Beach started near $390 for an inside cabin, and a 5-night Western Caribbean sailing from Miami started near $525. Always compare the final price with taxes and port fees included, because that is the number you will pay.</p>
 <h2>What is included in the fare</h2><p>Your cabin with daily steward service, meals in the main dining room and buffet, the free casual counters, and a handful of free drinks: water, iced tea, lemonade, milk, hot chocolate, select juices, and basic coffee. You also get the pools, the WaterWorks slides, the SportSquare activities, the fitness center, the nightly shows, and the kids clubs, which are Camp Ocean for ages 2 to 11, Circle C for 12 to 14, and Club O2 for 15 to 17. Visits to Carnival's own Bahamas destinations, such as Celebration Key and Half Moon Cay, cost nothing extra.</p>
-<h2>What costs extra</h2><p>This is the part to budget for before you book. The big four are gratuities, drinks, wifi, and excursions.</p>
+{{TIP|How to read a &ldquo;from&rdquo; price|A &ldquo;from&rdquo; fare is the starting price for an inside cabin. Your sailing can cost more depending on the ship, the week, and how close you book, so treat these numbers as a starting point and ask for a quote on your exact dates.}}<h2>Where the extra money goes</h2><p>This is the part to budget for before you book. The big four are gratuities, drinks, wifi, and excursions.</p>
 <table class='costtable'><tr><td>Gratuities, standard cabin</td><td>$17 per person, per day</td></tr>
 <tr><td>Gratuities, suite</td><td>$19 per person, per day</td></tr>
 <tr><td>Bottomless Bubbles soda package</td><td>$11.99 adult, $6.95 child, per day</td></tr>
@@ -1038,12 +1086,12 @@ rich_page("cruises/carnival-cruise-line-review/index.html","https://wonderlocity
 <tr><td>Specialty dinner</td><td>about $25 to $50 per adult</td></tr>
 <tr><td>Shore excursions</td><td>varies by port</td></tr></table>
 <p>Gratuities are added automatically, so a week costs about $119 per person in a standard cabin. Drink packages carry a 20 percent service charge on top of the listed price, and if one adult in a cabin buys the Cheers package, Carnival requires every adult 21 and over in that cabin to buy it too. Prices move, so confirm each figure on Carnival's site when you book.</p>
-<h2>A realistic all-in budget</h2><p>A useful rule of thumb is $150 to $200 per person per day for an inside cabin with light spending, and $200 to $300 per day for a typical guest who adds drinks, wifi, and a couple of excursions. A couple on a 7-night balcony cruise who drink at dinner and book two excursions should plan for well over the fare alone, and the extras can add 30 to 60 percent on top.</p>
-<h2>Who Carnival fits</h2><p>Carnival is a strong pick for families with kids, because the clubs and water attractions are some of the best at sea. It suits groups and celebrations, first-timers on a short sailing, and anyone who wants the lowest entry price on a big ship. It is a weaker fit for travelers who want quiet, a formal atmosphere, or a ship that feels exclusive. For those, our <a href='/guides/royal-caribbean-vs-carnival/'>Royal Caribbean vs Carnival vs Norwegian comparison</a> shows where the other lines pull ahead.</p>
+{{TIP|Do this before you compare fares|Add about $119 per person for gratuities on a 7-night sailing in a standard cabin, then compare ships. That one step makes cheap-looking fares much easier to judge.}}<h2>What you will really spend</h2><p>A useful rule of thumb is from about $150 per person per day for an inside cabin with light spending, and from about $200 per day for a typical guest who adds drinks, wifi, and a couple of excursions. A couple on a 7-night balcony cruise who drink at dinner and book two excursions should plan for well over the fare alone, and the extras can add 30 to 60 percent on top.</p>
+<h2>Is Carnival your kind of cruise?</h2><p>Carnival is a strong pick for families with kids, because the clubs and water attractions are some of the best at sea. It suits groups and celebrations, first-timers on a short sailing, and anyone who wants the lowest entry price on a big ship. It is a weaker fit for travelers who want quiet, a formal atmosphere, or a ship that feels exclusive. For those, our <a href='/guides/royal-caribbean-vs-carnival/'>Royal Caribbean vs Carnival vs Norwegian comparison</a> shows where the other lines pull ahead.</p>
 <h2>Tips before you book</h2><p>The ship matters as much as the cabin, since the newest ships have far bigger attractions than the oldest, and our <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> explains the difference. Pick your sailing port first, because a drive-to port saves airfare, which we cover in the <a href='/cruises/carnival-caribbean-itineraries/'>Carnival Caribbean itineraries guide</a>. Decide on drinks before you sail, since the pre-cruise price is usually lower than the onboard price. And if this is your first cruise, read the <a href='/guides/caribbean-cruise-first-timer/'>first Caribbean cruise guide</a> and the <a href='/essentials/cruise-packing-list/'>cruise packing list</a> before you pack.</p>
-<h2>The verdict</h2><p>Carnival delivers the most ship for the least money, and it is hard to beat for a family or a group on a budget. Go in knowing the fare is the starting point, add gratuities and drinks to your math, and pick a newer ship if the attractions matter to you.</p>"""
+{{TIP|Pick the ship first|The newest ships have far bigger attractions than the oldest, so choose the ship before you choose the cabin. Our <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> explains the classes.}}<h2>Our take</h2><p>Carnival delivers the most ship for the least money, and it is hard to beat for a family or a group on a budget. Go in knowing the fare is the starting point, add gratuities and drinks to your math, and pick a newer ship if the attractions matter to you.</p>"""
  + cruise_panel(),
- [("How much does a Carnival cruise cost?","About $105 per person per night for an inside cabin and $165 for a balcony in late 2026, or roughly $735 to $1,155 each for a week, before gratuities, drinks, and excursions."),
+ [("How much does a Carnival cruise cost?","From about $105 per person per night for an inside cabin and from about $165 for a balcony in late 2026, or roughly $735 and $1,155 per person for a week, before gratuities, drinks, and excursions."),
   ("Are drinks included on Carnival?","Only basic ones such as water, iced tea, lemonade, and drip coffee. Soda, alcohol, specialty coffee, and bottled water cost extra, though you can buy a package. Bottomless Bubbles is the soda package and Cheers is the alcohol package."),
   ("Do I have to pay gratuities on Carnival?","Yes. They are added automatically at $17 per person per day in a standard cabin and $19 in a suite for sailings from April 2026, and they are paid on top of your fare."),
   ("Is Carnival good for first-time cruisers?","Yes. Short 4 and 5 night sailings are an easy, low-cost way to try cruising, and the casual atmosphere and included dining make it simple to learn.")],
@@ -1053,11 +1101,11 @@ rich_page("cruises/carnival-cruise-line-review/index.html","https://wonderlocity
 
 # ---- Article 2: Carnival ships guide ----
 rich_page("cruises/carnival-ships-guide/index.html","https://wonderlocity.com/cruises/carnival-ships-guide/",
- [("Home","/"),("Cruises","/cruises/"),("Carnival ships guide",None)],"Carnival ships explained: which class fits your trip",CRUISE_SEED,
+ [("Home","/"),("Cruises","/cruises/"),("Carnival ships guide",None)],"Carnival ships explained: which class fits your trip","cr-ships",
  "Carnival Ships Explained: Every Class and Which to Pick | Wonderlocity",
  "Carnival runs more than two dozen ships. See how Excel, Vista, Dream, Conquest, and older classes compare, and which one fits your trip.",
  "Carnival runs more than two dozen ships in several classes, and the newest Excel-class ships, Mardi Gras, Carnival Celebration, and Carnival Jubilee, carry the biggest attractions in the fleet, while older classes like Conquest and Fantasy cost less and suit shorter, simpler trips.",
- """<p>Two Carnival cruises can feel like different vacations depending on which ship you board. A 2023 megaship has a roller coaster, a huge water park, and a dozen places to eat. A 1998 ship has a pool, a show lounge, and a lower price. Neither is wrong, but picking blind is the mistake that leaves first-timers disappointed. Here is how the fleet breaks down, from newest to oldest.</p>
+ """{{FACTS|Newest ships=Excel class: Mardi Gras, Celebration, Jubilee;Biggest attractions=Excel class;Budget-friendly=Dream and Conquest classes;Lowest prices=Sunshine and Fantasy classes}}<p>Two Carnival cruises can feel like different vacations depending on which ship you board. A 2023 megaship has a roller coaster, a huge water park, and a dozen places to eat. A 1998 ship has a pool, a show lounge, and a lower price. Neither is wrong, but picking blind is the mistake that leaves first-timers disappointed. Here is how the fleet breaks down, from newest to oldest.</p>
 <h2>The fleet at a glance</h2><table class='costtable'><tr><td>Excel (2021 to 2023)</td><td>Mardi Gras, Carnival Celebration, Carnival Jubilee</td></tr>
 <tr><td>Venice</td><td>Carnival Venezia, Carnival Firenze</td></tr>
 <tr><td>Vista (2016 to 2019)</td><td>Carnival Vista, Horizon, Panorama</td></tr>
@@ -1068,11 +1116,11 @@ rich_page("cruises/carnival-ships-guide/index.html","https://wonderlocity.com/cr
 <tr><td>Fantasy (1998)</td><td>Carnival Elation, Carnival Paradise</td></tr></table>
 <h2>Excel class: the newest and biggest</h2><p>Mardi Gras arrived in 2021, Carnival Celebration in 2022, and Carnival Jubilee in 2023, and they are the largest ships Carnival has built, with Mardi Gras carrying up to about 6,500 guests at full occupancy. Most Excel ships carry the BOLT roller coaster on the top deck, along with the biggest dining and entertainment lineups in the fleet. Two more are coming: Carnival Festivale in spring 2027, which will swap the roller coaster for a larger water park, and Carnival Tropicale in spring 2028. Carnival Celebration is based in Miami on 7-day Caribbean sailings, and Mardi Gras sails from Port Canaveral, moving to shorter Bahamas cruises from late May 2027. Expect the highest fares in the fleet, and book early for school holidays.</p>
 <h2>Venice class: a different feel</h2><p>Carnival Venezia and Carnival Firenze joined the fleet from sister brand Costa, so they feel a little different from a classic Carnival ship. Read recent reviews for the exact ship and sailing before you book.</p>
-<h2>Vista class: the sweet spot</h2><p>Carnival Vista (2016), Carnival Horizon (2018), and Carnival Panorama (2019) carry about 4,000 guests each, with Panorama at 4,008 and Horizon at 3,960. They are big, modern, and full of attractions, yet they usually cost less than the Excel ships, which makes Vista class the best value for a family that wants a lot of ship without the top price.</p>
+{{FIG|cr-bigship|Ship size and age change the whole trip, from pool decks to dining.}}<h2>Vista class: the sweet spot</h2><p>Carnival Vista (2016), Carnival Horizon (2018), and Carnival Panorama (2019) carry about 4,000 guests each, with Panorama at 4,008 and Horizon at 3,960. They are big, modern, and full of attractions, yet they usually cost less than the Excel ships, which makes Vista class the best value for a family that wants a lot of ship without the top price.</p>
 <h2>Dream class: solid and mid-sized</h2><p>Carnival Dream (2009), Carnival Magic (2011), and Carnival Breeze (2012) are popular mid-sized ships. Magic and Breeze carry about 3,690 guests. They are comfortable, well-proven ships with good pool decks and dining, and they are a safe middle choice on both price and features.</p>
 <h2>Conquest and Spirit classes: older and cheaper</h2><p>The five Conquest-class ships, built between 2002 and 2007, carry roughly 3,000 guests each, and Carnival Freedom (2007, about 2,980 guests) will take over the Norfolk homeport in May 2027. The Spirit-class ships, Spirit, Pride, Legend, and Miracle, are smaller still, with Pride and Legend at about 2,124 guests, plus Carnival Luminosa, which came from Costa. These ships have fewer attractions and a more traditional layout, and that shows up as lower fares and a calmer feel.</p>
-<h2>Sunshine and Fantasy classes: the lowest prices</h2><p>The Sunshine class is made up of older ships that were renovated and renamed: Carnival Sunshine was originally Carnival Destiny, launched in 1996, Carnival Sunrise was Carnival Triumph, and Carnival Radiance was Carnival Victory. Carnival Sunshine spent a month in dry dock before it began sailing from Norfolk, Virginia in February 2025. The Fantasy class, Carnival Elation and Carnival Paradise from 1998, is among the oldest and most compact in the fleet, with Elation carrying about 2,130 guests. These suit short getaways and shoppers who put price first.</p>
-<h2>How to choose</h2><p>Match the ship to your group. Families with older kids and teens should lean toward Excel and Vista, where the attractions keep everyone busy. Couples and groups watching their budget do well on Dream and Conquest. First-timers testing a 4 or 5 night sailing can start on an older ship and upgrade later. Whatever the class, check the homeport first, because a ship you can drive to saves a flight, and our <a href='/cruises/carnival-caribbean-itineraries/'>Carnival Caribbean itineraries guide</a> shows where each ship sails. For what a cruise costs once you add extras, see the <a href='/cruises/carnival-cruise-line-review/'>Carnival cost review</a>.</p>"""
+{{FIG|cr-day|Older ships trade the biggest attractions for a lower fare.}}<h2>Sunshine and Fantasy classes: the lowest prices</h2><p>The Sunshine class is made up of older ships that were renovated and renamed: Carnival Sunshine was originally Carnival Destiny, launched in 1996, Carnival Sunrise was Carnival Triumph, and Carnival Radiance was Carnival Victory. Carnival Sunshine spent a month in dry dock before it began sailing from Norfolk, Virginia in February 2025. The Fantasy class, Carnival Elation and Carnival Paradise from 1998, is among the oldest and most compact in the fleet, with Elation carrying about 2,130 guests. These suit short getaways and shoppers who put price first.</p>
+{{TIP|Check the exact ship|Class is a good guide, but each ship has its own refits and sailings, so read recent reviews for the exact ship and sailing before you book.}}<h2>So which ship should you pick?</h2><p>Match the ship to your group. Families with older kids and teens should lean toward Excel and Vista, where the attractions keep everyone busy. Couples and groups watching their budget do well on Dream and Conquest. First-timers testing a 4 or 5 night sailing can start on an older ship and upgrade later. Whatever the class, check the homeport first, because a ship you can drive to saves a flight, and our <a href='/cruises/carnival-caribbean-itineraries/'>Carnival Caribbean itineraries guide</a> shows where each ship sails. For what a cruise costs once you add extras, see the <a href='/cruises/carnival-cruise-line-review/'>Carnival cost review</a>.</p>"""
  + cruise_panel(),
  [("What is the newest Carnival ship?","Carnival Jubilee, built in 2023, is the newest Excel-class ship in service. Carnival Festivale is due in spring 2027 and Carnival Tropicale in spring 2028."),
   ("Which Carnival ships are the biggest?","The Excel-class ships, Mardi Gras, Carnival Celebration, and Carnival Jubilee. Mardi Gras holds up to about 6,500 guests at full occupancy."),
@@ -1084,22 +1132,22 @@ rich_page("cruises/carnival-ships-guide/index.html","https://wonderlocity.com/cr
 
 # ---- Article 3: Carnival Caribbean itineraries ----
 rich_page("cruises/carnival-caribbean-itineraries/index.html","https://wonderlocity.com/cruises/carnival-caribbean-itineraries/",
- [("Home","/"),("Cruises","/cruises/"),("Carnival Caribbean itineraries",None)],"Carnival Caribbean cruises: itineraries, ports, and where to sail from",CRUISE_SEED,
+ [("Home","/"),("Cruises","/cruises/"),("Carnival Caribbean itineraries",None)],"Carnival Caribbean cruises: itineraries, ports, and where to sail from","cr-itin",
  "Carnival Caribbean Cruises: Itineraries and Ports | Wonderlocity",
  "Carnival sails the Caribbean and Bahamas from Miami, Port Canaveral, and Norfolk. See itineraries, private destinations, and which port saves airfare.",
  "Carnival sails the Caribbean and Bahamas from ports including Miami, Port Canaveral, and Norfolk, Virginia, on 4 to 7 night itineraries that stop at ports like Nassau, Cozumel, St. Thomas, and Carnival's own Celebration Key, and the best choice is usually the port you can drive to.",
- """<p>The itinerary decides what your cruise feels like, and the departure port decides what it costs to get there. Carnival covers the Caribbean from several US ports, so the useful question is not which island is best but which sailing fits your time, your budget, and your drive. Here is how the main options work.</p>
+ """{{FACTS|Shortest first cruise=4 to 5 night Bahamas;Beach days=Western Caribbean via Cozumel;Closest to Orlando=Port Canaveral;Drive from Virginia=Norfolk}}<p>The itinerary decides what your cruise feels like, and the departure port decides what it costs to get there. Carnival covers the Caribbean from several US ports, so the useful question is not which island is best but which sailing fits your time, your budget, and your drive. Here is how the main options work.</p>
 <h2>Bahamas, Eastern, and Western Caribbean</h2><p>Carnival's Caribbean sailings fall into three groups. Bahamas cruises are the shortest, usually 4 or 5 nights, with stops like Nassau and Carnival's own beach destinations, which makes them the easiest first cruise. Eastern Caribbean sailings run about a week and call at ports such as St. Thomas, St. Maarten, San Juan, Grand Turk, and Amber Cove in the Dominican Republic, which suits travelers who like shopping and variety. Western Caribbean sailings call at places like Cozumel in Mexico, and they suit snorkeling, ruins, and beach days.</p>
-<h2>Carnival's private Bahamas destinations</h2><p>Two stops are worth knowing by name. Celebration Key is Carnival's newer exclusive destination on Grand Bahama, and Half Moon Cay, which Carnival now brands as RelaxAway, Half Moon Cay, is its long-running private island. Visits to both are part of your fare with no extra charge to go ashore, though some activities, food, and drinks there may cost extra. They are the reason a short Bahamas sailing can feel like a full beach vacation.</p>
-<h2>Sailing from Miami</h2><p>Carnival Celebration is based in PortMiami on 7-day Eastern and Western Caribbean itineraries, according to Carnival's published 2027 and 2028 schedule. Eastern routes include Celebration Key, Amber Cove, Grand Turk, St. Thomas, St. Maarten, San Juan, RelaxAway, Half Moon Cay, and Nassau, and Western routes include Celebration Key and Cozumel. Miami has the most flights and the widest choice of sailings, so it is the best port if you are flying in.</p>
+{{FIG|cr-beach|Beach time is the reason many people pick a short Bahamas sailing.}}<h2>Carnival's private Bahamas destinations</h2><p>Two stops are worth knowing by name. Celebration Key is Carnival's newer exclusive destination on Grand Bahama, and Half Moon Cay, which Carnival now brands as RelaxAway, Half Moon Cay, is its long-running private island. Visits to both are part of your fare with no extra charge to go ashore, though some activities, food, and drinks there may cost extra. They are the reason a short Bahamas sailing can feel like a full beach vacation.</p>
+{{FIG|cr-port|Nassau, Bahamas, is a port on many Caribbean itineraries.}}<h2>Sailing from Miami</h2><p>Carnival Celebration is based in PortMiami on 7-day Eastern and Western Caribbean itineraries, according to Carnival's published 2027 and 2028 schedule. Eastern routes include Celebration Key, Amber Cove, Grand Turk, St. Thomas, St. Maarten, San Juan, RelaxAway, Half Moon Cay, and Nassau, and Western routes include Celebration Key and Cozumel. Miami has the most flights and the widest choice of sailings, so it is the best port if you are flying in.</p>
 <h2>Sailing from Port Canaveral</h2><p>Port Canaveral, on Florida's east coast, is the cruise port closest to Orlando, which makes it easy to pair a cruise with theme parks. Mardi Gras sails from here, and from late May 2027 it moves to 4 and 5 day Bahamas cruises calling at Celebration Key, RelaxAway, Half Moon Cay, and Nassau depending on the length. If you are building a Disney or Universal trip too, see our <a href='/guides/orlando-on-a-budget/'>Orlando on a budget guide</a>.</p>
 <h2>Sailing from Norfolk, Virginia</h2><p>For anyone in Virginia, the Carolinas, or the Mid-Atlantic, Norfolk is the shortcut, because you drive to the ship and skip the airfare. Carnival began year-round sailings from Norfolk's Half Moone Cruise Center in February 2025 with Carnival Sunshine, and its schedule includes the Bahamas, Bermuda, and the Eastern Caribbean. Carnival scheduled Sunshine to add Celebration Key to its calls from September 2025. Carnival Sunshine runs through mid-May 2027, and Carnival Freedom replaces it from May 15, 2027 with 33 cruises that Carnival says will include the Bahamas, Bermuda, the Eastern Caribbean, and Canada. As a price sample, a 6-day Bermuda sailing from Norfolk in September 2025 priced at $782 for an inside cabin and $1,259 for a balcony. Budget for terminal parking on top of the fare.</p>
-<h2>Which sailing to pick</h2><table class='costtable'><tr><td>First cruise, short and cheap</td><td>4 to 5 night Bahamas</td></tr>
+{{FIG|cr-lagoon|Clear water and easy beach days are what most people picture when they book.}}<h2>Which sailing to pick</h2><table class='costtable'><tr><td>First cruise, short and cheap</td><td>4 to 5 night Bahamas</td></tr>
 <tr><td>Beach and snorkeling days</td><td>Western Caribbean via Cozumel</td></tr>
 <tr><td>Shopping and island variety</td><td>Eastern Caribbean</td></tr>
 <tr><td>Pair with Orlando parks</td><td>Port Canaveral</td></tr>
 <tr><td>Skip the flight from Virginia</td><td>Norfolk</td></tr></table>
-<h2>When to go</h2><p>Hurricane season runs from June to November, and fares are often lower then, with itineraries sometimes changed to dodge storms. Winter is peak season with the highest fares. Our <a href='/guides/caribbean-cruise-first-timer/'>first Caribbean cruise guide</a> covers timing in more detail, and the <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> helps you pick the ship that sails your route. Schedules and ship assignments change, so confirm the details on Carnival's site before you book.</p>"""
+{{TIP|Drive if you can|If you live within driving distance of Norfolk, a drive-to sailing skips the airfare, which can change which cruise is the better deal.}}<h2>When to go</h2><p>Hurricane season runs from June to November, and fares are often lower then, with itineraries sometimes changed to dodge storms. Winter is peak season with the highest fares. Our <a href='/guides/caribbean-cruise-first-timer/'>first Caribbean cruise guide</a> covers timing in more detail, and the <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> helps you pick the ship that sails your route. Schedules and ship assignments change, so confirm the details on Carnival's site before you book.</p>"""
  + cruise_panel(),
  [("Does Carnival sail from Norfolk, Virginia?","Yes. Carnival Sunshine has sailed year-round from Norfolk since February 2025, and Carnival Freedom takes over from May 15, 2027."),
   ("What is the best Carnival itinerary for a first cruise?","A 4 or 5 night Bahamas sailing. It is short, inexpensive, and includes a beach day at a Carnival destination such as Celebration Key."),
@@ -1111,16 +1159,16 @@ rich_page("cruises/carnival-caribbean-itineraries/index.html","https://wonderloc
 
 # ---- Cruises hub page ----
 _cr_cards = [
- ("Carnival Cruise Line: is it right for you?","/cruises/carnival-cruise-line-review/",CRUISE_SEED,"From about $105 a night","Cabin prices, what is included, what costs extra, and who Carnival fits."),
- ("Carnival ships explained","/cruises/carnival-ships-guide/",CRUISE_SEED,"","Every ship class from the newest Excel ships to the oldest, and which to pick."),
- ("Carnival Caribbean itineraries","/cruises/carnival-caribbean-itineraries/",CRUISE_SEED,"","Bahamas, Eastern, and Western sailings from Miami, Port Canaveral, and Norfolk."),
- ("First Caribbean cruise guide","/guides/caribbean-cruise-first-timer/",CRUISE_SEED,"$700 - $2,500 per person, week","Costs, what is included, and the tips first-timers wish they knew."),
- ("Royal Caribbean vs Carnival vs Norwegian","/guides/royal-caribbean-vs-carnival/",CRUISE_SEED,"","Which line fits your group, budget, and style."),
- ("Cruise packing list","/essentials/cruise-packing-list/",CRUISE_SEED,"","What first-timers forget, and what the cabin lacks."),
- ("What a Caribbean cruise costs","/trip-types/cruise/",CRUISE_SEED,"$700 - $2,500 per person, week","The fare is only part of the bill. See the extras that decide your real total.")]
+ ("Carnival Cruise Line: is it right for you?","/cruises/carnival-cruise-line-review/","cr-review","From about $105 a night","Cabin prices, what is included, what costs extra, and who Carnival fits."),
+ ("Carnival ships explained","/cruises/carnival-ships-guide/","cr-ships","","Every ship class from the newest Excel ships to the oldest, and which to pick."),
+ ("Carnival Caribbean itineraries","/cruises/carnival-caribbean-itineraries/","cr-itin","","Bahamas, Eastern, and Western sailings from Miami, Port Canaveral, and Norfolk."),
+ ("First Caribbean cruise guide","/guides/caribbean-cruise-first-timer/","wlguide8","From about $700 per person, week","Costs, what is included, and the tips first-timers wish they knew."),
+ ("Royal Caribbean vs Carnival vs Norwegian","/guides/royal-caribbean-vs-carnival/","wlguide9","","Which line fits your group, budget, and style."),
+ ("Cruise packing list","/essentials/cruise-packing-list/","wlessguide2","","What first-timers forget, and what the cabin lacks."),
+ ("What a Caribbean cruise costs","/trip-types/cruise/","wl-cr-hero","From about $700 per person, week","The fare is only part of the bill. See the extras that decide your real total.")]
 _cr_crumbs = [("Home","/"),("Cruises",None)]
-_cr_body = phero(CRUISE_SEED,_cr_crumbs,"Cruises") + '<section class="section"><div class="wrap">' + CARD_CSS
-_cr_body += ('<div class="narrow" style="padding:0"><p class="answer">A week on a Caribbean cruise costs about $700 to $2,500 per person in 2026 before gratuities, drinks, and excursions, and the line, the ship, and the port you sail from decide where in that range you land.</p>'
+_cr_body = phero("cr-hub",_cr_crumbs,"Cruises") + '<section class="section"><div class="wrap">' + CARD_CSS
+_cr_body += ('<div class="narrow" style="padding:0"><p class="answer">A week on a Caribbean cruise starts from about $700 per person in 2026 before gratuities, drinks, and excursions, and the line, the ship, and the port you sail from decide where in that range you land.</p>'
  '<p>Start with the cost guide, then pick a line, then pick a ship and an itinerary. The Carnival guides below are the first in a growing cruise section built around one question: what will this cruise really cost, and is it worth it for you.</p></div>')
 _cr_body += '<div class="grid3">'
 for nm,url,cseed,price,blurb in _cr_cards:
