@@ -1206,10 +1206,377 @@ page("cruises/index.html","Cruises: Costs, Lines, Ships, and Itineraries | Wonde
  {"@context":"https://schema.org","@graph":[breadcrumb_schema(_cr_crumbs)]})
 
 
+REAL_IMAGES.update({
+    "fam-vb-hero": "https://images.unsplash.com/photo-1777138653711-f59e274de4e4?fm=jpg&q=80&fit=crop",
+    "fam-vb-umbrella": "https://images.unsplash.com/photo-1531129630896-1744cab0cafd?fm=jpg&q=80&fit=crop",
+    "fam-vb-fish": "https://images.unsplash.com/photo-1636045466232-539c7bd7817e?fm=jpg&q=80&fit=crop",
+    "fam-vb-trail": "https://images.unsplash.com/photo-1539920951450-2b2d59cff66d?fm=jpg&q=80&fit=crop",
+    "fam-vb-water": "https://images.unsplash.com/photo-1739295194212-0602c4d1e797?fm=jpg&q=80&fit=crop",
+    "fam-norfolk-hero": "https://images.unsplash.com/photo-1638287527782-56569934c034?fm=jpg&q=80&fit=crop",
+    "fam-nf-pier": "https://images.unsplash.com/photo-1721122964936-b0ab03e6dbbd?fm=jpg&q=80&fit=crop",
+    "fam-nf-slide": "https://images.unsplash.com/photo-1770330514127-f23131508ebb?fm=jpg&q=80&fit=crop",
+    "fam-nf-beach": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?fm=jpg&q=80&fit=crop",
+    "fam-pack-hero": "https://images.unsplash.com/photo-1555446099-555959e43ecf?fm=jpg&q=80&fit=crop",
+    "fam-pack-flat": "https://images.unsplash.com/photo-1541341584401-605c9cf3537e?fm=jpg&q=80&fit=crop",
+    "fam-pack-beach": "https://images.unsplash.com/photo-1759559585493-8f3a10cec180?fm=jpg&q=80&fit=crop",
+    "fam-road-hero": "https://images.unsplash.com/photo-1761047321481-abbdcfb7ff00?fm=jpg&q=80&fit=crop",
+    "fam-road-window": "https://images.unsplash.com/photo-1756142008330-87dc106322a4?fm=jpg&q=80&fit=crop",
+    "fam-road-savannah": "https://images.unsplash.com/photo-1780348545647-0498a42c3b38?fm=jpg&q=80&fit=crop",
+    "fam-du-hero": "https://images.unsplash.com/photo-1789758612499-dc1ede632152?fm=jpg&q=80&fit=crop",
+    "fam-du-carousel": "https://images.unsplash.com/photo-1601930113377-729966035f34?fm=jpg&q=80&fit=crop",
+    "fam-du-rides": "https://images.unsplash.com/photo-1761242606389-0a45db29fdee?fm=jpg&q=80&fit=crop",
+})
+
+# ===== Five family articles (added Nov 2026) =====
+_FAMCR = [("Home","/"),("Family trips","/family/")]
+_UPD = "<p><em>Details last checked in November 2026. Prices and hours change, so confirm them before you go.</em></p>"
+
+# ---- 1. Things to do with kids in Virginia Beach ----
+rich_page("guides/things-to-do-with-kids-virginia-beach/index.html","https://wonderlocity.com/guides/things-to-do-with-kids-virginia-beach/",
+ _FAMCR+[("Things to do with kids in Virginia Beach",None)],"Things to do with kids in Virginia Beach","fam-vb-hero",
+ "Things to Do With Kids in Virginia Beach (Beyond the Beach) | Wonderlocity",
+ "Kid-tested ideas for Virginia Beach: the aquarium, First Landing State Park, a water park, treetop courses, and rainy-day plans for every age.",
+ "Virginia Beach works for kids of every age because the beach is only the start: there is a big aquarium, a state park with 19 miles of trails, a 30-attraction water park, treetop courses, and indoor options for rainy days.",
+ """{{FACTS|Best for=Ages 3 to 12, and teens too;Beach and boardwalk=Free to enjoy;Rainy day=Aquarium, Apex, aviation museum;Plan on=2 to 4 days}}<p>Most families come to Virginia Beach for the sand and then discover how much else fits around it. You can swim before lunch, watch sharks after, and be on a forest trail by late afternoon, all without a long drive. Here is how to mix it up so nobody gets bored, and what to save for the days the weather does not cooperate.</p>
+<h2>Start with the beach and boardwalk</h2><p>The beach and the Boardwalk cost nothing to enjoy, which makes them the easy anchor for every day. The Boardwalk is good for biking and strolling, so it is an easy evening walk after a beach day. For little ones, Grommet Island Park is an ocean-themed playground steps from the sand, designed for children of all abilities.</p>
+{{FIG|fam-vb-umbrella|Plan the beach for mornings, then spend the hot middle of the day somewhere shaded or indoors.}}
+<h2>See sharks and rays at the Virginia Aquarium</h2><p>The Virginia Aquarium and Marine Science Center is the classic move for any weather. It has more than a dozen species of shark, ray, eel and reptile, plus live animal encounters, and it suits kids of all ages. Go early on a hot or rainy day, and check current tickets and hours before you head over.</p>
+{{FIG|fam-vb-fish|An aquarium visit works for a toddler and a ten-year-old on the same ticket.}}
+<h2>Walk it off at First Landing State Park</h2><p>First Landing is called Virginia's most visited state park, with 19 miles of all-ages terrain and 1.25 miles of Chesapeake Bay coastline. It is the right answer when the kids have had enough screens and sand, and you want a flat walk that nobody complains about.</p>
+{{FIG|fam-vb-trail|Pick an easy trail first, and let the kids decide if they want a longer one.}}
+{{TIP|Pack for the park|Bring bug spray, water, and a snack. A short, easy trail that ends with a beach stop beats a long hike for most kids.}}
+<h2>Splash at Ocean Breeze Waterpark</h2><p>Ocean Breeze has more than 30 attractions, including water slides, aquatic playgrounds, a wave pool, and a lazy river called Adventure River. It is a good day for mixed ages, because there is shallow play for the small ones and bigger slides for everyone else.</p>
+{{FIG|fam-vb-water|A water park day covers kids who are tired of waves and want slides.}}
+<h2>Rainy days and big-kid energy</h2><p>When it pours, Apex Entertainment brings indoor ropes courses and go-karts. The Military Aviation Museum shows off about 70 planes restored to flying condition, which is a hit with plane fans of any age. The Cape Henry Lighthouse, built in 1792, has 191 narrow, winding steps, so decide if your kids are ready for the climb.</p>
+<h2>Farms, treetops, and wildlife</h2><p>Hunt Club Farm is a family-run 50 acres with a petting farm and a TreeWalk Adventure. The Adventure Park at Virginia Beach is another treetop option for kids who like climbing. Back Bay National Wildlife Refuge is a quieter pick for wildlife viewing.</p>
+<h2>A simple three-day plan</h2><table class='costtable'><tr><td>Day 1</td><td>Beach morning, Boardwalk walk in the evening</td></tr>
+<tr><td>Day 2</td><td>Virginia Aquarium, then Grommet Island Park</td></tr>
+<tr><td>Day 3</td><td>First Landing State Park or Ocean Breeze, depending on the weather</td></tr></table>
+<p>Keep one flexible day for rain or tired kids, and book the aquarium or water park for the day with the best forecast.</p>
+<h2>Where to stay</h2><p>Staying near the oceanfront means you can walk to the beach and the Boardwalk and skip the car on most evenings. If you want a bigger space for the family, look for a suite or condo with a kitchenette, since breakfasts and snacks add up fast.</p>"""+_UPD+"""""",
+ [("What is the best thing to do with kids in Virginia Beach?","Start with the beach and Boardwalk, which are free to enjoy, and add the Virginia Aquarium and First Landing State Park. Together they cover water, animals, and an easy walk."),
+  ("What can we do in Virginia Beach when it rains?","Try the Virginia Aquarium, Apex Entertainment for indoor ropes and go-karts, or the Military Aviation Museum, which has about 70 planes restored to flying condition."),
+  ("Is Virginia Beach good for toddlers?","Yes. Grommet Island Park is an ocean-themed playground by the sand, and the aquarium and the beach both work well for small children.")],
+ [article_node("Things to do with kids in Virginia Beach","Beach, aquarium, parks, a water park, and rainy-day plans for families in Virginia Beach.","https://wonderlocity.com/guides/things-to-do-with-kids-virginia-beach/")],
+ [("All family trips","/family/"),("Weekend getaways from Virginia Beach","/guides/weekend-getaways-from-virginia-beach/"),("Williamsburg weekend","/guides/williamsburg-weekend/"),("Outer Banks weekend","/guides/outer-banks-weekend/"),("Free planning chat","/contact/")],
+ "Virginia Beach")
+
+# ---- 2. Carnival from Norfolk with kids ----
+rich_page("cruises/carnival-from-norfolk-with-kids/index.html","https://wonderlocity.com/cruises/carnival-from-norfolk-with-kids/",
+ [("Home","/"),("Cruises","/cruises/"),("Carnival from Norfolk with kids",None)],"Carnival from Norfolk with kids: a cruise with no flight","fam-norfolk-hero",
+ "Carnival From Norfolk With Kids: Cruise Without Flying | Wonderlocity",
+ "Drive to a Carnival cruise from Norfolk, Virginia. Parking costs, which ship sails, kids clubs, and a packing plan for families.",
+ "Carnival sails year-round from Norfolk, Virginia, so a Virginia Beach family can drive to the ship, skip the airfares, and park for $15 a day, with Carnival Sunshine through mid-May 2027 and Carnival Freedom after that.",
+ """{{FACTS|Ship now=Carnival Sunshine until mid-May 2027;Ship after=Carnival Freedom from May 15, 2027;Parking=$15 per day, free shuttle;Kids club=Camp Ocean, ages 2 to 11}}<p>The best part of cruising from Norfolk is what you leave out: no flights, no checked-bag fees, no rental car at the other end. You pack the car, drive to the ship, and walk on. For a family of four, that can change which cruise is the better deal, and it makes a short Bahamas or Eastern Caribbean sailing much easier to try.</p>
+<h2>Which ship you will sail on</h2><p>Carnival Sunshine has been Norfolk's ship and stays through mid-May 2027, finishing 21 cruises before it moves on. It entered service in 1996 as Carnival Destiny and was rebuilt and renamed in 2013. Carnival Freedom arrives on May 15, 2027 and runs 33 cruises from Norfolk for the rest of that year. It carries about 3,000 guests and entered service in 2006. For 2027, Carnival lists Bahamas, Bermuda, Eastern Caribbean, and Canada sailings from Norfolk, so check which itinerary and length fits your school break.</p>
+{{FIG|fam-nf-pier|Ships dock at the Half Moone Cruise Terminal in downtown Norfolk, a short drive from Virginia Beach.}}
+<h2>Parking, step by step</h2><p>The Half Moone Cruise Terminal is at 1 Waterside Drive in downtown Norfolk. The City of Norfolk lists Cedar Grove parking at 1000 Monticello Avenue, about 1.5 miles away, at $15 per day, and you can pre-pay or pay on entry by cash or card. A free shuttle takes you to the terminal, and you can check your luggage at the lot so it goes straight to the ship. On cruise days the lot opens at 9:30 a.m., shuttles start around 9:45 a.m., and the last shuttle runs at 2:30 p.m. If you would rather skip parking, drop-off is on Waterside Drive.</p>
+<table class='costtable'><tr><td>Parking, 7-night cruise</td><td>about $105 to $120</td></tr>
+<tr><td>Gratuities</td><td>about $119 per person for a week</td></tr>
+<tr><td>Flights for the family</td><td>$0, you drive</td></tr></table>
+{{TIP|Do the real math|Parking runs $15 a day, so a week costs about $105 to $120. Compare that with four airfares plus bags to a Florida port. Add gratuities to any fare you compare.}}
+<h2>What kids do on board</h2><p>Carnival's kids program, Camp Ocean, is included in the cruise fare and starts at age 2. It splits kids into Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11). A late-evening option called Night Owls has a fee. Our <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> explains how older and newer ships differ, which matters when you choose between Sunshine and Freedom.</p>
+{{FIG|fam-nf-slide|Pool and slide time is the main event for most kids at sea.}}
+<h2>Before you go</h2><p>Every traveler, kids included, needs proper travel documents at embarkation, and guests without them cannot board, so confirm Carnival's current rules for your group. Carnival also prohibits all speakers, including Bluetooth, and holds them until the cruise ends, so leave the kids' speakers at home. Our <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a> has a printable checklist.</p>
+<h2>Make a day of Norfolk</h2><p>Nauticus, the maritime museum on the terminal campus beside the USS Wisconsin, offers cruise passengers buy-one-get-one-free admission. It is a good use of an early arrival or a post-cruise afternoon.</p>
+{{FIG|fam-nf-beach|Bahamas and Eastern Caribbean itineraries bring beach days within a short sail from the Mid-Atlantic.}}"""+_UPD+"""""",
+ [("Does Carnival sail from Norfolk, Virginia?","Yes. Carnival Sunshine sails from Norfolk through mid-May 2027, and Carnival Freedom takes over from May 15, 2027."),
+  ("How much is parking at the Norfolk cruise terminal?","The city lists Cedar Grove parking at $15 per day, with a free shuttle to the terminal. Confirm current rates and shuttle times before your cruise."),
+  ("What is the kids club on Carnival?","Camp Ocean, included in the fare, for ages 2 to 11: Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11).")],
+ [article_node("Carnival from Norfolk with kids","Carnival cruises from Norfolk for families: ships, parking, kids clubs, and what to pack.","https://wonderlocity.com/cruises/carnival-from-norfolk-with-kids/")],
+ [("All cruise guides","/cruises/"),("All family trips","/family/"),("Carnival Caribbean itineraries","/cruises/carnival-caribbean-itineraries/"),("Carnival cost review","/cruises/carnival-cruise-line-review/"),("Family cruise packing list","/essentials/family-cruise-packing-list/"),("Free planning chat","/contact/")],
+ "Caribbean cruises")
+
+# ---- 3. Family cruise packing list (printable) ----
+rich_page("essentials/family-cruise-packing-list/index.html","https://wonderlocity.com/essentials/family-cruise-packing-list/",
+ [("Home","/"),("Family trips","/family/"),("Family cruise packing list",None)],"Family cruise packing list (with printable checklist)","fam-pack-hero",
+ "Family Cruise Packing List: Printable Checklist for Kids | Wonderlocity",
+ "A printable family cruise packing checklist: documents, carry-on, kids' items, cabin helpers, and what to leave at home.",
+ "A family cruise packing list should cover documents, a first-day carry-on, kids' items, and a few cabin helpers, and it should leave out speakers and anything the cruise line prohibits.",
+ """<style>.check ul{list-style:none;padding-left:0}.check li{padding:7px 0 7px 32px;position:relative;border-bottom:1px solid var(--line)}.check li:before{content:'';position:absolute;left:0;top:10px;width:16px;height:16px;border:2px solid var(--green);border-radius:4px}@media print{header.site,footer.site,.phero,.panel,.related,.ctaband,.faq,.fig,.noprint,.answer,.tip,.facts{display:none!important}.check li{break-inside:avoid}}</style>{{FACTS|Use it for=Any family cruise;Print it=Button below;Pack first=Documents and carry-on;Leave home=Speakers and prohibited items}}<p>Packing for a cruise with kids is mostly about three bags: the one you carry, the ones that arrive at the cabin later, and the little one with everything the kids will ask for in the first hour. Use this list, print it, and tick items off as they go in.</p>
+<p class='noprint'><button class='btn btn-green' type='button' onclick='window.print()'>Print this checklist</button></p>
+{{FIG|fam-pack-flat|Lay everything out first, then pack the carry-on before anything else.}}
+<div class='check'>
+<h2>Documents and money</h2><ul><li>Passports or travel documents for every traveler, kids included</li><li>Boarding documents and luggage tags from online check-in</li><li>A card and a little cash for tips and small purchases</li><li>Copies of key documents, kept separate from the originals</li></ul>
+<h2>Carry-on for day one</h2><ul><li>Swimsuits and cover-ups for everyone</li><li>Sunscreen and hats</li><li>One change of clothes per person</li><li>Any medicine, in its original packaging</li><li>Phone chargers and a portable battery</li><li>Snacks and a refillable water bottle for the walk to the ship</li></ul>
+<h2>For the kids</h2><ul><li>Swim gear, goggles, and a quick-dry towel</li><li>A small backpack for pool and shore days</li><li>Cards, a travel game, or a small toy for dining room waits</li><li>A comfort item for bedtime</li><li>Swim diapers if you have a baby or toddler (check the pool rules)</li></ul>
+<h2>Clothes</h2><ul><li>Shorts, t-shirts, and flip-flops for most days</li><li>One or two dressier outfits for the optional dressy nights</li><li>A light jacket or sweater for cool evenings and strong air conditioning</li><li>Comfortable shoes for shore days</li></ul>
+<h2>Cabin helpers</h2><ul><li>A small laundry bag</li><li>A few clips or hooks for towels and swimsuits</li><li>Wet wipes and hand sanitizer</li><li>A night light for the cabin</li></ul>
+<h2>Before you go</h2><ul><li>Download the cruise line app and book excursions and dinners early</li><li>Check the prohibited items list for anything with a plug, such as power strips</li><li>Leave speakers at home</li><li>Charge devices the night before</li></ul>
+</div>
+{{TIP|Why the carry-on matters|Checked bags can reach the cabin late in the day. A carry-on with swimsuits and sunscreen lets the kids hit the pool right away.}}
+<h2>Leave at home</h2><p>Carnival prohibits all speakers, including Bluetooth, and holds them until the cruise ends. The line also publishes a prohibited items list, so check it before you pack anything plug-in. Leave valuables at home too.</p>
+{{FIG|fam-pack-beach|Pack for pool days and shore days, and let the kids carry their own small bag.}}
+<p>For a longer, general list, see our <a href='/essentials/cruise-packing-list/'>cruise packing list</a>, and for itinerary ideas see <a href='/cruises/carnival-from-norfolk-with-kids/'>Carnival from Norfolk with kids</a>.</p>"""+_UPD+"""""",
+ [("What should families pack in a cruise carry-on?","Swimsuits, sunscreen, one change of clothes, medicine, chargers, and snacks, so everyone can start vacation before the bags arrive."),
+  ("What can you not bring on a Carnival cruise?","Carnival prohibits all speakers, including Bluetooth, and holds them until the cruise ends. The line also publishes a prohibited items list, so check it before you pack."),
+  ("Do kids need passports for a cruise?","Every traveler needs proper travel documents at embarkation, and guests without them cannot board. Confirm the cruise line's current rules for each traveler.")],
+ [article_node("Family cruise packing list","A printable packing checklist for families going on a cruise.","https://wonderlocity.com/essentials/family-cruise-packing-list/")],
+ [("All family trips","/family/"),("Cruise packing list","/essentials/cruise-packing-list/"),("Carnival from Norfolk with kids","/cruises/carnival-from-norfolk-with-kids/"),("First Caribbean cruise","/guides/caribbean-cruise-first-timer/"),("Free planning chat","/contact/")],
+ "Caribbean cruises")
+
+# ---- 4. Road trip Virginia Beach to Orlando ----
+rich_page("guides/road-trip-virginia-beach-to-orlando-with-kids/index.html","https://wonderlocity.com/guides/road-trip-virginia-beach-to-orlando-with-kids/",
+ _FAMCR+[("Virginia Beach to Orlando road trip",None)],"Road trip from Virginia Beach to Orlando with kids","fam-road-hero",
+ "Virginia Beach to Orlando Road Trip With Kids: Stops and Plan | Wonderlocity",
+ "A family road trip from Virginia Beach to Orlando: about 769 miles, where to break the drive, kid-friendly stops, and how to keep the car calm.",
+ "Virginia Beach to Orlando is about 769 miles and roughly 14.5 hours of driving, so most families split it into two days with an overnight in South Carolina or Georgia and add one or two kid-friendly stops.",
+ """{{FACTS|Distance=About 769 miles;Drive time=About 14.5 hours, no stops;Best plan=Two days with one overnight;Good stops=Savannah, Walterboro, Fayetteville}}<p>Driving to Orlando from the Virginia Beach area is a long day, but it has real upsides for a family: you bring everything, you have a car when you get there, and you can turn the trip into a vacation of its own. The key is to treat it as two easy days rather than one hard one.</p>
+<h2>The numbers</h2><p>The drive is about 769 miles and roughly 14.5 hours without stops, which is why a stop for the night makes the trip so much calmer. Most families take I-64 to I-95 south. Plan around meals, gas, and restroom breaks with kids, and add time for traffic near big cities.</p>
+<h2>Where to break the drive</h2><p>Think of the trip in three chunks: a first leg through Virginia and North Carolina, a middle leg through South Carolina and Georgia, and a short last day into Florida. Families who prefer a shorter day two often sleep in Georgia or South Carolina, so the Orlando arrival comes before dinner.</p>
+<h2>Kid-friendly stops along I-95</h2><table class='costtable'><tr><td>Fayetteville, NC</td><td>U.S. Army Airborne and Special Operations Museum, indoors</td></tr>
+<tr><td>Walterboro, SC</td><td>Walterboro Wildlife Sanctuary, boardwalks and trails</td></tr>
+<tr><td>Savannah, GA</td><td>Riverfront walk and The Pirates' House</td></tr>
+<tr><td>Cape Canaveral, FL</td><td>Kennedy Space Center and Canaveral National Seashore</td></tr></table>
+<p>In Fayetteville, the Army Airborne and Special Operations Museum is indoors, so it works in any weather. In Walterboro, the wildlife sanctuary has boardwalks and trails, which is a good way to stretch legs. In Savannah, walk the historic riverfront, and kids can climb the spiral staircase at The Pirates' House up to a pirate gift shop and restaurant. Near Cape Canaveral, Kennedy Space Center and Canaveral National Seashore, with 24 miles of undeveloped beach, are worth a detour if you have time.</p>
+{{FIG|fam-road-savannah|Savannah's moss-draped oaks make a calm stop for a family that has spent hours in the car.}}
+{{TIP|Make the first stop short|Pick a stop within two or three hours. It sets a relaxed pace and gives the kids a first win before the long middle stretch.}}
+<h2>Keeping the car calm</h2><p>Pack snacks in a reachable bag, download shows and music before you leave, and bring a few games that need no screen. Give older kids a job, like tracking the map or choosing the next stop, and give younger ones a small surprise for each leg.</p>
+{{FIG|fam-road-window|Window seats, snacks, and a plan for the next stop keep most road trips cheerful.}}
+<h2>Drive or fly?</h2><p>Driving makes the most sense for a bigger family, for anyone who wants a car in Orlando, and for people who like a slower start to the vacation. Flying saves a day each way, so it fits a short trip better. Either way, read our <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a> guide before you book hotels and tickets.</p>"""+_UPD+"""""",
+ [("How far is Virginia Beach from Orlando by car?","About 769 miles, or roughly 14.5 hours of driving without stops."),
+  ("Can you drive from Virginia Beach to Orlando in one day?","It is possible, but it is a very long day with kids. Most families split it into two days with an overnight in South Carolina or Georgia."),
+  ("What are good kid-friendly stops on the way to Orlando?","Fayetteville, North Carolina for the Army Airborne museum, Walterboro, South Carolina for the wildlife sanctuary, and Savannah, Georgia for the riverfront and The Pirates' House.")],
+ [article_node("Road trip from Virginia Beach to Orlando with kids","Distance, stops, and a two-day plan for driving from Virginia Beach to Orlando with kids.","https://wonderlocity.com/guides/road-trip-virginia-beach-to-orlando-with-kids/")],
+ [("All family trips","/family/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Disney or Universal for ages 6 to 12","/guides/disney-vs-universal-kids-6-12/"),("Orlando guide","/destinations/orlando/"),("Free planning chat","/contact/")],
+ "Orlando")
+
+# ---- 5. Disney vs Universal for kids 6-12 ----
+rich_page("guides/disney-vs-universal-kids-6-12/index.html","https://wonderlocity.com/guides/disney-vs-universal-kids-6-12/",
+ _FAMCR+[("Disney or Universal for ages 6 to 12",None)],"Disney or Universal for kids ages 6 to 12","fam-du-hero",
+ "Disney vs Universal for Kids 6 to 12: Which Fits Your Family | Wonderlocity",
+ "Disney World or Universal Orlando for ages 6 to 12? A plain comparison of rides, height limits, crowds, and ticket prices from about $119.",
+ "For ages 6 to 8, Disney World is usually the easier fit, and for ages 9 to 12 who like coasters, Universal Orlando is a serious contender, with one-day tickets starting from about $119 per person at both.",
+ """{{FACTS|Ages 6 to 8=Disney is usually easier;Ages 9 to 12=Either works, Universal for thrill fans;Tickets=From about $119 per day;Days needed=8 to 10 for both resorts}}<p>If your kids are somewhere between 6 and 12, you are in the sweet spot: old enough for real rides, young enough that the magic still works. The better resort depends less on the age number and more on what your kids actually like.</p>
+<h2>The short answer</h2><p>Younger kids in this range, around 6 to 8, usually do best at Disney, which has a lot of rides without height limits and many gentle attractions. Kids who are 9 and up are ready for Universal, especially if they love coasters, Harry Potter, or Nintendo. If your group is mixed, Disney is the safer first trip and Universal is the one to add later.</p>
+{{FIG|fam-du-carousel|Classic carousel and gentle rides are where Disney tends to shine for younger kids.}}
+<h2>Rides and height limits</h2><p>Disney skews toward all ages and all comfort levels. Universal skews toward intensity, and many headline rides have minimum heights or intense motion. One example is Harry Potter and the Battle at the Ministry at Epic Universe, which has a 48-inch minimum. Always check each ride's current height rule before you promise anything, and remember that both parks offer a rider switch, so one adult can stay with a smaller child.</p>
+<h2>What it costs</h2><table class='costtable'><tr><td>Disney, one-day ticket</td><td>from about $119 per adult</td></tr>
+<tr><td>Disney, one-day child ticket</td><td>from about $113</td></tr>
+<tr><td>Universal Epic Universe, one day</td><td>from about $135 per adult</td></tr>
+<tr><td>Universal, 3+ days, all four parks</td><td>from about $73 per day</td></tr></table>
+{{TIP|How to read these prices|Theme park tickets change by date. A Tuesday in mid-September costs far less than a Saturday in late December, so price your exact dates before you decide.}}
+<p>Child pricing generally covers ages 3 to 9 at both resorts, so a 10 to 12 year old is usually priced as an adult. Check the current ticket rules at checkout. Neither resort includes line-skipping in a standard ticket: Disney sells Lightning Lane separately, and Universal sells Express separately.</p>
+{{FIG|fam-du-rides|Bigger rides and bigger crowds mean planning your day around a few must-do attractions.}}
+<h2>Crowds and line-skipping</h2><p>Disney's Lightning Lane Multi Pass can help on busy days, especially at Magic Kingdom. Universal Express is worth considering at Epic Universe while crowds remain high. For both, weekdays in late August or early September are usually the easiest, and arriving early helps.</p>
+<h2>How many days do you need?</h2><p>Disney has four parks and Universal has four, including Epic Universe and Volcano Bay. Doing both well takes about 8 to 10 days, with 4 to 5 at Disney and 2 to 3 at Universal, and Epic Universe needs at least one full day. If you have only a week, pick one resort and save the other for another year.</p>
+<h2>Skip these for this age</h2><p>Universal's Halloween Horror Nights is not for kids under 12 or 13. If you visit in the fall, ask yourself honestly how your kids handle scary scenes.</p>
+<h2>So which one?</h2><p>Choose Disney if your kids love characters, gentler rides, and shows. Choose Universal if they chase thrills and big worlds. Choose both if you can give the trip at least a week and a half. For a closer look at the younger end, see our <a href='/guides/disney-or-universal-toddlers/'>toddlers guide</a>, and for budget planning, see <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a>.</p>"""+_UPD+"""""",
+ [("Is Disney or Universal better for a 7 year old?","Disney is usually the easier fit, with more rides without height limits and many gentle attractions."),
+  ("Is Universal good for a 10 year old?","Yes, especially for kids who like coasters, Harry Potter, or Nintendo. Check each ride's height rule before you go."),
+  ("How much do Disney and Universal tickets cost?","One-day tickets start from about $119 per person at both, and Epic Universe starts from about $135. Prices change by date, so check your exact days.")],
+ [article_node("Disney or Universal for kids ages 6 to 12","Rides, height limits, crowds, and prices for choosing between Disney World and Universal Orlando with kids 6 to 12.","https://wonderlocity.com/guides/disney-vs-universal-kids-6-12/")],
+ [("All family trips","/family/"),("Disney or Universal for toddlers","/guides/disney-or-universal-toddlers/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Road trip to Orlando","/guides/road-trip-virginia-beach-to-orlando-with-kids/"),("Orlando guide","/destinations/orlando/"),("Free planning chat","/contact/")],
+ "Orlando")
+
+
+# ===== Florida and cruise articles, batch 2 (added Nov 2026) =====
+_FLIM = {
+"fl-pc-hero":"1719423324139-04edfa77ea0d","fl-pc-ship":"1717465760671-c47cb5f8b56f","fl-pc-launch":"1457364887197-9150188c107b","fl-pc-beach":"1745261394475-1ec45d960f7b",
+"fl-mia-hero":"1535498730771-e735b998cd64","fl-mia-beach":"1589083130544-0d6a2926e519","fl-mia-ship":"1764609287343-7cb772b75c55","fl-mia-sea":"1724597402406-f2904a5bee40",
+"fl-cmp-hero":"1707342617132-582a6bda20ff","fl-cmp-a":"1628503172677-7177af7aea9e","fl-cmp-b":"1596618452407-4a44d426717c",
+"fl-fam-hero":"1685101260406-5c7ad28ca00b","fl-fam-pool":"1768270181731-b4234ef5c673","fl-fam-deck":"1667604963377-93dda0e11b1b","fl-fam-sunset":"1676407118683-f0060c12b94f",
+"fl-orl-hero":"1758464642801-14bd789db153","fl-orl-gator":"1523917631658-047ed87b47fa","fl-orl-space":"1551871812-10ecc21ffa2f","fl-orl-green":"1609184889514-656548112551",
+"fl-bch-hero":"1658157799932-eef5dee4118c","fl-bch-guard":"1512936702668-1ab037aced2a","fl-bch-light":"1708009241983-8ea0dc90c5d9","fl-bch-walk":"1654206700775-1c6257fb12e9",
+"fl-dis-hero":"1570613141985-aefb384a573b","fl-dis-ship":"1707342616937-c30b896b7c27","fl-dis-deck":"1775145408468-ec55b208f645"}
+REAL_IMAGES.update({k:"https://images.unsplash.com/photo-"+v+"?fm=jpg&q=80&fit=crop" for k,v in _FLIM.items()})
+_CRCR = [("Home","/"),("Cruises","/cruises/")]
+_RELX = [("Free planning chat","/contact/")]
+
+# ---- Cruises from Orlando (Port Canaveral) ----
+rich_page("cruises/cruises-from-orlando-port-canaveral/index.html","https://wonderlocity.com/cruises/cruises-from-orlando-port-canaveral/",
+ _CRCR+[("Cruises from Orlando",None)],"Cruises from Orlando: the Port Canaveral guide","fl-pc-hero",
+ "Cruises From Orlando (Port Canaveral): Lines, Parking, Transfers | Wonderlocity",
+ "Orlando cruises sail from Port Canaveral, about 45 minutes away. Which lines go, Bahamas and Caribbean options, parking from $20 a day, and how to pair it with a park trip.",
+ "Orlando does not have its own cruise port: ships leave from Port Canaveral, about 45 minutes east of Orlando International Airport, with Royal Caribbean, Norwegian, MSC, Carnival, Celebrity and Disney all sailing from there.",
+ """{{FACTS|Port=Port Canaveral on the Space Coast;From Orlando airport=About 45 minutes;Parking=From $20 per day plus tax;Trips=3 to 14 nights}}<p>Port Canaveral is the easy way to combine a theme park trip with a cruise. You fly into Orlando, spend a few days at the parks, then ride east to the ship. Here is how it works and what to plan before you book.</p>
+<h2>Which lines sail from Port Canaveral</h2><p>Cruise Critic lists Royal Caribbean (including Utopia of the Seas and Star of the Seas), Norwegian, MSC, Carnival, Celebrity and Disney, and Cunard also appears in the lineup. Disney has its own dedicated terminal, which makes the port a favorite for families. Ships and terminals change by season, so confirm yours with your travel advisor or the cruise line.</p>
+{{FIG|fl-pc-ship|Several lines share the port, and each ship is assigned a terminal for its sailing day.}}
+<h2>Where you can go</h2><table class='costtable'><tr><td>3 to 4 nights</td><td>Bahamas, with stops like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay</td></tr>
+<tr><td>7 nights</td><td>Eastern or Western Caribbean, such as St. Thomas, St. Maarten, Cozumel, Grand Cayman, and Ocho Rios</td></tr>
+<tr><td>9 nights</td><td>Southern Caribbean, such as Antigua, Barbados, and St. Lucia</td></tr></table>
+<p>Most sailings are seven nights. A short Bahamas cruise is the gentlest first try if you are adding it onto a Florida vacation.</p>
+<h2>Getting to the port from Orlando</h2><p>The port says Orlando International Airport is about 45 minutes west of it, via the S.R. 528 toll road. Orlando Melbourne International is about 40 minutes south, and Orlando Sanford is about an hour northwest. Options for the ride include a rental car, a shuttle, a rideshare, a private car, and ground transfers some lines sell. Norwegian, for example, offers airport transfers on select sailings that must be booked at least four days ahead.</p>
+<h2>Parking, if you drive</h2><p>The port charges $20 per day plus tax, covering the day you arrive and the day you leave. It does not take parking reservations, you pay on arrival, and cash is not accepted. Garages and lots sit next to the terminals, and parking opens at 10 a.m. on embarkation day. Rates can change, so check the port's page before you go.</p>
+{{TIP|Arrive the day before|Flying in the morning of your cruise leaves no room for delays. A hotel night near the port or in Cocoa Beach is cheap insurance, and many hotels there offer shuttles.}}
+<h2>Fun things before or after the ship</h2><p>Kennedy Space Center is about 20 minutes from the port. It has a Rocket Garden of full-size rockets, the Atlantis orbiter, and more than 60 interactive simulators. Cocoa Beach is about 15 minutes south, which makes it an easy beach day.</p>
+{{FIG|fl-pc-launch|The Space Coast is rocket country, so a launch day can be part of your trip.}}
+{{FIG|fl-pc-beach|Cocoa Beach is a short drive from the terminals.}}
+<h2>Combining parks and a cruise</h2><p>A common plan is four or five days at the parks, a night near the coast, then a short Bahamas cruise. Read our <a href='/guides/disney-vs-universal-kids-6-12/'>Disney vs Universal guide</a> to choose the parks, and our <a href='/cruises/disney-cruise-from-port-canaveral/'>Disney cruise guide</a> if you want a Disney land and sea trip.</p>"""+_UPD,
+ [("Can you cruise from Orlando?","Not directly. Ships sail from Port Canaveral, about 45 minutes east of Orlando International Airport."),
+  ("How much is parking at Port Canaveral?","$20 per day plus tax, paid on arrival by card. The port does not take reservations or cash."),
+  ("Which cruise lines sail from Port Canaveral?","Royal Caribbean, Norwegian, MSC, Carnival, Celebrity and Disney all sail from the port, and Cunard also appears in the lineup.")],
+ [article_node("Cruises from Orlando: the Port Canaveral guide","Lines, itineraries, parking, and transfers for cruising from Port Canaveral near Orlando.","https://wonderlocity.com/cruises/cruises-from-orlando-port-canaveral/")],
+ [("All cruise guides","/cruises/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Port Canaveral or Miami","/cruises/port-canaveral-vs-miami/"),("Disney cruise from Port Canaveral","/cruises/disney-cruise-from-port-canaveral/"),("Orlando on a budget","/guides/orlando-on-a-budget/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Cruises from Miami ----
+rich_page("cruises/cruises-from-miami/index.html","https://wonderlocity.com/cruises/cruises-from-miami/",
+ _CRCR+[("Cruises from Miami",None)],"Cruises from Miami: lines, ships, and where they go","fl-mia-hero",
+ "Cruises From Miami: Cruise Lines, Ships, Caribbean and Bahamas | Wonderlocity",
+ "Miami is one of the biggest cruise ports in the world. Which lines sail from PortMiami, what the ships are like, and who each one suits.",
+ "PortMiami has ten passenger terminals and serves lines from Carnival, Royal Caribbean, Norwegian and MSC to Virgin Voyages and luxury brands, with Bahamas and Caribbean sailings of every length.",
+ """{{FACTS|Port=PortMiami, 10 terminals;Lines=14 listed by Miami tourism;Typical trips=Bahamas and Caribbean;Good for=First cruises and big ships}}<p>Miami has the widest choice of any Florida port. You can pick a giant family ship, a short Bahamas getaway, or a long luxury sailing, and flights into Miami are easy from most of the country.</p>
+<h2>Who sails from Miami</h2><p>The Greater Miami tourism site lists Azamara, Carnival, Celebrity, Cunard, Holland America, MSC, Norwegian, Oceania, Princess, Regent Seven Seas, Royal Caribbean, Seabourn, Silversea and Virgin Voyages. That is a lot of range, from mass-market to ultra-luxury.</p>
+{{FIG|fl-mia-ship|Large ships and many lines share the port, so compare carefully before you choose.}}
+<h2>Big ships and families</h2><table class='costtable'><tr><td>Royal Caribbean</td><td>Icon of the Seas (1,198 ft), Utopia, Wonder, Allure, Oasis</td></tr>
+<tr><td>Carnival</td><td>Carnival Celebration, Horizon, Sunrise, Imagination</td></tr>
+<tr><td>MSC</td><td>MSC World America, Seaside, Seashore, Meraviglia</td></tr>
+<tr><td>Norwegian</td><td>Norwegian Luna, Viva, Prima, Encore, Breakaway</td></tr></table>
+<p>These are the ships most families look at first. They have the most pools, slides, and clubs for kids, so compare the kids programs and age groups on each line's site before you book.</p>
+<h2>Adults only and quieter options</h2><p>Virgin Voyages ships sail from Miami, often with a stop at its Beach Club at Bimini, but Virgin sails for adults only, so it is not an option for a family trip. Luxury brands such as Oceania, Seabourn, Silversea and Regent suit couples and travelers who want smaller ships.</p>
+<h2>Where the ships go</h2><p>Miami sailings include Bahamas trips year-round, Caribbean cruises of seven nights and longer, some one-way voyages to Europe, and longer luxury itineraries. Cunard sails roundtrip Caribbean cruises of 9 to 21 nights.</p>
+{{FIG|fl-mia-beach|Add a beach day on Miami Beach before or after your cruise.}}
+{{TIP|Plan a night in Miami|Arrive the day before, and use the evening for a beach walk. It is easier than racing to the terminal after a morning flight.}}
+<h2>Before you book</h2><p>Look at the embarkation day and terminal, and ask how far your hotel is from the port. Compare total cost with gratuities and drinks, not only the fare, and read our <a href='/cruises/carnival-cruise-line-review/'>Carnival review</a> for a plain look at what a week really costs.</p>"""+_UPD,
+ [("What cruise lines sail from Miami?","Miami tourism lists 14, including Carnival, Royal Caribbean, Norwegian, MSC, Celebrity, Princess, Holland America and Virgin Voyages."),
+  ("Is Miami good for a family cruise?","Yes, because it has many large family ships from Royal Caribbean, Carnival, MSC and Norwegian. Check each line's kids program before you book."),
+  ("Can kids go on Virgin Voyages?","No. Virgin Voyages is adults only, so families should choose another line.")],
+ [article_node("Cruises from Miami","Cruise lines, ships and itineraries sailing from PortMiami.","https://wonderlocity.com/cruises/cruises-from-miami/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Port Canaveral or Miami","/cruises/port-canaveral-vs-miami/"),("Best Florida cruises for families","/cruises/best-cruises-from-florida-for-families/"),("Royal Caribbean vs Carnival","/guides/royal-caribbean-vs-carnival/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Port Canaveral vs Miami ----
+rich_page("cruises/port-canaveral-vs-miami/index.html","https://wonderlocity.com/cruises/port-canaveral-vs-miami/",
+ _CRCR+[("Port Canaveral or Miami",None)],"Port Canaveral or Miami: which port should you pick?","fl-cmp-hero",
+ "Port Canaveral vs Miami Cruise Port: Which Is Better? | Wonderlocity",
+ "Port Canaveral or Miami for your cruise? A plain comparison of location, cruise lines, parking, and what to do before sailing.",
+ "Pick Port Canaveral if you are pairing a cruise with Orlando's theme parks, and pick Miami if you want the biggest choice of lines and ships and a city to explore.",
+ """{{FACTS|Orlando parks=Port Canaveral;Most choice=Miami;Distance between=A little over 3 hours;Parking at Canaveral=$20 per day plus tax}}<p>Both ports are good, and which one wins depends on the rest of your trip. Start with where you are flying and what you want to do before or after the ship.</p>
+<h2>Side by side</h2><table class='costtable'><tr><td>Best for</td><td>Canaveral: parks and the Space Coast. Miami: city and beach days</td></tr>
+<tr><td>Cruise lines</td><td>Canaveral: six main lines plus Cunard. Miami: 14 lines listed</td></tr>
+<tr><td>From the airport</td><td>Canaveral: about 45 minutes from Orlando airport. Miami: check your transfer time</td></tr>
+<tr><td>Before or after</td><td>Canaveral: Kennedy Space Center, Cocoa Beach. Miami: Miami Beach</td></tr></table>
+{{FIG|fl-cmp-a|Many ships look alike from the dock, so compare itineraries and what is on board.}}
+<h2>Choose Port Canaveral if</h2><p>You are adding a short cruise to a Disney or Universal week, you like a smaller port with terminals close to parking, or you want a Disney cruise, since Disney has a dedicated terminal there. Kennedy Space Center is about 20 minutes away, and Cocoa Beach is about 15 minutes south.</p>
+<h2>Choose Miami if</h2><p>You want the largest choice of lines, you are chasing a specific big ship, or you want a city stay as part of the trip. Miami also has lines that do not sail from Canaveral, including Holland America, Princess and Virgin Voyages.</p>
+<h2>Can you do both?</h2><p>Miami is a little over three hours south of Port Canaveral by car, so some travelers fly into one and out of the other, or drive between them. A one-way cruise can end at a different port, so ask your advisor.</p>
+{{FIG|fl-cmp-b|Check your ship, your terminal, and your embarkation day before you book flights.}}
+<h2>Our rule of thumb</h2><p>Orlando parks first, Canaveral. Maximum choice, Miami. Read both guides: <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral</a> and <a href='/cruises/cruises-from-miami/'>Miami</a>.</p>"""+_UPD,
+ [("Is Port Canaveral or Miami better for a cruise?","Port Canaveral is better for pairing a cruise with Orlando's parks, and Miami is better for the widest choice of ships and a city stay."),
+  ("How far is Port Canaveral from Miami?","A little over three hours by car, per Norwegian's guide."),
+  ("Which port is cheaper for parking?","Port Canaveral charges $20 per day plus tax. Check Miami's current rates on the port's own page.")],
+ [article_node("Port Canaveral or Miami","A comparison of Port Canaveral and Miami as cruise ports.","https://wonderlocity.com/cruises/port-canaveral-vs-miami/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Carnival from Norfolk","/cruises/carnival-from-norfolk-with-kids/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Best Florida cruises for families ----
+rich_page("cruises/best-cruises-from-florida-for-families/index.html","https://wonderlocity.com/cruises/best-cruises-from-florida-for-families/",
+ _CRCR+[("Florida cruises for families",None)],"Best cruises from Florida for families","fl-fam-hero",
+ "Best Cruises From Florida for Families: Orlando and Miami | Wonderlocity",
+ "Family cruises from Port Canaveral and Miami: which lines and ships suit kids, how long to sail, and what to check before you book.",
+ "For a family cruise from Florida, start with short Bahamas sailings of three to four nights from Port Canaveral or Miami, then choose the line whose kids program and ship fit your children's ages.",
+ """{{FACTS|Start with=3 to 4 nights;Ports=Port Canaveral or Miami;Kids club (Carnival)=Camp Ocean, ages 2 to 11;Check=Kids program ages}}<p>Florida is the easiest place in the country to start cruising with kids. Short sailings leave all week, ships are big, and you can pick a port that fits your flights.</p>
+<h2>Start short</h2><p>A 3 or 4 night Bahamas cruise is a good test. You see how your kids handle the ship and the pool without committing to a week. From Port Canaveral those sailings stop at places like Nassau, Perfect Day at CocoCay, and Great Stirrup Cay.</p>
+{{FIG|fl-fam-pool|Pool time is the main event for most kids on any ship.}}
+<h2>Lines to compare</h2><table class='costtable'><tr><td>Disney Cruise Line</td><td>Port Canaveral, 3 to 7 nights, dedicated terminal</td></tr>
+<tr><td>Royal Caribbean</td><td>Port Canaveral and Miami, big ships including Icon of the Seas</td></tr>
+<tr><td>Carnival</td><td>Both ports, Camp Ocean included in the fare, ages 2 to 11</td></tr>
+<tr><td>MSC and Norwegian</td><td>Both ports, large ships with many pools</td></tr></table>
+<p>Kids programs, age groups, and any extra fees differ by line, so check each one's current rules for your children's ages. Avoid Virgin Voyages, which is adults only.</p>
+<h2>What to check</h2><ul><li>The kids club age groups and hours</li><li>Whether your children need a minimum age for particular activities</li><li>Gratuities, which add to the fare</li><li>Where the ship docks and how you will get there</li></ul>
+{{FIG|fl-fam-deck|Shaded deck space helps when the kids need a break from the sun.}}
+{{TIP|Book the room, not just the fare|Families often need a bigger cabin or connecting rooms. Ask your advisor to price a few cabin types side by side.}}
+<h2>Plan the parts around the ship</h2><p>Pair the cruise with the parks using our <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral guide</a>, or compare ports in <a href='/cruises/port-canaveral-vs-miami/'>Port Canaveral or Miami</a>. For packing, see the <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a>.</p>
+{{FIG|fl-fam-sunset|An evening on deck is often the calmest part of the day.}}"""+_UPD,
+ [("What is the best cruise from Florida for families?","It depends on your kids' ages, but a 3 or 4 night Bahamas sailing from Port Canaveral or Miami is a good first choice."),
+  ("What age is the Carnival kids club?","Camp Ocean starts at age 2 and covers 2 to 11, included in the fare."),
+  ("Is Virgin Voyages good for kids?","No. It is adults only.")],
+ [article_node("Best cruises from Florida for families","How to pick a family cruise from Port Canaveral or Miami.","https://wonderlocity.com/cruises/best-cruises-from-florida-for-families/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Disney cruise from Port Canaveral","/cruises/disney-cruise-from-port-canaveral/"),("Family cruise packing list","/essentials/family-cruise-packing-list/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Disney cruise from Port Canaveral ----
+rich_page("cruises/disney-cruise-from-port-canaveral/index.html","https://wonderlocity.com/cruises/disney-cruise-from-port-canaveral/",
+ _CRCR+[("Disney cruise from Port Canaveral",None)],"Disney cruise from Port Canaveral: a land and sea trip","fl-dis-hero",
+ "Disney Cruise From Port Canaveral: Ships, Lengths, Getting There | Wonderlocity",
+ "Disney Cruise Line sails from Port Canaveral near Orlando. Which ships, how long, and how to combine it with a Disney World week.",
+ "Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, about 45 to 60 minutes from Walt Disney World, so one trip can include both the parks and a Bahamas or Caribbean cruise.",
+ """{{FACTS|Ships based=Fantasy, Wish, Treasure;Lengths=3 to 7 nights;From Disney World=About 45 to 60 minutes;Parking=About $20 per day}}<p>For many families, a Disney trip ends with a cruise. Port Canaveral makes that practical, since Disney has a terminal built just for its ships.</p>
+<h2>The ships</h2><p>Disney Fantasy, Disney Wish and Disney Treasure are based at Port Canaveral, and Disney Dream and Disney Magic sail from the port on some dates. Fantasy runs 4 and 5 night Bahamas and Western Caribbean cruises. Wish runs 3 and 4 night Bahamas cruises year-round, and Treasure runs 7 night Eastern and Western Caribbean sailings. Check the current schedule, because it changes by year.</p>
+{{FIG|fl-dis-ship|Short sailings are a gentle way to add the sea to a park trip.}}
+<h2>Getting there from Disney World</h2><p>Port Canaveral is about 45 miles east of Orlando. It is roughly a 45-minute to one-hour drive from Disney World. Options include a rental car, a shuttle, a rideshare, and Disney Cruise Line ground transfers. If you drive, parking by the terminal is about $20 per day, paid on arrival.</p>
+<h2>How to plan the days</h2><table class='costtable'><tr><td>Park days</td><td>Four to five days at the parks first</td></tr>
+<tr><td>Transition</td><td>One easy night or a morning drive to the port</td></tr>
+<tr><td>Cruise</td><td>3 to 4 nights is easiest for a first try</td></tr></table>
+{{FIG|fl-dis-deck|A few nights at sea is a calm contrast to busy park days.}}
+{{TIP|Book the cruise early|Disney sailings sell out for school breaks. Hold your dates early, and ask what fits your family's budget.}}
+<h2>Is it worth it?</h2><p>A Disney cruise costs more than most mainstream lines. If your kids love Disney, a short sailing can feel like another park day with a beach stop. If budget matters most, compare it with a Carnival or Royal Caribbean cruise from the same port using <a href='/cruises/best-cruises-from-florida-for-families/'>our family cruise guide</a>.</p>"""+_UPD,
+ [("Does Disney Cruise Line sail from Port Canaveral?","Yes. Disney Fantasy, Disney Wish and Disney Treasure are based there."),
+  ("How far is Port Canaveral from Disney World?","About 45 to 60 minutes by car."),
+  ("How long are Disney cruises from Port Canaveral?","From 3 nights on Disney Wish up to 7 nights on Disney Treasure.")],
+ [article_node("Disney cruise from Port Canaveral","Ships, itineraries and logistics for a Disney cruise from Port Canaveral.","https://wonderlocity.com/cruises/disney-cruise-from-port-canaveral/")],
+ [("All cruise guides","/cruises/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Best Florida cruises for families","/cruises/best-cruises-from-florida-for-families/"),("Disney or Universal for 6 to 12","/guides/disney-vs-universal-kids-6-12/")]+_RELX,
+ "Caribbean cruises")
+
+# ---- Orlando with kids without theme parks ----
+rich_page("guides/orlando-with-kids-without-theme-parks/index.html","https://wonderlocity.com/guides/orlando-with-kids-without-theme-parks/",
+ _FAMCR+[("Orlando without theme parks",None)],"Orlando with kids: what to do besides theme parks","fl-orl-hero",
+ "Orlando With Kids Without Theme Parks: Gators, Space, Science | Wonderlocity",
+ "Rest days in Orlando: Gatorland, an aquarium, a science museum, Kennedy Space Center, and gardens that kids actually enjoy.",
+ "Orlando has plenty for kids beyond the parks, including a 110-acre gator park, a four-floor science center, an aquarium with 250 species, and Kennedy Space Center about an hour away.",
+ """{{FACTS|Best for=Rest days between parks;Day trip=Kennedy Space Center, about 1 hour;Animals=Gatorland and SEA LIFE;Indoor=Science Center and aquarium}}<p>A week of theme parks wears kids out, and it wears out budgets too. These are the places families use for the in-between days.</p>
+{{FIG|fl-orl-hero|A lake and a walk are a good reset after a big park day.}}
+<h2>Animals and wildlife</h2><p>Gatorland is a 110-acre wildlife preserve with a zipline over the alligator breeding marsh. SEA LIFE Orlando Aquarium has 250 species across nine exhibits. Giraffe Ranch runs a guided safari that ends with a chance to feed a giraffe.</p>
+{{FIG|fl-orl-gator|Alligators are a Florida must-see for most kids.}}
+<h2>Science and space</h2><p>The Orlando Science Center has four floors of interactive exhibits, along with live fish and alligators. Kennedy Space Center is about an hour from Orlando, and its bus tour drives past the launch pad and shows a real rocket.</p>
+{{FIG|fl-orl-space|Space Coast days are good for kids who love rockets.}}
+<h2>Gardens and quiet time</h2><p>Leu Gardens offers kid-friendly scavenger hunts, plus holiday light displays and rotating exhibits through the year. It is a calm choice for a break day.</p>
+{{FIG|fl-orl-green|A garden walk gives everyone a rest.}}
+{{TIP|Mix it up|Plan one non-park day for every two park days. Kids stay happier, and you spend less on tickets.}}
+<h2>A sample rest day</h2><table class='costtable'><tr><td>Morning</td><td>Orlando Science Center or SEA LIFE</td></tr>
+<tr><td>Afternoon</td><td>Pool time at the hotel</td></tr>
+<tr><td>Evening</td><td>Gardens or an easy dinner</td></tr></table>
+<p>For the parks, see <a href='/guides/disney-vs-universal-kids-6-12/'>Disney vs Universal for ages 6 to 12</a> and <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a>.</p>"""+_UPD,
+ [("What can kids do in Orlando besides theme parks?","Try Gatorland, SEA LIFE Orlando Aquarium, the Orlando Science Center, Leu Gardens, or a day at Kennedy Space Center."),
+  ("How far is Kennedy Space Center from Orlando?","About an hour by car."),
+  ("Is the Orlando Science Center good for kids?","Yes. It has four floors of hands-on exhibits and live fish and alligators.")],
+ [article_node("Orlando with kids: what to do besides theme parks","Rest-day ideas for families in Orlando.","https://wonderlocity.com/guides/orlando-with-kids-without-theme-parks/")],
+ [("All family trips","/family/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Best beaches near Orlando","/guides/best-beaches-near-orlando-for-families/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/")]+_RELX,
+ "Orlando")
+
+# ---- Best beaches near Orlando ----
+rich_page("guides/best-beaches-near-orlando-for-families/index.html","https://wonderlocity.com/guides/best-beaches-near-orlando-for-families/",
+ _FAMCR+[("Beaches near Orlando",None)],"Best beaches near Orlando for families","fl-bch-hero",
+ "Best Beaches Near Orlando for Families: Cocoa Beach and More | Wonderlocity",
+ "Beach day from Orlando: Cocoa Beach, New Smyrna, Daytona, Canaveral National Seashore, and how long each drive takes.",
+ "The closest family beaches to Orlando are about an hour away: Daytona Beach, New Smyrna Beach and Cocoa Beach, with Canaveral National Seashore for quiet sand.",
+ """{{FACTS|Closest=Daytona, New Smyrna, Cocoa;Drive=About 1 hour to 1 hour 15;Calm water=New Smyrna Beach;Quiet sand=Canaveral National Seashore}}<p>Orlando is inland, but the Atlantic coast is only about an hour away. A beach day fits easily between park days.</p>
+<h2>Beaches and drive times</h2><table class='costtable'><tr><td>Daytona Beach</td><td>About 58 minutes, boardwalk and family entertainment</td></tr>
+<tr><td>New Smyrna Beach</td><td>About 1 hour 3 minutes, gentle waves</td></tr>
+<tr><td>Cocoa Beach</td><td>About 1 hour 9 minutes, pier with restaurants and free live music</td></tr>
+<tr><td>Canaveral National Seashore</td><td>About 1 hour 15 minutes, wide quiet sands</td></tr></table>
+{{FIG|fl-bch-guard|Cocoa Beach has a pier, shops, and a relaxed family feel.}}
+<h2>Best pick by kids</h2><p>New Smyrna Beach has gentle waves that suit young kids. Cocoa Beach works for a mix of ages thanks to the pier and live music. Daytona Beach is the choice if you want a boardwalk and entertainment.</p>
+{{FIG|fl-bch-light|Ponce Inlet is home to Florida's tallest lighthouse, which visitors can climb.}}
+<h2>Go quiet</h2><p>Canaveral National Seashore has wide quiet sands for swimming and hiking, but the park does not sell snacks, water, sunscreen or bug spray, so bring your own. Satellite Beach has a sea turtle walk with the Sea Turtle Preservation Society.</p>
+{{FIG|fl-bch-walk|Pack a cooler and let the kids set the pace.}}
+{{TIP|Leave early|Leaving by 8 or 9 a.m. gives you a long beach day and an easier drive home before evening traffic.}}
+<p>Combine a beach day with a cruise from <a href='/cruises/cruises-from-orlando-port-canaveral/'>Port Canaveral</a>, or add rest days from our <a href='/guides/orlando-with-kids-without-theme-parks/'>Orlando without theme parks</a> guide.</p>"""+_UPD,
+ [("What is the closest beach to Orlando?","Daytona Beach is about 58 minutes away, followed by New Smyrna Beach at about an hour."),
+  ("Which beach near Orlando is best for young kids?","New Smyrna Beach has gentle waves that suit kids, and Cocoa Beach has a pier with live music."),
+  ("Can you bring food to Canaveral National Seashore?","You need to. The park does not sell snacks, water, sunscreen or bug spray.")],
+ [article_node("Best beaches near Orlando for families","Family beaches within about an hour and a quarter of Orlando.","https://wonderlocity.com/guides/best-beaches-near-orlando-for-families/")],
+ [("All family trips","/family/"),("Orlando without theme parks","/guides/orlando-with-kids-without-theme-parks/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Orlando guide","/destinations/orlando/")]+_RELX,
+ "Orlando")
+
+
 # ===== Family hub + homepage story feed (added Nov 2026) =====
 import glob as _g2, re as _r2, html as _h2
 
 FEED_META = {
+ "cruises/cruises-from-orlando-port-canaveral":("Cruises","cruises family"),
+ "cruises/cruises-from-miami":("Cruises","cruises family"),
+ "cruises/port-canaveral-vs-miami":("Cruises","cruises"),
+ "cruises/best-cruises-from-florida-for-families":("Cruises","cruises family"),
+ "cruises/disney-cruise-from-port-canaveral":("Cruises","cruises family"),
+ "guides/orlando-with-kids-without-theme-parks":("Family","family"),
+ "guides/best-beaches-near-orlando-for-families":("Family","family beach"),
+ "guides/things-to-do-with-kids-virginia-beach":("Family","family weekend"),
+ "cruises/carnival-from-norfolk-with-kids":("Cruises","cruises family"),
+ "essentials/family-cruise-packing-list":("Packing list","cruises family"),
+ "guides/road-trip-virginia-beach-to-orlando-with-kids":("Family","family"),
+ "guides/disney-vs-universal-kids-6-12":("Family","family"),
  "guides/disney-or-universal-toddlers":("Family","family"),
  "guides/orlando-on-a-budget":("Family","family"),
  "guides/caribbean-family-resorts":("Family","family beach"),
@@ -1233,7 +1600,9 @@ FEED_META = {
  "destinations/punta-cana":("Destination","beach family"),
  "destinations/orlando":("Destination","family"),
 }
-FEED_ORDER = ["cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
+FEED_ORDER = ["cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
+ "guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
+ "cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
  "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
  "cruises/carnival-ships-guide","guides/outer-banks-weekend","guides/punta-cana-best-resorts","guides/santorini-honeymoon-cost",
  "guides/caribbean-cruise-first-timer","guides/weekend-getaways-from-virginia-beach","guides/royal-caribbean-vs-carnival",
@@ -1329,15 +1698,15 @@ open(_hp,"w",encoding="utf-8").write(_hh)
 # ---- Family hub ----
 _FAM = [
  ("theme-parks","Theme parks and Orlando","Disney, Universal, and how to do Orlando without the sticker shock.",
-   ["guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
+   ["guides/orlando-with-kids-without-theme-parks","guides/disney-vs-universal-kids-6-12","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
  ("beach","Beach and all-inclusive resorts","Resorts where the kids are busy and the bill is clear before you book.",
-   ["guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
+   ["guides/best-beaches-near-orlando-for-families","guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
  ("cruises","Cruises with kids","One price, one unpack, and a different island most days.",
-   ["guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
+   ["cruises/best-cruises-from-florida-for-families","cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/disney-cruise-from-port-canaveral","cruises/port-canaveral-vs-miami","cruises/carnival-from-norfolk-with-kids","guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
  ("weekends","Weekend trips from Virginia Beach","Short drives, no flights, and easy to fit around school and work.",
-   ["guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
+   ["guides/things-to-do-with-kids-virginia-beach","guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
  ("plan","Plan and pack","Packing lists and planning help so nothing gets forgotten.",
-   ["essentials/cruise-packing-list","essentials/caribbean-packing-list"]),
+   ["essentials/family-cruise-packing-list","essentials/cruise-packing-list","essentials/caribbean-packing-list"]),
 ]
 _fam_crumbs = [("Home","/"),("Family trips",None)]
 _fb = phero("wl-fm-hero",_fam_crumbs,"Family trips")
