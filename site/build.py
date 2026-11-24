@@ -1206,10 +1206,179 @@ page("cruises/index.html","Cruises: Costs, Lines, Ships, and Itineraries | Wonde
  {"@context":"https://schema.org","@graph":[breadcrumb_schema(_cr_crumbs)]})
 
 
+REAL_IMAGES.update({
+    "fam-vb-hero": "https://images.unsplash.com/photo-1777138653711-f59e274de4e4?fm=jpg&q=80&fit=crop",
+    "fam-vb-umbrella": "https://images.unsplash.com/photo-1531129630896-1744cab0cafd?fm=jpg&q=80&fit=crop",
+    "fam-vb-fish": "https://images.unsplash.com/photo-1636045466232-539c7bd7817e?fm=jpg&q=80&fit=crop",
+    "fam-vb-trail": "https://images.unsplash.com/photo-1539920951450-2b2d59cff66d?fm=jpg&q=80&fit=crop",
+    "fam-vb-water": "https://images.unsplash.com/photo-1739295194212-0602c4d1e797?fm=jpg&q=80&fit=crop",
+    "fam-norfolk-hero": "https://images.unsplash.com/photo-1638287527782-56569934c034?fm=jpg&q=80&fit=crop",
+    "fam-nf-pier": "https://images.unsplash.com/photo-1721122964936-b0ab03e6dbbd?fm=jpg&q=80&fit=crop",
+    "fam-nf-slide": "https://images.unsplash.com/photo-1770330514127-f23131508ebb?fm=jpg&q=80&fit=crop",
+    "fam-nf-beach": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?fm=jpg&q=80&fit=crop",
+    "fam-pack-hero": "https://images.unsplash.com/photo-1555446099-555959e43ecf?fm=jpg&q=80&fit=crop",
+    "fam-pack-flat": "https://images.unsplash.com/photo-1541341584401-605c9cf3537e?fm=jpg&q=80&fit=crop",
+    "fam-pack-beach": "https://images.unsplash.com/photo-1759559585493-8f3a10cec180?fm=jpg&q=80&fit=crop",
+    "fam-road-hero": "https://images.unsplash.com/photo-1761047321481-abbdcfb7ff00?fm=jpg&q=80&fit=crop",
+    "fam-road-window": "https://images.unsplash.com/photo-1756142008330-87dc106322a4?fm=jpg&q=80&fit=crop",
+    "fam-road-savannah": "https://images.unsplash.com/photo-1780348545647-0498a42c3b38?fm=jpg&q=80&fit=crop",
+    "fam-du-hero": "https://images.unsplash.com/photo-1789758612499-dc1ede632152?fm=jpg&q=80&fit=crop",
+    "fam-du-carousel": "https://images.unsplash.com/photo-1601930113377-729966035f34?fm=jpg&q=80&fit=crop",
+    "fam-du-rides": "https://images.unsplash.com/photo-1761242606389-0a45db29fdee?fm=jpg&q=80&fit=crop",
+})
+
+# ===== Five family articles (added Nov 2026) =====
+_FAMCR = [("Home","/"),("Family trips","/family/")]
+_UPD = "<p><em>Details last checked in November 2026. Prices and hours change, so confirm them before you go.</em></p>"
+
+# ---- 1. Things to do with kids in Virginia Beach ----
+rich_page("guides/things-to-do-with-kids-virginia-beach/index.html","https://wonderlocity.com/guides/things-to-do-with-kids-virginia-beach/",
+ _FAMCR+[("Things to do with kids in Virginia Beach",None)],"Things to do with kids in Virginia Beach","fam-vb-hero",
+ "Things to Do With Kids in Virginia Beach (Beyond the Beach) | Wonderlocity",
+ "Kid-tested ideas for Virginia Beach: the aquarium, First Landing State Park, a water park, treetop courses, and rainy-day plans for every age.",
+ "Virginia Beach works for kids of every age because the beach is only the start: there is a big aquarium, a state park with 19 miles of trails, a 30-attraction water park, treetop courses, and indoor options for rainy days.",
+ """{{FACTS|Best for=Ages 3 to 12, and teens too;Beach and boardwalk=Free to enjoy;Rainy day=Aquarium, Apex, aviation museum;Plan on=2 to 4 days}}<p>Most families come to Virginia Beach for the sand and then discover how much else fits around it. You can swim before lunch, watch sharks after, and be on a forest trail by late afternoon, all without a long drive. Here is how to mix it up so nobody gets bored, and what to save for the days the weather does not cooperate.</p>
+<h2>Start with the beach and boardwalk</h2><p>The beach and the Boardwalk cost nothing to enjoy, which makes them the easy anchor for every day. The Boardwalk is good for biking and strolling, so it is an easy evening walk after a beach day. For little ones, Grommet Island Park is an ocean-themed playground steps from the sand, designed for children of all abilities.</p>
+{{FIG|fam-vb-umbrella|Plan the beach for mornings, then spend the hot middle of the day somewhere shaded or indoors.}}
+<h2>See sharks and rays at the Virginia Aquarium</h2><p>The Virginia Aquarium and Marine Science Center is the classic move for any weather. It has more than a dozen species of shark, ray, eel and reptile, plus live animal encounters, and it suits kids of all ages. Go early on a hot or rainy day, and check current tickets and hours before you head over.</p>
+{{FIG|fam-vb-fish|An aquarium visit works for a toddler and a ten-year-old on the same ticket.}}
+<h2>Walk it off at First Landing State Park</h2><p>First Landing is called Virginia's most visited state park, with 19 miles of all-ages terrain and 1.25 miles of Chesapeake Bay coastline. It is the right answer when the kids have had enough screens and sand, and you want a flat walk that nobody complains about.</p>
+{{FIG|fam-vb-trail|Pick an easy trail first, and let the kids decide if they want a longer one.}}
+{{TIP|Pack for the park|Bring bug spray, water, and a snack. A short, easy trail that ends with a beach stop beats a long hike for most kids.}}
+<h2>Splash at Ocean Breeze Waterpark</h2><p>Ocean Breeze has more than 30 attractions, including water slides, aquatic playgrounds, a wave pool, and a lazy river called Adventure River. It is a good day for mixed ages, because there is shallow play for the small ones and bigger slides for everyone else.</p>
+{{FIG|fam-vb-water|A water park day covers kids who are tired of waves and want slides.}}
+<h2>Rainy days and big-kid energy</h2><p>When it pours, Apex Entertainment brings indoor ropes courses and go-karts. The Military Aviation Museum shows off about 70 planes restored to flying condition, which is a hit with plane fans of any age. The Cape Henry Lighthouse, built in 1792, has 191 narrow, winding steps, so decide if your kids are ready for the climb.</p>
+<h2>Farms, treetops, and wildlife</h2><p>Hunt Club Farm is a family-run 50 acres with a petting farm and a TreeWalk Adventure. The Adventure Park at Virginia Beach is another treetop option for kids who like climbing. Back Bay National Wildlife Refuge is a quieter pick for wildlife viewing.</p>
+<h2>A simple three-day plan</h2><table class='costtable'><tr><td>Day 1</td><td>Beach morning, Boardwalk walk in the evening</td></tr>
+<tr><td>Day 2</td><td>Virginia Aquarium, then Grommet Island Park</td></tr>
+<tr><td>Day 3</td><td>First Landing State Park or Ocean Breeze, depending on the weather</td></tr></table>
+<p>Keep one flexible day for rain or tired kids, and book the aquarium or water park for the day with the best forecast.</p>
+<h2>Where to stay</h2><p>Staying near the oceanfront means you can walk to the beach and the Boardwalk and skip the car on most evenings. If you want a bigger space for the family, look for a suite or condo with a kitchenette, since breakfasts and snacks add up fast.</p>"""+_UPD+"""""",
+ [("What is the best thing to do with kids in Virginia Beach?","Start with the beach and Boardwalk, which are free to enjoy, and add the Virginia Aquarium and First Landing State Park. Together they cover water, animals, and an easy walk."),
+  ("What can we do in Virginia Beach when it rains?","Try the Virginia Aquarium, Apex Entertainment for indoor ropes and go-karts, or the Military Aviation Museum, which has about 70 planes restored to flying condition."),
+  ("Is Virginia Beach good for toddlers?","Yes. Grommet Island Park is an ocean-themed playground by the sand, and the aquarium and the beach both work well for small children.")],
+ [article_node("Things to do with kids in Virginia Beach","Beach, aquarium, parks, a water park, and rainy-day plans for families in Virginia Beach.","https://wonderlocity.com/guides/things-to-do-with-kids-virginia-beach/")],
+ [("All family trips","/family/"),("Weekend getaways from Virginia Beach","/guides/weekend-getaways-from-virginia-beach/"),("Williamsburg weekend","/guides/williamsburg-weekend/"),("Outer Banks weekend","/guides/outer-banks-weekend/"),("Free planning chat","/contact/")],
+ "Virginia Beach")
+
+# ---- 2. Carnival from Norfolk with kids ----
+rich_page("cruises/carnival-from-norfolk-with-kids/index.html","https://wonderlocity.com/cruises/carnival-from-norfolk-with-kids/",
+ [("Home","/"),("Cruises","/cruises/"),("Carnival from Norfolk with kids",None)],"Carnival from Norfolk with kids: a cruise with no flight","fam-norfolk-hero",
+ "Carnival From Norfolk With Kids: Cruise Without Flying | Wonderlocity",
+ "Drive to a Carnival cruise from Norfolk, Virginia. Parking costs, which ship sails, kids clubs, and a packing plan for families.",
+ "Carnival sails year-round from Norfolk, Virginia, so a Virginia Beach family can drive to the ship, skip the airfares, and park for $15 a day, with Carnival Sunshine through mid-May 2027 and Carnival Freedom after that.",
+ """{{FACTS|Ship now=Carnival Sunshine until mid-May 2027;Ship after=Carnival Freedom from May 15, 2027;Parking=$15 per day, free shuttle;Kids club=Camp Ocean, ages 2 to 11}}<p>The best part of cruising from Norfolk is what you leave out: no flights, no checked-bag fees, no rental car at the other end. You pack the car, drive to the ship, and walk on. For a family of four, that can change which cruise is the better deal, and it makes a short Bahamas or Eastern Caribbean sailing much easier to try.</p>
+<h2>Which ship you will sail on</h2><p>Carnival Sunshine has been Norfolk's ship and stays through mid-May 2027, finishing 21 cruises before it moves on. It entered service in 1996 as Carnival Destiny and was rebuilt and renamed in 2013. Carnival Freedom arrives on May 15, 2027 and runs 33 cruises from Norfolk for the rest of that year. It carries about 3,000 guests and entered service in 2006. For 2027, Carnival lists Bahamas, Bermuda, Eastern Caribbean, and Canada sailings from Norfolk, so check which itinerary and length fits your school break.</p>
+{{FIG|fam-nf-pier|Ships dock at the Half Moone Cruise Terminal in downtown Norfolk, a short drive from Virginia Beach.}}
+<h2>Parking, step by step</h2><p>The Half Moone Cruise Terminal is at 1 Waterside Drive in downtown Norfolk. The City of Norfolk lists Cedar Grove parking at 1000 Monticello Avenue, about 1.5 miles away, at $15 per day, and you can pre-pay or pay on entry by cash or card. A free shuttle takes you to the terminal, and you can check your luggage at the lot so it goes straight to the ship. On cruise days the lot opens at 9:30 a.m., shuttles start around 9:45 a.m., and the last shuttle runs at 2:30 p.m. If you would rather skip parking, drop-off is on Waterside Drive.</p>
+<table class='costtable'><tr><td>Parking, 7-night cruise</td><td>about $105 to $120</td></tr>
+<tr><td>Gratuities</td><td>about $119 per person for a week</td></tr>
+<tr><td>Flights for the family</td><td>$0, you drive</td></tr></table>
+{{TIP|Do the real math|Parking runs $15 a day, so a week costs about $105 to $120. Compare that with four airfares plus bags to a Florida port. Add gratuities to any fare you compare.}}
+<h2>What kids do on board</h2><p>Carnival's kids program, Camp Ocean, is included in the cruise fare and starts at age 2. It splits kids into Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11). A late-evening option called Night Owls has a fee. Our <a href='/cruises/carnival-ships-guide/'>Carnival ships guide</a> explains how older and newer ships differ, which matters when you choose between Sunshine and Freedom.</p>
+{{FIG|fam-nf-slide|Pool and slide time is the main event for most kids at sea.}}
+<h2>Before you go</h2><p>Every traveler, kids included, needs proper travel documents at embarkation, and guests without them cannot board, so confirm Carnival's current rules for your group. Carnival also prohibits all speakers, including Bluetooth, and holds them until the cruise ends, so leave the kids' speakers at home. Our <a href='/essentials/family-cruise-packing-list/'>family cruise packing list</a> has a printable checklist.</p>
+<h2>Make a day of Norfolk</h2><p>Nauticus, the maritime museum on the terminal campus beside the USS Wisconsin, offers cruise passengers buy-one-get-one-free admission. It is a good use of an early arrival or a post-cruise afternoon.</p>
+{{FIG|fam-nf-beach|Bahamas and Eastern Caribbean itineraries bring beach days within a short sail from the Mid-Atlantic.}}"""+_UPD+"""""",
+ [("Does Carnival sail from Norfolk, Virginia?","Yes. Carnival Sunshine sails from Norfolk through mid-May 2027, and Carnival Freedom takes over from May 15, 2027."),
+  ("How much is parking at the Norfolk cruise terminal?","The city lists Cedar Grove parking at $15 per day, with a free shuttle to the terminal. Confirm current rates and shuttle times before your cruise."),
+  ("What is the kids club on Carnival?","Camp Ocean, included in the fare, for ages 2 to 11: Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11).")],
+ [article_node("Carnival from Norfolk with kids","Carnival cruises from Norfolk for families: ships, parking, kids clubs, and what to pack.","https://wonderlocity.com/cruises/carnival-from-norfolk-with-kids/")],
+ [("All cruise guides","/cruises/"),("All family trips","/family/"),("Carnival Caribbean itineraries","/cruises/carnival-caribbean-itineraries/"),("Carnival cost review","/cruises/carnival-cruise-line-review/"),("Family cruise packing list","/essentials/family-cruise-packing-list/"),("Free planning chat","/contact/")],
+ "Caribbean cruises")
+
+# ---- 3. Family cruise packing list (printable) ----
+rich_page("essentials/family-cruise-packing-list/index.html","https://wonderlocity.com/essentials/family-cruise-packing-list/",
+ [("Home","/"),("Family trips","/family/"),("Family cruise packing list",None)],"Family cruise packing list (with printable checklist)","fam-pack-hero",
+ "Family Cruise Packing List: Printable Checklist for Kids | Wonderlocity",
+ "A printable family cruise packing checklist: documents, carry-on, kids' items, cabin helpers, and what to leave at home.",
+ "A family cruise packing list should cover documents, a first-day carry-on, kids' items, and a few cabin helpers, and it should leave out speakers and anything the cruise line prohibits.",
+ """<style>.check ul{list-style:none;padding-left:0}.check li{padding:7px 0 7px 32px;position:relative;border-bottom:1px solid var(--line)}.check li:before{content:'';position:absolute;left:0;top:10px;width:16px;height:16px;border:2px solid var(--green);border-radius:4px}@media print{header.site,footer.site,.phero,.panel,.related,.ctaband,.faq,.fig,.noprint,.answer,.tip,.facts{display:none!important}.check li{break-inside:avoid}}</style>{{FACTS|Use it for=Any family cruise;Print it=Button below;Pack first=Documents and carry-on;Leave home=Speakers and prohibited items}}<p>Packing for a cruise with kids is mostly about three bags: the one you carry, the ones that arrive at the cabin later, and the little one with everything the kids will ask for in the first hour. Use this list, print it, and tick items off as they go in.</p>
+<p class='noprint'><button class='btn btn-green' type='button' onclick='window.print()'>Print this checklist</button></p>
+{{FIG|fam-pack-flat|Lay everything out first, then pack the carry-on before anything else.}}
+<div class='check'>
+<h2>Documents and money</h2><ul><li>Passports or travel documents for every traveler, kids included</li><li>Boarding documents and luggage tags from online check-in</li><li>A card and a little cash for tips and small purchases</li><li>Copies of key documents, kept separate from the originals</li></ul>
+<h2>Carry-on for day one</h2><ul><li>Swimsuits and cover-ups for everyone</li><li>Sunscreen and hats</li><li>One change of clothes per person</li><li>Any medicine, in its original packaging</li><li>Phone chargers and a portable battery</li><li>Snacks and a refillable water bottle for the walk to the ship</li></ul>
+<h2>For the kids</h2><ul><li>Swim gear, goggles, and a quick-dry towel</li><li>A small backpack for pool and shore days</li><li>Cards, a travel game, or a small toy for dining room waits</li><li>A comfort item for bedtime</li><li>Swim diapers if you have a baby or toddler (check the pool rules)</li></ul>
+<h2>Clothes</h2><ul><li>Shorts, t-shirts, and flip-flops for most days</li><li>One or two dressier outfits for the optional dressy nights</li><li>A light jacket or sweater for cool evenings and strong air conditioning</li><li>Comfortable shoes for shore days</li></ul>
+<h2>Cabin helpers</h2><ul><li>A small laundry bag</li><li>A few clips or hooks for towels and swimsuits</li><li>Wet wipes and hand sanitizer</li><li>A night light for the cabin</li></ul>
+<h2>Before you go</h2><ul><li>Download the cruise line app and book excursions and dinners early</li><li>Check the prohibited items list for anything with a plug, such as power strips</li><li>Leave speakers at home</li><li>Charge devices the night before</li></ul>
+</div>
+{{TIP|Why the carry-on matters|Checked bags can reach the cabin late in the day. A carry-on with swimsuits and sunscreen lets the kids hit the pool right away.}}
+<h2>Leave at home</h2><p>Carnival prohibits all speakers, including Bluetooth, and holds them until the cruise ends. The line also publishes a prohibited items list, so check it before you pack anything plug-in. Leave valuables at home too.</p>
+{{FIG|fam-pack-beach|Pack for pool days and shore days, and let the kids carry their own small bag.}}
+<p>For a longer, general list, see our <a href='/essentials/cruise-packing-list/'>cruise packing list</a>, and for itinerary ideas see <a href='/cruises/carnival-from-norfolk-with-kids/'>Carnival from Norfolk with kids</a>.</p>"""+_UPD+"""""",
+ [("What should families pack in a cruise carry-on?","Swimsuits, sunscreen, one change of clothes, medicine, chargers, and snacks, so everyone can start vacation before the bags arrive."),
+  ("What can you not bring on a Carnival cruise?","Carnival prohibits all speakers, including Bluetooth, and holds them until the cruise ends. The line also publishes a prohibited items list, so check it before you pack."),
+  ("Do kids need passports for a cruise?","Every traveler needs proper travel documents at embarkation, and guests without them cannot board. Confirm the cruise line's current rules for each traveler.")],
+ [article_node("Family cruise packing list","A printable packing checklist for families going on a cruise.","https://wonderlocity.com/essentials/family-cruise-packing-list/")],
+ [("All family trips","/family/"),("Cruise packing list","/essentials/cruise-packing-list/"),("Carnival from Norfolk with kids","/cruises/carnival-from-norfolk-with-kids/"),("First Caribbean cruise","/guides/caribbean-cruise-first-timer/"),("Free planning chat","/contact/")],
+ "Caribbean cruises")
+
+# ---- 4. Road trip Virginia Beach to Orlando ----
+rich_page("guides/road-trip-virginia-beach-to-orlando-with-kids/index.html","https://wonderlocity.com/guides/road-trip-virginia-beach-to-orlando-with-kids/",
+ _FAMCR+[("Virginia Beach to Orlando road trip",None)],"Road trip from Virginia Beach to Orlando with kids","fam-road-hero",
+ "Virginia Beach to Orlando Road Trip With Kids: Stops and Plan | Wonderlocity",
+ "A family road trip from Virginia Beach to Orlando: about 769 miles, where to break the drive, kid-friendly stops, and how to keep the car calm.",
+ "Virginia Beach to Orlando is about 769 miles and roughly 14.5 hours of driving, so most families split it into two days with an overnight in South Carolina or Georgia and add one or two kid-friendly stops.",
+ """{{FACTS|Distance=About 769 miles;Drive time=About 14.5 hours, no stops;Best plan=Two days with one overnight;Good stops=Savannah, Walterboro, Fayetteville}}<p>Driving to Orlando from the Virginia Beach area is a long day, but it has real upsides for a family: you bring everything, you have a car when you get there, and you can turn the trip into a vacation of its own. The key is to treat it as two easy days rather than one hard one.</p>
+<h2>The numbers</h2><p>The drive is about 769 miles and roughly 14.5 hours without stops, which is why a stop for the night makes the trip so much calmer. Most families take I-64 to I-95 south. Plan around meals, gas, and restroom breaks with kids, and add time for traffic near big cities.</p>
+<h2>Where to break the drive</h2><p>Think of the trip in three chunks: a first leg through Virginia and North Carolina, a middle leg through South Carolina and Georgia, and a short last day into Florida. Families who prefer a shorter day two often sleep in Georgia or South Carolina, so the Orlando arrival comes before dinner.</p>
+<h2>Kid-friendly stops along I-95</h2><table class='costtable'><tr><td>Fayetteville, NC</td><td>U.S. Army Airborne and Special Operations Museum, indoors</td></tr>
+<tr><td>Walterboro, SC</td><td>Walterboro Wildlife Sanctuary, boardwalks and trails</td></tr>
+<tr><td>Savannah, GA</td><td>Riverfront walk and The Pirates' House</td></tr>
+<tr><td>Cape Canaveral, FL</td><td>Kennedy Space Center and Canaveral National Seashore</td></tr></table>
+<p>In Fayetteville, the Army Airborne and Special Operations Museum is indoors, so it works in any weather. In Walterboro, the wildlife sanctuary has boardwalks and trails, which is a good way to stretch legs. In Savannah, walk the historic riverfront, and kids can climb the spiral staircase at The Pirates' House up to a pirate gift shop and restaurant. Near Cape Canaveral, Kennedy Space Center and Canaveral National Seashore, with 24 miles of undeveloped beach, are worth a detour if you have time.</p>
+{{FIG|fam-road-savannah|Savannah's moss-draped oaks make a calm stop for a family that has spent hours in the car.}}
+{{TIP|Make the first stop short|Pick a stop within two or three hours. It sets a relaxed pace and gives the kids a first win before the long middle stretch.}}
+<h2>Keeping the car calm</h2><p>Pack snacks in a reachable bag, download shows and music before you leave, and bring a few games that need no screen. Give older kids a job, like tracking the map or choosing the next stop, and give younger ones a small surprise for each leg.</p>
+{{FIG|fam-road-window|Window seats, snacks, and a plan for the next stop keep most road trips cheerful.}}
+<h2>Drive or fly?</h2><p>Driving makes the most sense for a bigger family, for anyone who wants a car in Orlando, and for people who like a slower start to the vacation. Flying saves a day each way, so it fits a short trip better. Either way, read our <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a> guide before you book hotels and tickets.</p>"""+_UPD+"""""",
+ [("How far is Virginia Beach from Orlando by car?","About 769 miles, or roughly 14.5 hours of driving without stops."),
+  ("Can you drive from Virginia Beach to Orlando in one day?","It is possible, but it is a very long day with kids. Most families split it into two days with an overnight in South Carolina or Georgia."),
+  ("What are good kid-friendly stops on the way to Orlando?","Fayetteville, North Carolina for the Army Airborne museum, Walterboro, South Carolina for the wildlife sanctuary, and Savannah, Georgia for the riverfront and The Pirates' House.")],
+ [article_node("Road trip from Virginia Beach to Orlando with kids","Distance, stops, and a two-day plan for driving from Virginia Beach to Orlando with kids.","https://wonderlocity.com/guides/road-trip-virginia-beach-to-orlando-with-kids/")],
+ [("All family trips","/family/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Disney or Universal for ages 6 to 12","/guides/disney-vs-universal-kids-6-12/"),("Orlando guide","/destinations/orlando/"),("Free planning chat","/contact/")],
+ "Orlando")
+
+# ---- 5. Disney vs Universal for kids 6-12 ----
+rich_page("guides/disney-vs-universal-kids-6-12/index.html","https://wonderlocity.com/guides/disney-vs-universal-kids-6-12/",
+ _FAMCR+[("Disney or Universal for ages 6 to 12",None)],"Disney or Universal for kids ages 6 to 12","fam-du-hero",
+ "Disney vs Universal for Kids 6 to 12: Which Fits Your Family | Wonderlocity",
+ "Disney World or Universal Orlando for ages 6 to 12? A plain comparison of rides, height limits, crowds, and ticket prices from about $119.",
+ "For ages 6 to 8, Disney World is usually the easier fit, and for ages 9 to 12 who like coasters, Universal Orlando is a serious contender, with one-day tickets starting from about $119 per person at both.",
+ """{{FACTS|Ages 6 to 8=Disney is usually easier;Ages 9 to 12=Either works, Universal for thrill fans;Tickets=From about $119 per day;Days needed=8 to 10 for both resorts}}<p>If your kids are somewhere between 6 and 12, you are in the sweet spot: old enough for real rides, young enough that the magic still works. The better resort depends less on the age number and more on what your kids actually like.</p>
+<h2>The short answer</h2><p>Younger kids in this range, around 6 to 8, usually do best at Disney, which has a lot of rides without height limits and many gentle attractions. Kids who are 9 and up are ready for Universal, especially if they love coasters, Harry Potter, or Nintendo. If your group is mixed, Disney is the safer first trip and Universal is the one to add later.</p>
+{{FIG|fam-du-carousel|Classic carousel and gentle rides are where Disney tends to shine for younger kids.}}
+<h2>Rides and height limits</h2><p>Disney skews toward all ages and all comfort levels. Universal skews toward intensity, and many headline rides have minimum heights or intense motion. One example is Harry Potter and the Battle at the Ministry at Epic Universe, which has a 48-inch minimum. Always check each ride's current height rule before you promise anything, and remember that both parks offer a rider switch, so one adult can stay with a smaller child.</p>
+<h2>What it costs</h2><table class='costtable'><tr><td>Disney, one-day ticket</td><td>from about $119 per adult</td></tr>
+<tr><td>Disney, one-day child ticket</td><td>from about $113</td></tr>
+<tr><td>Universal Epic Universe, one day</td><td>from about $135 per adult</td></tr>
+<tr><td>Universal, 3+ days, all four parks</td><td>from about $73 per day</td></tr></table>
+{{TIP|How to read these prices|Theme park tickets change by date. A Tuesday in mid-September costs far less than a Saturday in late December, so price your exact dates before you decide.}}
+<p>Child pricing generally covers ages 3 to 9 at both resorts, so a 10 to 12 year old is usually priced as an adult. Check the current ticket rules at checkout. Neither resort includes line-skipping in a standard ticket: Disney sells Lightning Lane separately, and Universal sells Express separately.</p>
+{{FIG|fam-du-rides|Bigger rides and bigger crowds mean planning your day around a few must-do attractions.}}
+<h2>Crowds and line-skipping</h2><p>Disney's Lightning Lane Multi Pass can help on busy days, especially at Magic Kingdom. Universal Express is worth considering at Epic Universe while crowds remain high. For both, weekdays in late August or early September are usually the easiest, and arriving early helps.</p>
+<h2>How many days do you need?</h2><p>Disney has four parks and Universal has four, including Epic Universe and Volcano Bay. Doing both well takes about 8 to 10 days, with 4 to 5 at Disney and 2 to 3 at Universal, and Epic Universe needs at least one full day. If you have only a week, pick one resort and save the other for another year.</p>
+<h2>Skip these for this age</h2><p>Universal's Halloween Horror Nights is not for kids under 12 or 13. If you visit in the fall, ask yourself honestly how your kids handle scary scenes.</p>
+<h2>So which one?</h2><p>Choose Disney if your kids love characters, gentler rides, and shows. Choose Universal if they chase thrills and big worlds. Choose both if you can give the trip at least a week and a half. For a closer look at the younger end, see our <a href='/guides/disney-or-universal-toddlers/'>toddlers guide</a>, and for budget planning, see <a href='/guides/orlando-on-a-budget/'>Orlando on a budget</a>.</p>"""+_UPD+"""""",
+ [("Is Disney or Universal better for a 7 year old?","Disney is usually the easier fit, with more rides without height limits and many gentle attractions."),
+  ("Is Universal good for a 10 year old?","Yes, especially for kids who like coasters, Harry Potter, or Nintendo. Check each ride's height rule before you go."),
+  ("How much do Disney and Universal tickets cost?","One-day tickets start from about $119 per person at both, and Epic Universe starts from about $135. Prices change by date, so check your exact days.")],
+ [article_node("Disney or Universal for kids ages 6 to 12","Rides, height limits, crowds, and prices for choosing between Disney World and Universal Orlando with kids 6 to 12.","https://wonderlocity.com/guides/disney-vs-universal-kids-6-12/")],
+ [("All family trips","/family/"),("Disney or Universal for toddlers","/guides/disney-or-universal-toddlers/"),("Orlando on a budget","/guides/orlando-on-a-budget/"),("Road trip to Orlando","/guides/road-trip-virginia-beach-to-orlando-with-kids/"),("Orlando guide","/destinations/orlando/"),("Free planning chat","/contact/")],
+ "Orlando")
+
+
 # ===== Family hub + homepage story feed (added Nov 2026) =====
 import glob as _g2, re as _r2, html as _h2
 
 FEED_META = {
+ "guides/things-to-do-with-kids-virginia-beach":("Family","family weekend"),
+ "cruises/carnival-from-norfolk-with-kids":("Cruises","cruises family"),
+ "essentials/family-cruise-packing-list":("Packing list","cruises family"),
+ "guides/road-trip-virginia-beach-to-orlando-with-kids":("Family","family"),
+ "guides/disney-vs-universal-kids-6-12":("Family","family"),
  "guides/disney-or-universal-toddlers":("Family","family"),
  "guides/orlando-on-a-budget":("Family","family"),
  "guides/caribbean-family-resorts":("Family","family beach"),
@@ -1233,7 +1402,8 @@ FEED_META = {
  "destinations/punta-cana":("Destination","beach family"),
  "destinations/orlando":("Destination","family"),
 }
-FEED_ORDER = ["cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
+FEED_ORDER = ["guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
+ "cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
  "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
  "cruises/carnival-ships-guide","guides/outer-banks-weekend","guides/punta-cana-best-resorts","guides/santorini-honeymoon-cost",
  "guides/caribbean-cruise-first-timer","guides/weekend-getaways-from-virginia-beach","guides/royal-caribbean-vs-carnival",
@@ -1329,15 +1499,15 @@ open(_hp,"w",encoding="utf-8").write(_hh)
 # ---- Family hub ----
 _FAM = [
  ("theme-parks","Theme parks and Orlando","Disney, Universal, and how to do Orlando without the sticker shock.",
-   ["guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
+   ["guides/disney-vs-universal-kids-6-12","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-or-universal-toddlers","guides/orlando-on-a-budget","destinations/orlando"]),
  ("beach","Beach and all-inclusive resorts","Resorts where the kids are busy and the bill is clear before you book.",
    ["guides/caribbean-family-resorts","guides/all-inclusive-caribbean-cost","guides/cancun-vs-punta-cana-vs-nassau","guides/punta-cana-best-resorts"]),
  ("cruises","Cruises with kids","One price, one unpack, and a different island most days.",
-   ["guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
+   ["cruises/carnival-from-norfolk-with-kids","guides/royal-caribbean-vs-carnival","cruises/carnival-cruise-line-review","guides/caribbean-cruise-first-timer","cruises/carnival-ships-guide"]),
  ("weekends","Weekend trips from Virginia Beach","Short drives, no flights, and easy to fit around school and work.",
-   ["guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
+   ["guides/things-to-do-with-kids-virginia-beach","guides/williamsburg-weekend","guides/outer-banks-weekend","guides/weekend-getaways-from-virginia-beach"]),
  ("plan","Plan and pack","Packing lists and planning help so nothing gets forgotten.",
-   ["essentials/cruise-packing-list","essentials/caribbean-packing-list"]),
+   ["essentials/family-cruise-packing-list","essentials/cruise-packing-list","essentials/caribbean-packing-list"]),
 ]
 _fam_crumbs = [("Home","/"),("Family trips",None)]
 _fb = phero("wl-fm-hero",_fam_crumbs,"Family trips")
