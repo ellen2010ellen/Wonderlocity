@@ -1759,11 +1759,224 @@ page("cruises/carnival-mardi-gras-from-port-canaveral/index.html",
  "https://wonderlocity.com/cruises/carnival-mardi-gras-from-port-canaveral/",_cf_body,_cf_schema)
 
 
+# ===== Carnival ship articles: Celebration and Horizon (added Nov 2026) =====
+_CF_EXTRA_CSS = """<style>
+.cf-cards.c2{grid-template-columns:repeat(2,1fr)}
+.cf-cards.c4{grid-template-columns:repeat(2,1fr)}
+.cf-text .facts3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}
+.cf-text .facts3 div{background:var(--sand);border-radius:14px;padding:16px 18px;font-size:16px;line-height:1.4}
+.cf-text .facts3 b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:24px;color:var(--green-dark);margin-bottom:2px}
+.cf-mosaic.ten{grid-auto-rows:190px}
+@media(max-width:980px){.cf-cards.c2,.cf-cards.c4{grid-template-columns:1fr}.cf-text .facts3{grid-template-columns:1fr}}
+@media(max-width:640px){.cf-hero.phero{background-size:cover;background-position:var(--hero-m,50% 70%)}}
+</style>"""
+
+def _stars(n):
+    return '<span class="st">'+'&#9733;'*n+('<i>'+'&#9733;'*(5-n)+'</i>' if n<5 else '<i></i>')+'</span>'
+
+def _cf_fig(name, alt, cap, w=1400, h=930):
+    return '<figure>'+_cf_img(name,w,h,alt)+'<figcaption>'+cap+'</figcaption></figure>'
+
+def _cf_duo(a, b):
+    out = '<div class="cf-duo">'
+    for name, alt, cap in (a, b):
+        out += '<figure>'+_cf_img(name,1300,865,alt)+'<figcaption>'+cap+'</figcaption></figure>'
+    return out+'</div>'
+
+def cf_page(c):
+    slug = c["slug"]; url = "https://wonderlocity.com/"+slug+"/"
+    crumbs_l = [("Home","/"),("Cruises","/cruises/"),(c["crumb"],None)]
+    h = '<section class="cf-hero phero" style="background-image:url(\'/img/carnival/'+c["hero"]+'.jpg\');background-position:'+c["hero_pos"]+';--hero-m:'+c["hero_pos_m"]+'"><div class="wrap inner">'
+    h += '<div class="crumb">'+crumbs(crumbs_l)+'</div><p class="kicker">'+c["kicker"]+'</p><h1>'+c["h1"]+'</h1></div></section>'
+    h += '<div class="cf-stats">'+"".join('<div><b>'+a+'</b><span>'+b+'</span></div>' for a,b in c["stats"])+'</div>'
+    h += '<div class="cf-intro"><p class="lede">'+c["lede"]+'</p><div class="pillrow">'+"".join('<span class="pill">'+p+'</span>' for p in c["pills"])+'</div>'
+    h += '<div class="heroactions"><a class="btn btn-green" href="/contact/">Get this cruise priced</a><a class="btn-ghost" href="#itineraries">See itineraries</a></div></div>'
+    h += '<section class="cf-score"><h2>'+c["short"]+' at a glance</h2><p class="sub">Our advisor score, based on the ship\'s published features. It is not a guest review.</p><div class="cf-rates">'
+    for t,n,d in c["scores"]:
+        h += '<div class="cf-rate"><p class="t">'+t+'</p>'+_stars(n)+'<p class="n">'+str(n)+' / 5</p><p>'+d+'</p></div>'
+    h += '</div></section>'
+    h += '<div class="cf-main"><article class="cf-text">'
+    h += c["body_html"]
+    h += '</article>'
+    h += '<aside class="cf-side"><div class="cf-card"><p class="from">Fares from</p><p class="price">'+c["price"]+' <small>per person</small></p><p class="note">'+c["price_note"]+'</p><ul>'
+    h += "".join('<li><span>'+a+'</span>'+b+'</li>' for a,b in c["side"])
+    h += '</ul><a class="btn btn-green" href="/contact/">Get this cruise priced</a></div>'
+    h += '<div class="cf-card alt"><h3>'+c["alt_h"]+'</h3><p>'+c["alt_p"]+'</p><a class="btn btn-gold" href="/contact/">Start a free planning chat</a></div></aside></div>'
+    cards = c["cards"]
+    h += '<section class="cf-itin" id="itineraries"><div class="wrap"><h2>'+c["itin_h"]+'</h2><p class="sub">'+c["itin_sub"]+'</p><div class="cf-cards c'+str(len(cards))+'">'
+    for n,u,ph,tag,ports,desc,when in cards:
+        h += '<div class="cf-trip"><div class="ph" style="background-image:url(\'/img/carnival/'+ph+'.jpg\')"></div><div class="b"><span class="tag">'+tag+'</span><div class="nights">'+n+' <small>'+u+'</small></div><div class="chips">'+"".join("<span>"+p+"</span>" for p in ports)+'</div><p>'+desc+'</p><p class="when">'+when+'</p><a class="btn btn-green" href="/contact/">Get this priced</a></div></div>'
+    h += '</div></div></section>'
+    h += '<section class="cf-gal"><div class="wrap"><h2>Life on board and in port</h2><div class="cf-mosaic ten">'
+    for nm,cls,alt in c["mosaic"]:
+        h += '<figure class="'+cls+'">'+_cf_img(nm,1200,800,alt)+'</figure>'
+    h += '</div><p class="cf-credit">'+c["credit"]+'</p></div></section>'
+    fhtml, fsch = faq_block(c["faqs"])
+    h += '<section class="cf-after">'+fhtml+advisory+'<p class="eyebrow">Keep exploring</p><div class="related">'
+    for rn,ru in c["related"]:
+        h += '<a href="'+ru+'">'+rn+'</a>'
+    h += '</div></section>'
+    graph=[breadcrumb_schema(crumbs_l),article_node(c["h1"],c["desc"],url),fsch]
+    page(slug+"/index.html", c["title"], c["desc"], url, _CF_CSS+_CF_EXTRA_CSS+h, {"@context":"https://schema.org","@graph":graph})
+
+_CF_NOTE = '<p><em>Details last checked in November 2026. Prices, itineraries, and ride rules change, so confirm them before you book.</em></p>'
+_CF_REL = [("Carnival Mardi Gras from Port Canaveral","/cruises/carnival-mardi-gras-from-port-canaveral/"),("Cruises from Miami","/cruises/cruises-from-miami/"),("Port Canaveral vs Miami","/cruises/port-canaveral-vs-miami/"),("Carnival ships guide","/cruises/carnival-ships-guide/"),("Family cruise packing list","/essentials/family-cruise-packing-list/")]
+
+# ---------- Carnival Celebration ----------
+_cel_body = (
+ '<h2>Carnival Celebration cruise: the short version</h2>'
+ '<p class="big">Carnival Celebration is one of the biggest ships you can sail from Miami, and it runs Caribbean cruises there all year.</p>'
+ '<p>Celebration joined the fleet in November 2022 as a sister of Mardi Gras and Jubilee, Carnival\'s Excel-class ships. It carries well over five thousand guests, so expect a lively, busy ship with a lot to do for kids, teens, and adults. Most of its Miami cruises are seven nights.</p>'
+ '<div class="facts3"><div><b>Miami</b>year-round homeport</div><div><b>7 nights</b>the usual length</div><div><b>18 decks</b>15 for guests</div></div>'
+ + _cf_fig("celebration-redfrog","The RedFrog Tiki Bar and a blue-lounger pool deck on Carnival Celebration","The RedFrog Tiki Bar and pool deck on Carnival Celebration. Photo: Carnival Cruise Line.",1400,932)
+ + '<h2>Carnival Celebration itinerary: where it goes from Miami</h2>'
+ '<p>Celebration sails round trips from the Port of Miami, and the late November 2026 week is a good example: St. Thomas, Puerto Plata (Amber Cove in the Dominican Republic), and Celebration Key, Carnival\'s own destination in the Bahamas. Two eight-night sailings are listed for spring 2027, on March 28 and April 24. Ports change from one sailing to the next, so ask for the exact route on your dates.</p>'
+ + _cf_duo(("amber-cove","Friends look out over Amber Cove in Puerto Plata from an overlook cabana","Amber Cove, Puerto Plata. Photo: Carnival Cruise Line."),("family-beach","A family relaxes on beach loungers with a Carnival ship in the distance","A beach day in port. Photo: Carnival Cruise Line."))
+ + '<h2>Decks and zones: where to find what</h2><p>Celebration is split into zones, so you can head straight to the kind of fun you want.</p>'
+ '<table class="cf-zones"><tr><th>Zone</th><th>Decks</th><th>What is there</th></tr>'
+ '<tr><td>The Ultimate Playground</td><td>18 to 20, aft</td><td>Bolt roller coaster, ropes course, mini golf and more. Best for active families.</td></tr>'
+ '<tr><td>Lido</td><td>16 to 17, aft</td><td>Casual dining, pools, and bars on the main sun decks.</td></tr>'
+ '<tr><td>Loft 19</td><td>19</td><td>Pool and lounge area on deck 19.</td></tr>'
+ '<tr><td>Summer Landing</td><td>8, aft</td><td>The Patio Pool and outdoor spots at the back of the ship.</td></tr>'
+ '<tr><td>820 Biscayne</td><td>8</td><td>Restaurants and bars on deck 8.</td></tr>'
+ '<tr><td>Celebration Central</td><td>6 to 8</td><td>The atrium and the social heart of the ship.</td></tr>'
+ '<tr><td>The Gateway</td><td>6 to 7, aft</td><td>Aft zone on the lower decks.</td></tr>'
+ '<tr><td>Serenity</td><td>Forward</td><td>Adults only (21 and up).</td></tr></table>'
+ '<h2>Pools and water fun on Carnival Celebration</h2>'
+ '<p>Water is a big part of the day on this ship. Carnival WaterWorks is the largest water park in the fleet, with three spiral slides, a two-lane racing slide, and a tipping bucket. There are also the Beach Pool, the Patio Pool, and the Tides Pool, an infinity pool at the back of the ship with two hot tubs. Guests in Havana cabins get their own Havana pool area, and there is another pool at Loft 19.</p>'
+ + _cf_fig("celebration-tides","The infinity-style Tides Pool at sunset on Carnival Celebration","Tides Pool at sunset, an infinity pool at the back of the ship. Photo: Carnival Cruise Line.",1300,865)
+ + _cf_duo(("sunrise-waterworks","Yellow and pink water slides on the top deck of a Carnival ship","Carnival WaterWorks slides (shown on Carnival Sunrise). Photo: Carnival Cruise Line."),("waterworks-kids","Kids run along a sunny deck near red and white water slides","Kids head for the slides. Photo: Carnival Cruise Line."))
+ + '<h2>How much does a Carnival Celebration cruise cost?</h2>'
+ '<p>CruiseMapper lists Celebration sailings from about <strong>$443</strong> up to about <strong>$1,331</strong> per person, for two people sharing a cabin. The late November 2026 week was listed from about $908 per person, and the most expensive date on the list was the Christmas week, December 27, 2026. Holiday and school-break weeks cost the most.</p>'
+ '<p>The fare is only part of the bill. Add taxes and port fees, daily gratuities (about $17 per person per day for a standard cabin), drinks, specialty dining, and excursions. Prices change daily, so treat the number above as a starting point, not a quote.</p>'
+ '<div class="cf-two"><div class="cf-box yes"><h3>Included in your fare</h3><ul><li>Lido Marketplace buffet</li><li>Carnivale Restaurant (dinner)</li><li>Deco Deli</li><li>Pools and WaterWorks slides</li><li>Camp Ocean kids program</li><li>Theater shows and live music</li></ul></div>'
+ '<div class="cf-box no"><h3>Costs extra</h3><ul><li>Chef\'s Table (about $75 per guest)</li><li>Emeril\'s Bistro 1397</li><li>Fahrenheit 555 Steakhouse</li><li>Seafood Shack (from about $4)</li><li>Steakhouse items in the main dining rooms</li><li>Drinks, spa, excursions, gratuities</li></ul></div></div>'
+ '<p style="font-size:15px;color:var(--muted);margin-top:-8px">Other venues, like Guy\'s Burger Joint, Miami Slice Pizzeria, Bonsai Sushi, and BlueIguana Cantina, are not priced in our sources. Confirm what is included when you book.</p>'
+ + _cf_fig("celebration-havana","Sun loungers and a bar along the rail of Carnival Celebration","Sun loungers and a bar by the Havana pool area. Photo: Carnival Cruise Line.",1300,865)
+ + '<h2>Is Carnival Celebration good for kids and families?</h2>'
+ '<p>For most families, yes. Celebration has Camp Ocean, Carnival\'s kids program, included in the fare for ages 2 to 11, plus Circle C for ages 12 to 14 and Club O2 for ages 15 to 17. There is also Family Harbor, a family-focused cabin area with its own lounge, and about 300 connecting or family cabin pairs. Babies and toddlers can come along, but this is a big, busy ship, so a quieter vessel may suit very young kids better. Compare options in our <a href="/cruises/carnival-ships-guide/">Carnival ships guide</a>.</p>'
+ '<div class="cf-chips"><span>Camp Ocean (ages 2 to 11)</span><span>Circle C (12 to 14)</span><span>Club O2 (15 to 17)</span><span>Family Harbor Lounge</span><span>Creative Cove</span><span>Dr. Seuss Bookville</span><span>Warehouse arcade</span><span>WaterWorks</span><span>SportSquare</span><span>SkyCourse ropes</span></div>'
+ + _cf_duo(("minigolf","A family plays mini golf on the top deck of a Carnival ship","Mini golf on deck (shown on another Carnival ship). Photo: Carnival Cruise Line."),("cornhole","A family plays cornhole on deck","Deck games. Photo: Carnival Cruise Line."))
+ + '<h2>Where to eat on Carnival Celebration</h2>'
+ '<p>Dinner in the main restaurant and the buffet are included, and there are many other places to eat, from burgers and pizza to a sushi bar and a seafood shack. Some are free and some cost extra, so look at the box above, then ask which ones are included on your sailing. Make reservations for the paid restaurants before you sail, since popular times fill up.</p>'
+ + '<h2>Carnival Celebration from Miami: how to get to the ship</h2>'
+ '<p>The ship sails from the Port of Miami, so flying in the day before is the safest plan. Our <a href="/cruises/cruises-from-miami/">Miami cruise guide</a> covers the port, and our <a href="/cruises/port-canaveral-vs-miami/">Port Canaveral vs Miami</a> guide helps if you are still choosing where to sail from.</p>'
+ + '<h2>Who should book Carnival Celebration</h2>'
+ '<p>Pick Celebration if you want a big, high-energy ship with lots of water fun, if you have school-age kids or teens, or if you want a Caribbean cruise that starts in Miami. Skip it if you want a calm, small-ship feel or dislike crowds. Not sure? Tell me your dates and who is traveling, and I will compare Celebration with other ships.</p>'
+ + _CF_NOTE)
+
+_cel_faqs = [
+ ("Where does Carnival Celebration sail from?","Carnival Celebration is based at the Port of Miami, Florida, and sails Caribbean round trips from there all year. Most are seven nights."),
+ ("How much does a Carnival Celebration cruise cost?","CruiseMapper lists sailings from about $443 to $1,331 per person for two sharing a cabin. A seven-night sailing in late November 2026 was listed from about $908 per person. Add taxes, gratuities, and extras, and check the live price for your dates."),
+ ("How big is Carnival Celebration?","It is about 183,900 gross tons and 1,132 feet long, with 2,641 cabins and room for 5,374 to 6,338 guests, depending on how many share each cabin."),
+ ("Does Carnival Celebration have a roller coaster?","Yes. The Bolt roller coaster is part of The Ultimate Playground on the top decks, along with a ropes course and other activities. Check ride rules on Carnival's site."),
+ ("Is Carnival Celebration good for kids?","Yes. Camp Ocean is included in the fare for ages 2 to 11, there are lounges for tweens and teens, and the water park is the biggest on any Carnival ship. Check age and height rules before you book."),
+ ("Where does Carnival Celebration go?","A late November 2026 week visits St. Thomas, Puerto Plata (Amber Cove), and Celebration Key. Two eight-night sailings are listed for March 28 and April 24, 2027. Ports vary by sailing, so check your date.")]
+
+cf_page(dict(
+ slug="cruises/carnival-celebration-from-miami", crumb="Carnival Celebration from Miami",
+ title="Carnival Celebration Cruise From Miami: Itinerary, Cost, Kids | Wonderlocity",
+ desc="Carnival Celebration cruise from Miami: 7-night Caribbean itineraries, fares from about $443, WaterWorks and Bolt roller coaster, kids clubs, and where to eat.",
+ hero="celebration-hero", hero_pos="center bottom", hero_pos_m="12% 80%",
+ kicker="Carnival Cruise Line &middot; Miami, Florida", h1="Carnival Celebration from Miami", short="Celebration",
+ stats=[("183,900","gross tons"),("1,132 ft","long"),("2,641","cabins"),("5,374+","guests")],
+ lede="A giant, high-energy ship with the biggest water park in the Carnival fleet. Here is what a Celebration cruise from Miami offers, what it costs, and who it suits.",
+ pills=['Fares <b>from about $443</b> per person','<b>7</b> nights, mostly','Caribbean from Miami'],
+ scores=[("Family fun",5,"Roller coaster, water park, mini golf, ropes course"),("Kids clubs",5,"Camp Ocean, tween and teen lounges, Family Harbor"),("Dining variety",4,"Many places to eat, some included, some extra"),("Nightlife &amp; shows",4,"Theater shows, comedy club, piano bar, casino"),("Pools &amp; water play",5,"Fleet's largest water park, infinity pool, several pools"),("Quiet time",2,"Big and busy, with an adults-only Serenity area")],
+ body_html=_cel_body,
+ price="$443", price_note="Double occupancy. Listed fares range from about $443 to $1,331, depending on date.",
+ side=[("Ship","Carnival Celebration"),("Homeport","Port of Miami"),("Length","7 nights, mostly"),("Goes to","Caribbean"),("Built","2022")],
+ alt_h="Sailing from Miami?", alt_p="I can help you pick the right cabin and plan flights, hotel, and cruise together.",
+ itin_h="Carnival Celebration cruises from Miami", itin_sub="Two lengths to compare. Fares change daily, so ask for the price on your dates.",
+ cards=[("7","nights","celebration-tides","Caribbean week",["St. Thomas","Amber Cove","Celebration Key"],"The late November 2026 sailing visits these three ports, plus days at sea. Most Celebration cruises are this length.","Listed from about $908 for Nov 22 to 29, 2026"),
+        ("8","nights","amber-cove","A little longer",["Route varies"],"Two eight-night sailings are listed for spring 2027. Ask which ports are on your sailing.","Sailings March 28 and April 24, 2027")],
+ mosaic=[("celebration-infinity","w2","Infinity pool edge looking out over the ocean on Carnival Celebration"),("snorkel","h2","Snorkeling in clear water at a Caribbean beach club"),("friends-deck","","Friends laugh on a sunny ship deck with cocktails"),("celebration-pool-view","w2","The infinity pool at the back of Carnival Celebration"),("tiki-bar","","Three friends laughing with cocktails on a ship deck"),
+         ("girls-pool","w2","Three friends relax on loungers in a shallow pool above the ocean"),("spa-massage","h2","A spa treatment room with an ocean view"),("paddleboard","","Two people paddleboard in shallow water near a Carnival ship"),("jubilee-dusk","w2","Carnival Jubilee, a sister Excel-class ship, sails at dusk"),("trattoria","","A slice of layered cake on a restaurant table")],
+ credit="All photos: Carnival Cruise Line. Some photos show other Carnival ships, including sister ship Carnival Jubilee and Carnival Sunrise.",
+ faqs=_cel_faqs, related=_CF_REL))
+
+# ---------- Carnival Horizon ----------
+_hor_body = (
+ '<h2>Carnival Horizon cruise: the short version</h2>'
+ '<p class="big">Carnival Horizon is a mid-size Carnival ship with a Dr. Seuss water park and a bike ride in the sky, based in Miami.</p>'
+ '<p>Horizon entered service in 2018 and has sailed from Miami year-round since September 2018. At about 133,600 gross tons it is smaller than Carnival\'s newest giants, but it still carries nearly four thousand guests and packs in a lot: an aerial pedal ride, a ropes course, an IMAX theater, and a kids program themed around Dr. Seuss. From 2027 it also sails some cruises from Galveston, Texas.</p>'
+ '<div class="facts3"><div><b>Miami</b>homeport, plus Galveston in 2027</div><div><b>6 and 8</b>nights from Miami</div><div><b>IMAX</b>theater on board</div></div>'
+ + _cf_fig("horizon-minigolf2","A family plays mini golf on a colorful course on the top deck of Carnival Horizon","Mini golf on the SportSquare deck of Carnival Horizon. Photo: Carnival Cruise Line.",1300,867)
+ + '<h2>Carnival Horizon itinerary: where it goes from Miami</h2>'
+ '<p>From Miami, Horizon sails six-night and eight-night Caribbean round trips. A sample six-night week in November 2026 visited Celebration Key in the Bahamas, Montego Bay in Jamaica, and Grand Cayman. A sample eight-night week the same month went south to Aruba, Bonaire, and Curacao. Miami sailings run into April 2027 on the current schedule, so check which route fits your dates.</p>'
+ + _cf_duo(("amber-cove","Friends look out over a Caribbean bay from an overlook cabana","A lookout in port. Photo: Carnival Cruise Line."),("family-beach","A family relaxes on beach loungers with a Carnival ship in the distance","A beach day in port. Photo: Carnival Cruise Line."))
+ + '<h2>Decks and zones: where to find what</h2><p>Horizon has fewer named zones than the newest ships, and our sources give deck numbers for only some of them.</p>'
+ '<table class="cf-zones"><tr><th>Place</th><th>Where</th><th>What is there</th></tr>'
+ '<tr><td>Dr. Seuss WaterWorks</td><td>Deck 12</td><td>Two enclosed slides: the Cat in the Hat raft slide and the Fun Things body slide.</td></tr>'
+ '<tr><td>SportSquare</td><td>Top decks</td><td>Mini golf, arcade basketball, ping-pong, and games. SkyRide and the SkyCourse ropes circuit are here too.</td></tr>'
+ '<tr><td>Havana</td><td>Decks 6 to 9, aft</td><td>Cuban-style cabins with their own pool, bar, and lounge.</td></tr>'
+ '<tr><td>Family Harbor</td><td>Near the lounge</td><td>86 family cabins close to a lounge with TVs and snacks.</td></tr>'
+ '<tr><td>Serenity</td><td>Forward sundeck</td><td>Adults only (21 and up), with two big hot tubs.</td></tr>'
+ '<tr><td>Bonsai Teppanyaki</td><td>Promenade Deck</td><td>Hibachi-style dinner. Paid, reservation needed.</td></tr>'
+ '<tr><td>Seafood Shack</td><td>Top deck</td><td>Casual seafood, paid by the dish.</td></tr></table>'
+ '<h2>SkyRide, slides, and IMAX: the big attractions</h2>'
+ '<p>SkyRide is a pedal-powered ride on a track about 800 feet long, roughly 150 feet above the sea. Dr. Seuss WaterWorks has the Cat in the Hat, a 450-foot raft slide, and Fun Things, a 213-foot body slide. Inside, Carnival\'s IMAX theater has a screen three decks high, and there is a 5D Thrill Theater. Check age, height, and weight rules for each attraction on Carnival\'s site.</p>'
+ + _cf_fig("horizon-havana-pool","A wooden gazebo with a ring of seats and a fire pit table at dusk next to a pool","The Havana pool area at dusk. Photo: Carnival Cruise Line.",1300,865)
+ + '<h2>How much does a Carnival Horizon cruise cost?</h2>'
+ '<p>CruiseMapper lists Horizon sailings from Miami from about <strong>$387</strong> (a six-night week in January 2027) up to about <strong>$1,062</strong> (an eight-night sailing over Christmas, December 27, 2026). A sample eight-night southern Caribbean week in late November 2026 was listed from about $869, and a six-night week from about $438. Holiday weeks cost the most.</p>'
+ '<p>Add taxes and port fees, daily gratuities (about $17 per person per day for a standard cabin), drinks, specialty dining, and excursions. Prices change daily, so use these numbers as a starting point, not a quote.</p>'
+ '<div class="cf-two"><div class="cf-box yes"><h3>Included in your fare</h3><ul><li>Reflections, the main dining room</li><li>Pools and Dr. Seuss WaterWorks</li><li>Camp Ocean and the kids program</li><li>Theater shows and live music</li><li>Mini golf and most SportSquare games</li></ul></div>'
+ '<div class="cf-box no"><h3>Costs extra</h3><ul><li>Bonsai Teppanyaki (cover charge)</li><li>Seuss at Sea breakfast ($5 cover)</li><li>Seafood Shack (from about $4)</li><li>Steakhouse items in the main dining rooms</li><li>Drinks, spa, excursions, gratuities</li></ul></div></div>'
+ '<p style="font-size:15px;color:var(--muted);margin-top:-8px">Also on board, with prices not stated in our sources, so confirm on your booking:</p>'
+ '<div class="cf-chips"><span>Horizon\'s Restaurant</span><span>Lido Marketplace buffet</span><span>Pizzeria del Capitano (24 hours)</span><span>Guy\'s Burger Joint</span><span>Cucina del Capitano</span><span>Ji Ji Asian Kitchen</span><span>Fat Jimmy\'s C-Side BBQ</span><span>BlueIguana Cantina</span><span>Bonsai Sushi</span><span>Fahrenheit 555 Steakhouse</span></div>'
+ + _cf_fig("horizon-skybox","Red booths and a long bar with big screens in the Skybox Sports Bar","Skybox Sports Bar, for game days at sea. Photo: Carnival Cruise Line.",1300,865)
+ + '<h2>Is Carnival Horizon good for kids and families?</h2>'
+ '<p>Yes. Horizon is built around the Dr. Seuss at Sea program, with Dr. Seuss Bookville, Seuss at Sea breakfasts, and the Seuss-a-Palooza Parade, along with Camp Ocean, which is included in the fare for ages 2 to 11, and the Circle C and Club O2 lounges for older kids and teens. Family Harbor has 86 cabins near a lounge with snacks and TVs. Many cabins are 185 to 220 square feet, so bring fewer bags if there are four of you. Compare ships in our <a href="/cruises/carnival-ships-guide/">Carnival ships guide</a>.</p>'
+ '<div class="cf-chips"><span>Camp Ocean (ages 2 to 11)</span><span>Circle C</span><span>Club O2</span><span>Family Harbor Lounge</span><span>Dr. Seuss Bookville</span><span>Seuss-a-Palooza Parade</span><span>Dr. Seuss WaterWorks</span><span>SportSquare</span><span>SkyCourse ropes</span><span>SkyRide</span></div>'
+ + _cf_duo(("waterworks-kids","Kids run along a sunny deck near red and white water slides","Water play is the main event for kids. Photo: Carnival Cruise Line."),("cornhole","A family plays cornhole on deck","Deck games. Photo: Carnival Cruise Line."))
+ + '<h2>Nights out: shows, bars, and the casino</h2>'
+ '<p>The 1,400-seat Liquid Lounge hosts Playlist Productions shows such as Celestial Strings, Soulbound, and Vintage Pop, and Amor Cubano plays in the Havana Bar. There is a 484-seat casino, the Limelight Lounge, and a large LED sculpture called Dreamscape in the atrium.</p>'
+ + _cf_fig("horizon-havana-bar","The Havana Bar with a drum kit, keyboard, and tables on Carnival Horizon","Live music in the Havana Bar. Photo: Carnival Cruise Line.",1300,865)
+ + '<h2>Carnival Horizon from Miami: how to get to the ship</h2>'
+ '<p>Horizon sails from the Port of Miami, so fly in the day before if you can. Our <a href="/cruises/cruises-from-miami/">Miami cruise guide</a> covers the port, and <a href="/cruises/port-canaveral-vs-miami/">Port Canaveral vs Miami</a> helps you choose between Florida ports.</p>'
+ '<h2>Who should book Carnival Horizon</h2>'
+ '<p>Pick Horizon if you want a lively family ship with kid-friendly extras like Dr. Seuss, slides, and the SkyRide, and you do not need the newest, biggest ship. Want a roller coaster at sea? See <a href="/cruises/carnival-mardi-gras-from-port-canaveral/">Carnival Mardi Gras</a> or Celebration. Skip it if you want a calm cruise. Tell me your dates and who is traveling, and I will compare Horizon with other sailings.</p>'
+ + _CF_NOTE)
+
+_hor_faqs = [
+ ("Where does Carnival Horizon sail from?","Carnival Horizon has been based in Miami, Florida, year-round since September 2018. It also sails from Galveston, Texas, on a schedule that begins in May 2027."),
+ ("How much does a Carnival Horizon cruise cost?","CruiseMapper lists Miami sailings from about $387 to $1,062 per person for two sharing a cabin. A six-night week in November 2026 was listed from about $438, and an eight-night week from about $869. Add taxes, gratuities, and extras."),
+ ("How big is Carnival Horizon?","It is about 133,600 gross tons and 1,056 feet long, with 1,965 cabins and room for 3,960 to 4,716 guests."),
+ ("Does Carnival Horizon have water slides?","Yes. Dr. Seuss WaterWorks on Deck 12 has the Cat in the Hat raft slide and the Fun Things body slide."),
+ ("Is Carnival Horizon good for kids?","Yes. It has the Dr. Seuss at Sea program, Camp Ocean for ages 2 to 11 included in the fare, Circle C and Club O2 lounges, and Family Harbor cabins. Check age and height rules for rides before you book."),
+ ("How long are Carnival Horizon cruises from Miami?","Miami sailings are six or eight nights. Galveston sailings are mostly four or five nights, with one eight-night sailing in May 2027.")]
+
+cf_page(dict(
+ slug="cruises/carnival-horizon-from-miami", crumb="Carnival Horizon from Miami",
+ title="Carnival Horizon Cruise From Miami: Itinerary, Cost, Dr. Seuss | Wonderlocity",
+ desc="Carnival Horizon cruise from Miami: 6 and 8 night Caribbean itineraries, fares from about $387, Dr. Seuss WaterWorks, SkyRide, IMAX, and kids clubs.",
+ hero="horizon-hero", hero_pos="center 60%", hero_pos_m="50% 60%",
+ kicker="Carnival Cruise Line &middot; Miami, Florida", h1="Carnival Horizon from Miami", short="Horizon",
+ stats=[("133,596","gross tons"),("1,056 ft","long"),("1,965","cabins"),("3,960+","guests")],
+ lede="A mid-size family ship with Dr. Seuss, water slides, and a pedal ride in the sky. Here is what a Horizon cruise from Miami offers, what it costs, and who it suits.",
+ pills=['Fares <b>from about $387</b> per person','<b>6 or 8</b> nights from Miami','Caribbean'],
+ scores=[("Family fun",5,"Seuss program, slides, SkyRide, mini golf, ropes course"),("Kids clubs",5,"Camp Ocean, Circle C, Club O2, Family Harbor"),("Dining variety",4,"One free main dining room plus many casual spots"),("Nightlife &amp; shows",4,"Big theater, Havana bar, casino, IMAX"),("Pools &amp; water play",4,"Havana pool, Tides Pool, two slides"),("Quiet time",3,"Smaller than the newest ships, with an adults-only Serenity deck")],
+ body_html=_hor_body,
+ price="$387", price_note="Double occupancy. Listed Miami fares range from about $387 to $1,062, depending on length and date.",
+ side=[("Ship","Carnival Horizon"),("Homeport","Port of Miami"),("Length","6 or 8 nights"),("Goes to","Caribbean"),("Built","2018")],
+ alt_h="Sailing from Miami?", alt_p="I can help you pick the right cabin and plan flights, hotel, and cruise together.",
+ itin_h="Carnival Horizon cruises", itin_sub="Three samples to compare. Fares change daily, so ask for the price on your dates.",
+ cards=[("6","nights","amber-cove","Western Caribbean",["Celebration Key","Montego Bay","Grand Cayman"],"A sample week from November 2026 with a beach day, a Jamaica port, and a Cayman stop.","Sample: Nov 15 to 21, 2026, from about $438"),
+        ("8","nights","paddleboard","Southern Caribbean",["Aruba","Bonaire","Curacao"],"A longer week south to the Dutch Caribbean islands.","Sample: Nov 21 to 29, 2026, from about $869"),
+        ("4 to 5","nights","family-beach","From Galveston",["Texas homeport"],"Horizon also sails shorter cruises from Galveston. Ports of call are not listed in our sources, so ask.","From May 2027, from about $404")],
+ mosaic=[("horizon-havana-bar","w2","The Havana Bar with a drum kit and tables on Carnival Horizon"),("snorkel","h2","Snorkeling in clear water at a Caribbean beach club"),("friends-deck","","Friends laugh on a sunny ship deck with cocktails"),("horizon-skybox","w2","Red booths and a long bar in the Skybox Sports Bar on Carnival Horizon"),("tiki-bar","","Three friends laughing with cocktails on a ship deck"),
+         ("panorama-wake","w2","The wake behind a Carnival ship, seen from the back deck with hot tubs"),("spa-massage","h2","A spa treatment room with an ocean view"),("girls-pool","","Three friends relax on loungers in a shallow pool above the ocean"),("sunrise-slides","w2","A yellow water slide on the top deck of a Carnival ship near a beach"),("trattoria","","A slice of layered cake on a restaurant table")],
+ credit="All photos: Carnival Cruise Line. Some photos show other Carnival ships, including Carnival Panorama (pool deck and wake) and Carnival Sunrise (slide).",
+ faqs=_hor_faqs, related=_CF_REL))
+
+
 # ===== Family hub + homepage story feed (added Nov 2026) =====
 import glob as _g2, re as _r2, html as _h2
 
 FEED_META = {
  "cruises/carnival-mardi-gras-from-port-canaveral":("Cruises","cruises family"),
+ "cruises/carnival-celebration-from-miami":("Cruises","cruises family"),
+ "cruises/carnival-horizon-from-miami":("Cruises","cruises family"),
  "cruises/cruises-from-orlando-port-canaveral":("Cruises","cruises family"),
  "cruises/cruises-from-miami":("Cruises","cruises family"),
  "cruises/port-canaveral-vs-miami":("Cruises","cruises"),
@@ -1799,7 +2012,7 @@ FEED_META = {
  "destinations/punta-cana":("Destination","beach family"),
  "destinations/orlando":("Destination","family"),
 }
-FEED_ORDER = ["cruises/carnival-mardi-gras-from-port-canaveral","cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
+FEED_ORDER = ["cruises/carnival-celebration-from-miami","cruises/carnival-horizon-from-miami","cruises/carnival-mardi-gras-from-port-canaveral","cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
  "guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
  "cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
  "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
