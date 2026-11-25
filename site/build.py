@@ -1632,13 +1632,35 @@ _CF_CSS = """<style>
 .cf-mosaic figure:hover img{transform:scale(1.04)}
 .cf-mosaic .w2{grid-column:span 2}.cf-mosaic .h2{grid-row:span 2}
 .cf-credit{font-size:13px;color:var(--muted);margin:14px 0 0}
+.cf-score{max-width:1060px;margin:34px auto 0;padding:0 24px}
+.cf-score h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(24px,3vw,34px);color:var(--green-dark);margin:0 0 6px}
+.cf-score .sub{color:var(--muted);font-size:15px;margin:0 0 18px}
+.cf-rates{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cf-rate{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.cf-rate .t{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.cf-rate .st{font-size:25px;letter-spacing:3px;color:var(--gold);line-height:1}
+.cf-rate .st i{font-style:normal;color:#dccfb8}
+.cf-rate .n{font-family:Fraunces,serif;font-size:22px;color:var(--green-dark);margin:6px 0 2px}
+.cf-rate p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.45}
+.cf-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:30px -40px}
+.cf-box{border-radius:16px;padding:22px 24px;font-size:16.5px;line-height:1.5}
+.cf-box h3{font-family:Fraunces,serif;font-weight:500;font-size:22px;margin:0 0 10px}
+.cf-box ul{margin:0;padding-left:20px}.cf-box li{margin:0 0 6px}
+.cf-box.yes{background:#e8f1ec}.cf-box.yes h3{color:var(--green-dark)}
+.cf-box.no{background:#f6ecdf}.cf-box.no h3{color:var(--gold)}
+.cf-zones{width:100%;border-collapse:collapse;margin:26px 0;font-size:16.5px;line-height:1.45}
+.cf-zones th{text-align:left;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
+.cf-zones td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.cf-zones td:first-child{font-weight:600;color:var(--green-dark);white-space:nowrap}
+.cf-zones td:nth-child(2){color:var(--muted);white-space:nowrap}
+.cf-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}.cf-chips span{background:var(--sand);border-radius:30px;padding:6px 14px;font-size:15px}
 .cf-after{max-width:820px;margin:0 auto;padding:30px 24px 20px}
 .cf-after h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3vw,34px);color:var(--green-dark)}
 .cf-after .faq summary{font-size:19px}.cf-after .faq p{font-size:18px;line-height:1.7}
 .cf-after .related{margin-top:18px}
 .cf-after .ctaband h2{color:#fff;font-size:clamp(22px,2.6vw,30px);margin:0;max-width:16em}
-@media(max-width:980px){.cf-main{grid-template-columns:1fr;gap:34px;padding-top:44px}.cf-side{position:static;order:-1}.cf-text figure,.cf-duo{margin-left:0;margin-right:0}.cf-cards{grid-template-columns:1fr}}
-@media(max-width:640px){.cf-stats{grid-template-columns:repeat(2,1fr);margin:-40px 16px 0}.cf-stats div:nth-child(2){border-right:0}.cf-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.cf-duo{grid-template-columns:1fr}.cf-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.cf-text{font-size:18px}.cf-text .big{font-size:20px}.cf-quote{font-size:22px}.cf-card .price{font-size:44px}.cf-hero.phero{min-height:640px;background-position:32% bottom;background-size:auto 62%;background-repeat:no-repeat;background-color:#0e2a3c}.cf-hero .inner{padding-bottom:70px;padding-top:80px}}
+@media(max-width:980px){.cf-rates{grid-template-columns:repeat(2,1fr)}.cf-two{margin-left:0;margin-right:0}.cf-main{grid-template-columns:1fr;gap:34px;padding-top:44px}.cf-side{position:static;order:-1}.cf-text figure,.cf-duo{margin-left:0;margin-right:0}.cf-cards{grid-template-columns:1fr}}
+@media(max-width:640px){.cf-rates{grid-template-columns:1fr 1fr;gap:10px}.cf-rate{padding:14px}.cf-two{grid-template-columns:1fr}.cf-zones td:first-child,.cf-zones td:nth-child(2){white-space:normal}.cf-stats{grid-template-columns:repeat(2,1fr);margin:-40px 16px 0}.cf-stats div:nth-child(2){border-right:0}.cf-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.cf-duo{grid-template-columns:1fr}.cf-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.cf-text{font-size:18px}.cf-text .big{font-size:20px}.cf-quote{font-size:22px}.cf-card .price{font-size:44px}.cf-hero.phero{min-height:640px;background-position:32% bottom;background-size:auto 62%;background-repeat:no-repeat;background-color:#0e2a3c}.cf-hero .inner{padding-bottom:70px;padding-top:80px}}
 </style>"""
 
 def _cf_img(name, w, h, alt):
@@ -1663,6 +1685,8 @@ def _cf_build():
     h += ('<div class="cf-intro"><p class="lede">The cruise ship with a roller coaster on top. Here is what a Mardi Gras cruise from Orlando\'s port really looks like, what it costs, and who it suits.</p>'
       '<div class="pillrow"><span class="pill">Fares <b>from about $390</b> per person</span><span class="pill"><b>4 to 7</b> nights</span><span class="pill">Bahamas &amp; Caribbean</span></div>'
       '<div class="heroactions"><a class="btn btn-green" href="/contact/">Get this cruise priced</a><a class="btn-ghost" href="#itineraries">See itineraries</a></div></div>')
+    h += ('<section class="cf-score"><h2>Mardi Gras at a glance</h2><p class="sub">Our advisor score, based on the ship\'s published features. It is not a guest review.</p><div class="cf-rates">'
+      '<div class="cf-rate"><p class="t">Family fun</p><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;<i></i></span><p class="n">5 / 5</p><p>Roller coaster, water slides, mini golf, ropes course</p></div><div class="cf-rate"><p class="t">Kids clubs</p><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;<i></i></span><p class="n">5 / 5</p><p>Camp Ocean, Creative Cove, teen lounges, 24-hour family space</p></div><div class="cf-rate"><p class="t">Dining variety</p><span class="st">&#9733;&#9733;&#9733;&#9733;<i>&#9733;</i></span><p class="n">4 / 5</p><p>Around 20 places to eat, many included</p></div><div class="cf-rate"><p class="t">Nightlife &amp; shows</p><span class="st">&#9733;&#9733;&#9733;&#9733;<i>&#9733;</i></span><p class="n">4 / 5</p><p>Theater shows, comedy club, jazz bar, nightclub</p></div><div class="cf-rate"><p class="t">Pools &amp; beach vibe</p><span class="st">&#9733;&#9733;&#9733;&#9733;<i>&#9733;</i></span><p class="n">4 / 5</p><p>Several pools, Lido deck, tiki bar</p></div><div class="cf-rate"><p class="t">Quiet time</p><span class="st">&#9733;&#9733;<i>&#9733;&#9733;&#9733;</i></span><p class="n">2 / 5</p><p>Big and busy, with an adults-only Serenity area</p></div></div></section>')
     h += '<div class="cf-main"><article class="cf-text">'
     h += ('<h2>Carnival Mardi Gras cruise: the short version</h2>'
       '<p class="big">Mardi Gras is Carnival\'s biggest, boldest ship, and it sails from Port Canaveral, so you can pair a Carnival Mardi Gras cruise with an Orlando theme park week.</p>'
@@ -1674,12 +1698,24 @@ def _cf_build():
     h += ('<h2>Carnival Mardi Gras itinerary: where it goes</h2>'
       '<p>In late 2026, Mardi Gras sails Caribbean round trips from Port Canaveral, mostly four to seven nights. A seven-night sailing in late November calls at Nassau, Half Moon Cay, Puerto Plata (Amber Cove), and Celebration Key. In 2027 Carnival adds shorter Bahamas cruises that are easier on a calendar and a budget, and the details are in the itinerary cards below.</p>')
     h += '<div class="cf-duo"><figure>'+_cf_img("amber-cove",1400,933,"Friends look out over Amber Cove in Puerto Plata from an overlook cabana")+'<figcaption>Amber Cove, Puerto Plata. Photo: Carnival Cruise Line.</figcaption></figure><figure>'+_cf_img("family-beach",1400,933,"A family relaxes on beach loungers with a Carnival ship in the distance")+'<figcaption>A beach day in port. Photo: Carnival Cruise Line.</figcaption></figure></div>'
+    h += ('<h2>Decks and zones: where to find what</h2><p>Mardi Gras is organized into zones, so it is easy to find your kind of fun.</p>'
+      '<table class="cf-zones"><tr><th>Zone</th><th>Decks</th><th>What is there</th></tr>'
+      '<tr><td>The Ultimate Playground</td><td>18 to 20</td><td>Bolt roller coaster, WaterWorks slides, mini golf, ropes course. Best for families.</td></tr>'
+      '<tr><td>Lido</td><td>16 to 17</td><td>Casual dining, pools, tiki bar. Easy meals in the sun.</td></tr>'
+      '<tr><td>Summer Landing</td><td>8, aft</td><td>Poolside barbecue, soft serve, bar by the water.</td></tr>'
+      '<tr><td>Grand Central</td><td>6 to 8</td><td>Shows, live music, coffee. The social hub.</td></tr>'
+      '<tr><td>French Quarter</td><td>6, aft</td><td>New Orleans-style food, jazz, cocktails.</td></tr>'
+      '<tr><td>La Piazza</td><td>8</td><td>Italian restaurant and a 24-hour pizzeria.</td></tr></table>')
     h += ('<h2>How much does a Carnival Mardi Gras cruise cost?</h2>'
       '<p>CruiseMapper lists Mardi Gras sailings from about <strong>$390</strong> up to about <strong>$1,505</strong> per person, for two people sharing a cabin. The price depends on how many nights you sail and what week you choose. A seven-night sailing from late November 2026 was listed from about $1,014 per person, which is a good reminder that holiday and school-break weeks cost more than quiet weeks.</p>'
       '<p>Fares are only part of the cost. Add taxes and port fees, daily gratuities, drinks and specialty dining, excursions, and parking if you drive to Port Canaveral. Port Canaveral charges $20 per day plus tax for parking. Fares change daily, so the number above is a place to start, not a quote.</p>')
+    h += ('<div class="cf-two"><div class="cf-box yes"><h3>Included in your fare</h3><ul><li>Main dining rooms: Palm and Flamingo</li><li>Lido Marketplace buffet</li><li>Guy\'s Burger Joint and Guy\'s Pig &amp; Anchor Smokehouse</li><li>Pizzeria del Capitano and Cucina del Capitano</li><li>Big Chicken, Chibang!, BlueIguana Cantina, Street Eats</li><li>Pools, WaterWorks slides, Bolt and SportSquare (check each ride)</li><li>Camp Ocean kids program</li></ul></div>'
+      '<div class="cf-box no"><h3>Costs extra</h3><ul><li>Fahrenheit 555 Steakhouse</li><li>Emeril\'s Bistro 1396</li><li>Bonsai Sushi and Bonsai Teppanyaki</li><li>Rudi\'s Seagrill and Seafood Shack</li><li>Chef\'s Table (about $75 per guest)</li><li>Drinks, specialty coffee, and excursions</li><li>Daily gratuities</li></ul></div></div>'
+      '<p style="font-size:15px;color:var(--muted);margin-top:-8px">Carnival changes which venues are included, so confirm on your booking.</p>')
     h += '<figure>'+_cf_img("mardi-gras-aerial",1400,930,"Aerial view of the top decks of Carnival Mardi Gras with the roller coaster and water slides")+'<figcaption>Top decks of Mardi Gras, with Bolt and the water slides. Photo: Carnival Cruise Line.</figcaption></figure>'
     h += ('<h2>Is Carnival Mardi Gras good for kids and families?</h2>'
       '<p>Yes, for most families. The ship is big enough to keep kids busy every day: the roller coaster, pools, and slides, plus Camp Ocean, Carnival\'s kids program, included in the fare for ages 2 to 11. It splits kids into Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11). For toddlers and babies, a quieter ship may suit you better. Read our <a href="/cruises/carnival-ships-guide/">Carnival ships guide</a> to compare.</p>')
+    h += '<div class="cf-chips"><span>Camp Ocean (ages 2 to 11)</span><span>Creative Cove</span><span>Circle C and Club O2 for teens</span><span>Family Harbor Lounge</span><span>Dr. Seuss Bookville</span><span>WaterWorks slides</span><span>SportSquare</span><span>SkyCourse ropes course</span></div>'
     h += '<div class="cf-duo"><figure>'+_cf_img("kids-deck",1400,933,"Kids run along a sunny deck near water slides on a Carnival ship")+'<figcaption>Water play is the main event for kids. Photo: Carnival Cruise Line.</figcaption></figure><figure>'+_cf_img("minigolf",1200,800,"A family plays mini golf on the top deck of a Carnival ship")+'<figcaption>Mini golf on deck. Photo: Carnival Cruise Line.</figcaption></figure></div>'
     h += ('<h2>Carnival Mardi Gras from Orlando: how to get to the ship</h2>'
       '<p>Port Canaveral is about 45 minutes east of Orlando International Airport. Most families rent a car, take a shuttle, or book a rideshare or a private transfer. Fly in the day before so a late flight cannot make you miss the ship. Our <a href="/cruises/cruises-from-orlando-port-canaveral/">Port Canaveral guide</a> covers parking, transfers, and what to do nearby, and our <a href="/cruises/best-cruises-from-florida-for-families/">family cruise guide</a> shows how Mardi Gras compares with other Florida ships.</p>')
