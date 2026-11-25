@@ -1562,10 +1562,170 @@ rich_page("guides/best-beaches-near-orlando-for-families/index.html","https://wo
  "Orlando")
 
 
+# ===== Feature layout test: Carnival Mardi Gras (added Nov 2026) =====
+_CF_CSS = """<style>
+.cf-hero.phero{height:auto;min-height:min(92vh,880px);display:flex;align-items:flex-start;background-size:cover;background-position:center bottom;position:relative;padding:0}
+.cf-hero.phero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,28,38,.78) 0%,rgba(14,28,38,.5) 30%,rgba(14,28,38,0) 52%,rgba(14,28,38,.2) 100%)}
+.cf-hero .inner{position:relative;z-index:2;padding:60px 24px 90px;color:#fff;max-width:1160px;width:100%;margin:0 auto;box-sizing:border-box}
+.cf-hero .crumb,.cf-hero .crumb a{color:rgba(255,255,255,.85)}
+.cf-hero .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#f3d9b6;font-weight:500;margin:0 0 12px}
+.cf-hero.phero::after{display:none}
+.cf-hero .inner{height:auto;justify-content:flex-start}
+.cf-hero h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(38px,6.2vw,72px);line-height:1.04;margin:0 0 16px;max-width:19ch;color:#fff}
+.cf-intro{max-width:1060px;margin:44px auto 0;padding:0 24px}
+.cf-intro .lede{font-family:Fraunces,serif;font-size:clamp(22px,2.6vw,30px);line-height:1.4;color:var(--green-dark);margin:0 0 22px;max-width:30em}
+.cf-intro .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.cf-intro .pill{background:var(--sand);padding:8px 16px;border-radius:30px;font-size:15px}
+.cf-intro .pill b{color:var(--gold);font-weight:600}
+.cf-intro .heroactions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-ghost{display:inline-block;padding:13px 22px;border:1.5px solid var(--green);color:var(--green-dark);border-radius:30px;font-weight:500}
+.btn-ghost:hover{background:var(--sand)}
+.cf-stats{max-width:1060px;margin:-56px auto 0;position:relative;z-index:5;display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border-radius:18px;box-shadow:0 18px 50px rgba(20,30,40,.16);overflow:hidden}
+.cf-stats div{padding:24px 20px;text-align:center;border-right:1px solid var(--line)}
+.cf-stats div:last-child{border-right:0}
+.cf-stats b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3.4vw,40px);color:var(--green-dark);line-height:1.1}
+.cf-stats span{font-size:13.5px;color:var(--muted);letter-spacing:.04em}
+.cf-main{max-width:1160px;margin:0 auto;padding:64px 24px 20px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:start}
+.cf-text{font-size:19.5px;line-height:1.78}
+.cf-text h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(28px,3.2vw,38px);line-height:1.15;margin:56px 0 14px;color:var(--green-dark)}
+.cf-text h2:first-child{margin-top:0}
+.cf-text p{margin:0 0 20px}
+.cf-text .big{font-size:23px;line-height:1.55;font-family:Fraunces,serif;color:var(--ink)}
+.cf-text figure{margin:34px -40px;border-radius:16px;overflow:hidden;background:var(--surface)}
+.cf-text figure img{display:block;width:100%;height:auto}
+.cf-text figcaption{font-size:14px;color:var(--muted);padding:10px 16px;background:var(--surface)}
+.cf-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:34px -40px}
+.cf-duo figure{margin:0}
+.cf-duo img{height:100%;object-fit:cover;aspect-ratio:4/3}
+.cf-quote{margin:38px 0;padding:6px 0 6px 26px;border-left:4px solid var(--gold);font-family:Fraunces,serif;font-size:27px;line-height:1.35;color:var(--green-dark)}
+.cf-side{position:sticky;top:96px;display:grid;gap:18px}
+.cf-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 10px 30px rgba(20,30,40,.07)}
+.cf-card .from{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:0}
+.cf-card .price{font-family:Fraunces,serif;font-size:52px;line-height:1.05;color:var(--green-dark);margin:2px 0 0}
+.cf-card .price small{font-size:17px;color:var(--muted);font-family:Inter,sans-serif}
+.cf-card .note{font-size:13.5px;color:var(--muted);margin:6px 0 16px}
+.cf-card ul{list-style:none;margin:0 0 18px;padding:0}
+.cf-card li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.cf-card li span{color:var(--muted)}
+.cf-card .btn{display:block;text-align:center;width:100%;box-sizing:border-box}
+.cf-card.alt{background:var(--sand);border-color:transparent;box-shadow:none}
+.cf-card.alt h3{font-family:Fraunces,serif;font-weight:500;margin:0 0 6px;font-size:21px}
+.cf-card.alt p{font-size:15.5px;margin:0 0 12px}
+.cf-itin{background:var(--sand);padding:70px 0;margin-top:40px}
+.cf-itin h2,.cf-gal h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(28px,3.4vw,42px);color:var(--green-dark);margin:0 0 8px}
+.cf-itin .sub{color:var(--muted);max-width:44em;margin:0 0 30px;font-size:18px}
+.cf-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cf-trip{background:var(--surface);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(20,30,40,.07)}
+.cf-trip .ph{height:190px;background-size:cover;background-position:center}
+.cf-trip .b{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cf-trip .nights{font-family:Fraunces,serif;font-size:34px;line-height:1;color:var(--green-dark)}
+.cf-trip .nights small{font-size:16px;color:var(--muted);font-family:Inter,sans-serif}
+.cf-trip .chips{display:flex;gap:8px;flex-wrap:wrap}
+.cf-trip .chips span{background:var(--bg);border:1px solid var(--line);border-radius:30px;padding:4px 12px;font-size:14px}
+.cf-trip p{margin:0;font-size:16px;color:var(--ink)}
+.cf-trip .when{font-size:14px;color:var(--muted)}
+.cf-trip .tag{align-self:flex-start;background:var(--green);color:#fff;border-radius:30px;padding:4px 12px;font-size:13px}
+.cf-gal{padding:70px 0 20px}
+.cf-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px;margin-top:22px}
+.cf-mosaic figure{margin:0;border-radius:14px;overflow:hidden;position:relative;background:var(--sand)}
+.cf-mosaic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.cf-mosaic figure:hover img{transform:scale(1.04)}
+.cf-mosaic .w2{grid-column:span 2}.cf-mosaic .h2{grid-row:span 2}
+.cf-credit{font-size:13px;color:var(--muted);margin:14px 0 0}
+.cf-after{max-width:820px;margin:0 auto;padding:30px 24px 20px}
+.cf-after h2{font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3vw,34px);color:var(--green-dark)}
+.cf-after .faq summary{font-size:19px}.cf-after .faq p{font-size:18px;line-height:1.7}
+.cf-after .related{margin-top:18px}
+.cf-after .ctaband h2{color:#fff;font-size:clamp(22px,2.6vw,30px);margin:0;max-width:16em}
+@media(max-width:980px){.cf-main{grid-template-columns:1fr;gap:34px;padding-top:44px}.cf-side{position:static;order:-1}.cf-text figure,.cf-duo{margin-left:0;margin-right:0}.cf-cards{grid-template-columns:1fr}}
+@media(max-width:640px){.cf-stats{grid-template-columns:repeat(2,1fr);margin:-40px 16px 0}.cf-stats div:nth-child(2){border-right:0}.cf-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.cf-duo{grid-template-columns:1fr}.cf-mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.cf-text{font-size:18px}.cf-text .big{font-size:20px}.cf-quote{font-size:22px}.cf-card .price{font-size:44px}.cf-hero.phero{min-height:640px;background-position:32% bottom;background-size:auto 62%;background-repeat:no-repeat;background-color:#0e2a3c}.cf-hero .inner{padding-bottom:70px;padding-top:80px}}
+</style>"""
+
+def _cf_img(name, w, h, alt):
+    return '<img src="/img/carnival/'+name+'.jpg" alt="'+alt+'" loading="lazy" width="'+str(w)+'" height="'+str(h)+'">'
+
+_cf_crumbs = [("Home","/"),("Cruises","/cruises/"),("Carnival Mardi Gras from Port Canaveral",None)]
+_cf_faqs = [
+ ("Where does Carnival Mardi Gras sail from?","Carnival Mardi Gras is based at Port Canaveral, Florida, about 45 minutes east of Orlando International Airport. In 2026 it sails Bahamas and Caribbean round trips, mostly four to seven nights."),
+ ("How much does a Carnival Mardi Gras cruise cost?","Sailings listed by CruiseMapper range from about $390 to $1,505 per person for two sharing a cabin, depending on the length and the date. A seven-night sailing in late November 2026 was listed from about $1,014 per person. Always add taxes, gratuities, and extras, and check the live price for your dates."),
+ ("Does Carnival Mardi Gras have a roller coaster?","Yes. Mardi Gras was the first cruise ship with a roller coaster, called Bolt, on its top deck."),
+ ("Is Carnival Mardi Gras good for kids?","It is a big ship with plenty to do, and Carnival's Camp Ocean kids program is included in the fare for ages 2 to 11. Check height rules for any ride or activity, and confirm the current kids program details on Carnival's site before you book."),
+ ("How long are Carnival Mardi Gras cruises in 2027?","Carnival lists three seven-night sailings from Port Canaveral on May 1, 8, and 15, 2027, then five-night Bahamas cruises from May 22, 2027, and four-night Bahamas cruises from May 27, 2027."),
+ ("Can I drive to the ship?","Yes. Port Canaveral charges $20 per day plus tax for parking, paid by card on arrival. The port does not take parking reservations.")]
+
+def _cf_build():
+    h = '<section class="phero cf-hero" style="background-image:url(\'/img/carnival/mardi-gras-hero.jpg\')"><div class="wrap inner">'
+    h += '<div class="crumb">'+crumbs(_cf_crumbs)+'</div>'
+    h += '<p class="kicker">Carnival Cruise Line &middot; Port Canaveral, Florida</p>'
+    h += '<h1>Carnival Mardi Gras from Port Canaveral</h1>'
+    h += '</div></section>'
+    h += '<div class="cf-stats"><div><b>183,900</b><span>gross tons</span></div><div><b>1,129 ft</b><span>long</span></div><div><b>2,641</b><span>cabins</span></div><div><b>5,282+</b><span>guests</span></div></div>'
+    h += ('<div class="cf-intro"><p class="lede">The cruise ship with a roller coaster on top. Here is what a Mardi Gras cruise from Orlando\'s port really looks like, what it costs, and who it suits.</p>'
+      '<div class="pillrow"><span class="pill">Fares <b>from about $390</b> per person</span><span class="pill"><b>4 to 7</b> nights</span><span class="pill">Bahamas &amp; Caribbean</span></div>'
+      '<div class="heroactions"><a class="btn btn-green" href="/contact/">Get this cruise priced</a><a class="btn-ghost" href="#itineraries">See itineraries</a></div></div>')
+    h += '<div class="cf-main"><article class="cf-text">'
+    h += ('<h2>Carnival Mardi Gras cruise: the short version</h2>'
+      '<p class="big">Mardi Gras is Carnival\'s biggest, boldest ship, and it sails from Port Canaveral, so you can pair a Carnival Mardi Gras cruise with an Orlando theme park week.</p>'
+      '<p>It entered service in 2021 as the first ship of Carnival\'s Excel class, and it was the first cruise ship in the world with a roller coaster. Today it runs Bahamas and Caribbean cruises from Port Canaveral. That makes it one of the easiest big-ship cruises to reach from Orlando, and an easy add-on to a Disney or Universal trip.</p>')
+    h += '<figure>'+_cf_img("mardi-gras-bolt",1400,930,"The Bolt roller coaster track wraps around the top deck of Carnival Mardi Gras")+'<figcaption>Bolt, the roller coaster on the top deck of Carnival Mardi Gras. Photo: Carnival Cruise Line.</figcaption></figure>'
+    h += ('<h2>The Bolt roller coaster at sea</h2>'
+      '<p>Bolt is the headline of the ship. It is a roller coaster built on the top deck, and it is the reason many families pick Mardi Gras over older Carnival ships. Check the current height and age rules for Bolt and every other ride on Carnival\'s site before you promise anything to the kids.</p>'
+      '<div class="cf-quote">Bolt turned a cruise ship into a theme park at sea.</div>')
+    h += ('<h2>Carnival Mardi Gras itinerary: where it goes</h2>'
+      '<p>In late 2026, Mardi Gras sails Caribbean round trips from Port Canaveral, mostly four to seven nights. A seven-night sailing in late November calls at Nassau, Half Moon Cay, Puerto Plata (Amber Cove), and Celebration Key. In 2027 Carnival adds shorter Bahamas cruises that are easier on a calendar and a budget, and the details are in the itinerary cards below.</p>')
+    h += '<div class="cf-duo"><figure>'+_cf_img("amber-cove",1400,933,"Friends look out over Amber Cove in Puerto Plata from an overlook cabana")+'<figcaption>Amber Cove, Puerto Plata. Photo: Carnival Cruise Line.</figcaption></figure><figure>'+_cf_img("family-beach",1400,933,"A family relaxes on beach loungers with a Carnival ship in the distance")+'<figcaption>A beach day in port. Photo: Carnival Cruise Line.</figcaption></figure></div>'
+    h += ('<h2>How much does a Carnival Mardi Gras cruise cost?</h2>'
+      '<p>CruiseMapper lists Mardi Gras sailings from about <strong>$390</strong> up to about <strong>$1,505</strong> per person, for two people sharing a cabin. The price depends on how many nights you sail and what week you choose. A seven-night sailing from late November 2026 was listed from about $1,014 per person, which is a good reminder that holiday and school-break weeks cost more than quiet weeks.</p>'
+      '<p>Fares are only part of the cost. Add taxes and port fees, daily gratuities, drinks and specialty dining, excursions, and parking if you drive to Port Canaveral. Port Canaveral charges $20 per day plus tax for parking. Fares change daily, so the number above is a place to start, not a quote.</p>')
+    h += '<figure>'+_cf_img("mardi-gras-aerial",1400,930,"Aerial view of the top decks of Carnival Mardi Gras with the roller coaster and water slides")+'<figcaption>Top decks of Mardi Gras, with Bolt and the water slides. Photo: Carnival Cruise Line.</figcaption></figure>'
+    h += ('<h2>Is Carnival Mardi Gras good for kids and families?</h2>'
+      '<p>Yes, for most families. The ship is big enough to keep kids busy every day: the roller coaster, pools, and slides, plus Camp Ocean, Carnival\'s kids program, included in the fare for ages 2 to 11. It splits kids into Penguins (2 to 5), Stingrays (6 to 8), and Sharks (9 to 11). For toddlers and babies, a quieter ship may suit you better. Read our <a href="/cruises/carnival-ships-guide/">Carnival ships guide</a> to compare.</p>')
+    h += '<div class="cf-duo"><figure>'+_cf_img("kids-deck",1400,933,"Kids run along a sunny deck near water slides on a Carnival ship")+'<figcaption>Water play is the main event for kids. Photo: Carnival Cruise Line.</figcaption></figure><figure>'+_cf_img("minigolf",1200,800,"A family plays mini golf on the top deck of a Carnival ship")+'<figcaption>Mini golf on deck. Photo: Carnival Cruise Line.</figcaption></figure></div>'
+    h += ('<h2>Carnival Mardi Gras from Orlando: how to get to the ship</h2>'
+      '<p>Port Canaveral is about 45 minutes east of Orlando International Airport. Most families rent a car, take a shuttle, or book a rideshare or a private transfer. Fly in the day before so a late flight cannot make you miss the ship. Our <a href="/cruises/cruises-from-orlando-port-canaveral/">Port Canaveral guide</a> covers parking, transfers, and what to do nearby, and our <a href="/cruises/best-cruises-from-florida-for-families/">family cruise guide</a> shows how Mardi Gras compares with other Florida ships.</p>')
+    h += '<figure>'+_cf_img("pool-lounge",1400,934,"Three friends relax on loungers in a shallow pool above the ocean")+'<figcaption>Pool lounging at sea. Photo: Carnival Cruise Line.</figcaption></figure>'
+    h += ('<h2>Who should book Carnival Mardi Gras</h2>'
+      '<p>Pick Mardi Gras if you want a big, lively ship with a lot to do, if you are cruising with school-age kids or teens, or if you want a cruise from Orlando without a long drive. Skip it if you want a calm, small-ship feel, or if you dislike crowds. Not sure? Tell me your dates and who is traveling, and I will compare Mardi Gras with other sailings.</p>'
+      '<p><em>Details last checked in November 2026. Prices, itineraries, and ride rules change, so confirm them before you book.</em></p>')
+    h += '</article>'
+    h += ('<aside class="cf-side"><div class="cf-card"><p class="from">Fares from</p><p class="price">$390 <small>per person</small></p>'
+      '<p class="note">Double occupancy. Listed fares range from about $390 to $1,505, depending on length and date.</p>'
+      '<ul><li><span>Ship</span>Carnival Mardi Gras</li><li><span>Homeport</span>Port Canaveral</li><li><span>Length</span>4 to 7 nights</li><li><span>Goes to</span>Bahamas &amp; Caribbean</li><li><span>Parking</span>$20 per day + tax</li></ul>'
+      '<a class="btn btn-green" href="/contact/">Get this cruise priced</a></div>'
+      '<div class="cf-card alt"><h3>Flying into Orlando?</h3><p>The port is about 45 minutes from the airport. I can plan the cruise and the park days together.</p><a class="btn btn-gold" href="/contact/">Start a free planning chat</a></div></aside></div>')
+    cards = [("4","nights","mardi-gras-front","Short Bahamas cruise",["Celebration Key","Half Moon Cay"],"Two private Carnival ports and nothing else, a good first cruise.","First sailing May 27, 2027"),
+             ("5","nights","paddleboard","Bahamas with Nassau",["Celebration Key","Half Moon Cay","Nassau"],"The four-night route plus a stop in Nassau.","First sailing May 22, 2027"),
+             ("7","nights","amber-cove","Week-long Caribbean",["Nassau","Half Moon Cay","Amber Cove","Celebration Key"],"A late November 2026 sailing visits these ports. More ports in the Caribbean follow in 2027.","Sailings May 1, 8, and 15, 2027")]
+    h += '<section class="cf-itin" id="itineraries"><div class="wrap"><h2>Carnival Mardi Gras cruises from Port Canaveral</h2><p class="sub">Three lengths to compare. Fares change daily, so ask for the price on your dates.</p><div class="cf-cards">'
+    for n,u,ph,tag,ports,desc,when in cards:
+        h += '<div class="cf-trip"><div class="ph" style="background-image:url(\'/img/carnival/'+ph+'.jpg\')"></div><div class="b"><span class="tag">'+tag+'</span><div class="nights">'+n+' <small>'+u+'</small></div><div class="chips">'+"".join("<span>"+p+"</span>" for p in ports)+'</div><p>'+desc+'</p><p class="when">'+when+'</p><a class="btn btn-green" href="/contact/">Get this priced</a></div></div>'
+    h += '</div></div></section>'
+    h += '<section class="cf-gal"><div class="wrap"><h2>Life on board and in port</h2><div class="cf-mosaic">'
+    mos = [("snorkel","w2","Snorkeling in clear water at a Caribbean beach club"),("friends-deck","h2","Friends laugh on a sunny ship deck with cocktails"),("cornhole","","A family plays cornhole on deck"),("jubilee-sunset","w2","Carnival Jubilee, a sister Excel-class ship, sails at sunset"),("mardi-gras-front","","Aerial view of Carnival Mardi Gras sailing")]
+    for nm,cls,alt in mos:
+        h += '<figure class="'+cls+'">'+_cf_img(nm,1200,800,alt)+'</figure>'
+    h += '</div><p class="cf-credit">All photos: Carnival Cruise Line. Sister ship shown in sunset photo: Carnival Jubilee.</p></div></section>'
+    fhtml, fsch = faq_block(_cf_faqs)
+    h += '<section class="cf-after">'+fhtml+advisory
+    h += '<p class="eyebrow">Keep exploring</p><div class="related">'
+    for rn,ru in [("Carnival from Norfolk with kids","/cruises/carnival-from-norfolk-with-kids/"),("Carnival ships guide","/cruises/carnival-ships-guide/"),("Carnival cost review","/cruises/carnival-cruise-line-review/"),("Cruises from Orlando","/cruises/cruises-from-orlando-port-canaveral/"),("Family cruise packing list","/essentials/family-cruise-packing-list/")]:
+        h += '<a href="'+ru+'">'+rn+'</a>'
+    h += '</div></section>'
+    graph=[breadcrumb_schema(_cf_crumbs),article_node("Carnival Mardi Gras from Port Canaveral","Carnival Mardi Gras cruise from Port Canaveral: roller coaster, itineraries, cost, and tips for families.","https://wonderlocity.com/cruises/carnival-mardi-gras-from-port-canaveral/"),fsch]
+    return _CF_CSS+h, {"@context":"https://schema.org","@graph":graph}
+
+_cf_body,_cf_schema=_cf_build()
+page("cruises/carnival-mardi-gras-from-port-canaveral/index.html",
+ "Carnival Mardi Gras Cruise From Port Canaveral: Itinerary, Cost, Bolt | Wonderlocity",
+ "Carnival Mardi Gras cruise from Port Canaveral near Orlando: the Bolt roller coaster, 4 to 7 night itineraries, fares from about $390, and tips for families.",
+ "https://wonderlocity.com/cruises/carnival-mardi-gras-from-port-canaveral/",_cf_body,_cf_schema)
+
+
 # ===== Family hub + homepage story feed (added Nov 2026) =====
 import glob as _g2, re as _r2, html as _h2
 
 FEED_META = {
+ "cruises/carnival-mardi-gras-from-port-canaveral":("Cruises","cruises family"),
  "cruises/cruises-from-orlando-port-canaveral":("Cruises","cruises family"),
  "cruises/cruises-from-miami":("Cruises","cruises family"),
  "cruises/port-canaveral-vs-miami":("Cruises","cruises"),
@@ -1601,7 +1761,7 @@ FEED_META = {
  "destinations/punta-cana":("Destination","beach family"),
  "destinations/orlando":("Destination","family"),
 }
-FEED_ORDER = ["cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
+FEED_ORDER = ["cruises/carnival-mardi-gras-from-port-canaveral","cruises/cruises-from-orlando-port-canaveral","cruises/cruises-from-miami","cruises/port-canaveral-vs-miami","cruises/best-cruises-from-florida-for-families","cruises/disney-cruise-from-port-canaveral","guides/orlando-with-kids-without-theme-parks","guides/best-beaches-near-orlando-for-families",
  "guides/things-to-do-with-kids-virginia-beach","cruises/carnival-from-norfolk-with-kids","essentials/family-cruise-packing-list","guides/road-trip-virginia-beach-to-orlando-with-kids","guides/disney-vs-universal-kids-6-12",
  "cruises/carnival-cruise-line-review","guides/disney-or-universal-toddlers","guides/caribbean-family-resorts",
  "cruises/carnival-caribbean-itineraries","guides/williamsburg-weekend","guides/italy-10-day-itinerary","guides/orlando-on-a-budget",
@@ -1619,7 +1779,7 @@ def _scan_articles():
             m1 = _r2.search(r"<h1>(.*?)</h1>",h,_r2.S); m2 = _r2.search(r'<meta name="description" content="([^"]*)"',h)
             m3 = _r2.search(r"phero\" style=\"background-image:url\('([^']+)'\)",h)
             if not (m1 and m3): continue
-            img = m3.group(1).replace("w=1920&h=900","w=900&h=600").replace("/1920/900","/900/600")
+            img = m3.group(1).replace("-hero.jpg","-card.jpg").replace("w=1920&h=900","w=900&h=600").replace("/1920/900","/900/600")
             label,cats = FEED_META.get(key,("Cruises","cruises") if key.startswith("cruises/") else ("Guide",""))
             out[key] = {"url":"/"+key+"/","title":m1.group(1).strip(),"desc":(m2.group(1) if m2 else ""),"img":img,"label":label,"cats":cats}
     return out
