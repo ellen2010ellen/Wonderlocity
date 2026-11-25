@@ -393,7 +393,9 @@ simple_page("plan","Travel Planning Services | Wonderlocity","Free to start: sen
 # attach FAQ schema to plan via extra graph is omitted for brevity; FAQ visible on page
 
 contact_body = ('<p class="answer">Tell me where you want to go, your rough dates, and a budget, and I will send a draft itinerary within 24 hours. No fee to start, no obligation.</p>'
- '<form class="prose" action="https://formspree.io/f/your-id" method="POST">'
+ '<form class="prose" action="https://formspree.io/f/xjywleby" method="POST">'
+ '<input type="hidden" name="_subject" value="New Wonderlocity planning request">'
+ '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">'
  '<div class="row2"><div class="field"><label>Your name</label><input name="name" required></div>'
  '<div class="field"><label>Email</label><input type="email" name="email" required></div></div>'
  '<div class="row2"><div class="field"><label>Destination or trip type</label><input name="destination" placeholder="Punta Cana, Maldives, Disney, not sure yet"></div>'
@@ -402,7 +404,7 @@ contact_body = ('<p class="answer">Tell me where you want to go, your rough date
  '<div class="field"><label>Travelers</label><input name="travelers" placeholder="2 adults, 2 kids"></div></div>'
  '<div class="field"><label>Anything else</label><textarea name="message" rows="4" placeholder="Tell me what matters most for this trip"></textarea></div>'
  '<button class="btn btn-gold" type="submit">Send and get my draft</button>'
- '<p class="disc">This form is a placeholder. We will connect it to your email or a free form service like Formspree during setup.</p>'
+ '<p class="disc">I read every request personally and reply within 24 hours. No fee to start, no obligation.</p>'
  '</form>')
 simple_page("contact","Contact Wonderlocity | Free Planning Chat","Send your dates and budget and get a draft itinerary within 24 hours. No fee to start, no obligation.","Contact","wl-contact-hero",contact_body,
  {"@type":"ContactPage","name":"Contact Wonderlocity"})
