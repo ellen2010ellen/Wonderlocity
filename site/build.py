@@ -1654,7 +1654,7 @@ _cf_faqs = [
  ("Can I drive to the ship?","Yes. Port Canaveral charges $20 per day plus tax for parking, paid by card on arrival. The port does not take parking reservations.")]
 
 def _cf_build():
-    h = '<section class="phero cf-hero" style="background-image:url(\'/img/carnival/mardi-gras-hero.jpg\')"><div class="wrap inner">'
+    h = '<section class="cf-hero phero" style="background-image:url(\'/img/carnival/mardi-gras-hero.jpg\')"><div class="wrap inner">'
     h += '<div class="crumb">'+crumbs(_cf_crumbs)+'</div>'
     h += '<p class="kicker">Carnival Cruise Line &middot; Port Canaveral, Florida</p>'
     h += '<h1>Carnival Mardi Gras from Port Canaveral</h1>'
